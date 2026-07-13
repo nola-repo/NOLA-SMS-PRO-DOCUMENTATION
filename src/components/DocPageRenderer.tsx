@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import type { DocPage } from '../data/docsData';
-import { docsData, sidebarStructure } from '../data/docsData';
+import { docsData } from '../data/docsData';
 import { WelcomeContent } from './docs/WelcomeContent';
 import {
   BookOpen,
@@ -96,12 +96,6 @@ const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
 export const DocPageRenderer: React.FC<Props> = ({ page }) => {
   const location = useLocation();
   const activeId = location.pathname.split('/docs/')[1] || 'welcome';
-
-  // Keep sectionIds computed for potential future use
-  const _sectionIds = useMemo(
-    () => sidebarStructure.flatMap((section) => section.items.map((item) => item.id)),
-    [],
-  );
 
   const headerPage = getHeaderPage(activeId, page);
   const isWelcome = activeId === 'welcome';

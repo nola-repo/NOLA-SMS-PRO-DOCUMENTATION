@@ -5,7 +5,6 @@ import {
   ChevronDown,
   ChevronRight,
   HelpCircle,
-  Layers,
   Moon,
   Rocket,
   Search,
@@ -35,7 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSearchClick, isOpenOnMobile,
   const location = useLocation();
   const activeId = location.pathname.split('/docs/')[1] || 'welcome';
   const { theme, toggleTheme } = useTheme();
-  
+
   // Track collapse/expand states for multi-item sections
   const [collapsed, setCollapsed] = React.useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
@@ -126,11 +125,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSearchClick, isOpenOnMobile,
                   key={section.title}
                   to={`/docs/${singleItem.id}`}
                   onClick={onCloseMobile}
-                  className={`group flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-bold transition-all ${
-                    isActive
+                  className={`group flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-bold transition-all ${isActive
                       ? 'bg-[#E8F3FF] text-[#0B4EA2] ring-1 ring-[#BCD7F5]/50 dark:bg-[#102B4F] dark:text-[#9AC3FF] dark:ring-[#1F3D68]/50'
                       : 'text-[#526A8B] hover:bg-[#F4F9FF] hover:text-[#0B2E63] dark:text-slate-400 dark:hover:bg-[#0B1627] dark:hover:text-slate-100'
-                  }`}
+                    }`}
                 >
                   <span className={isActive ? 'text-[#1F5AAE] dark:text-[#72A8FF]' : 'text-[#8AA3C1] group-hover:text-[#1F5AAE] dark:text-slate-500 dark:group-hover:text-[#72A8FF]'}>
                     {SECTION_ICONS[section.title]}
@@ -145,11 +143,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSearchClick, isOpenOnMobile,
                 <button
                   type="button"
                   onClick={() => toggle(section.title)}
-                  className={`group flex w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left transition-colors ${
-                    hasActive
+                  className={`group flex w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left transition-colors ${hasActive
                       ? 'text-[#0B4EA2] dark:text-[#9AC3FF]'
                       : 'text-[#6681A4] hover:bg-[#F4F9FF] hover:text-[#0B2E63] dark:text-slate-500 dark:hover:bg-[#0B1627] dark:hover:text-slate-200'
-                  }`}
+                    }`}
                 >
                   <span className="flex min-w-0 items-center gap-2.5">
                     <span className={hasActive ? 'text-[#1F5AAE] dark:text-[#72A8FF]' : 'text-[#8AA3C1] group-hover:text-[#1F5AAE] dark:text-slate-650 dark:group-hover:text-[#72A8FF]'}>
@@ -172,11 +169,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSearchClick, isOpenOnMobile,
                           key={item.id}
                           to={`/docs/${item.id}`}
                           onClick={onCloseMobile}
-                          className={`relative block rounded-lg px-3 py-1.5 text-[12.5px] font-semibold leading-snug transition-all ${
-                            isActive
+                          className={`relative block rounded-lg px-3 py-1.5 text-[12.5px] font-semibold leading-snug transition-all ${isActive
                               ? 'bg-[#E8F3FF] text-[#0B4EA2] dark:bg-[#102B4F] dark:text-[#9AC3FF]'
                               : 'text-[#526A8B] hover:bg-[#F4F9FF] hover:text-[#0B2E63] dark:text-slate-400 dark:hover:bg-[#0B1627] dark:hover:text-slate-100'
-                          }`}
+                            }`}
                         >
                           {isActive && (
                             <span className="absolute -left-[15px] top-1/2 h-5 w-0.75 -translate-y-1/2 rounded-full bg-[#1F5AAE] dark:bg-[#72A8FF]" />

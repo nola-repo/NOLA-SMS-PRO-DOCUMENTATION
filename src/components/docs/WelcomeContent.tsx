@@ -13,14 +13,6 @@ import {
 } from 'lucide-react';
 import illustrationImg from '../../assets/illustration.png';
 
-/* ─── Stats Row ─────────────────────────────────────── */
-const stats = [
-  { emoji: '📖', label: '5 Sections' },
-  { emoji: '📄', label: '16 Guides' },
-  { emoji: '⏱', label: '~35 min total' },
-  { emoji: '📱', label: 'Globe · Smart · DITO' },
-];
-
 /* ─── Block 2 — What You Can Do ─────────────────────── */
 const outcomes = [
   {
@@ -122,8 +114,7 @@ export const WelcomeContent: React.FC = () => {
         <div className="lg:col-span-7 space-y-4 text-[15px] font-medium leading-7 text-[#425B7D] dark:text-slate-300">
           <p>
             NOLA SMS Pro is a native SMS platform built directly inside your HighLevel
-            sub-account. It lets you send text messages to Philippine mobile numbers —
-            Globe, Smart, and DITO — without leaving your CRM, without exporting
+            sub-account. It lets you send text messages to Philippine mobile numbers without leaving your CRM, without exporting
             contact lists, and without switching tools.
           </p>
           <p>
