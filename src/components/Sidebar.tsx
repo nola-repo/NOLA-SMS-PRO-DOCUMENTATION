@@ -24,7 +24,7 @@ interface SidebarProps {
 }
 
 const SECTION_ICONS: Record<string, React.ReactNode> = {
-  Welcome: <BookOpen className="h-4 w-4" />,
+  INTRODUCTION: <BookOpen className="h-4 w-4" />,
   'Getting Started': <Layers className="h-4 w-4" />,
   'Using NOLA SMS Pro': <Settings className="h-4 w-4" />,
   Troubleshooting: <ShieldAlert className="h-4 w-4" />,
@@ -137,29 +137,30 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSearchClick, isOpenOnMobile,
                 </button>
 
                 {!isCollapsed && (
-                  <div className="mt-2 space-y-1 border-l border-[#D7E7FA] pl-3 dark:border-[#183354]">
-                    {section.items.map((item) => {
-                      const isActive = item.id === activeId;
-                      return (
-                        <Link
-                          key={item.id}
-                          to={`/docs/${item.id}`}
-                          onClick={onCloseMobile}
-                          className={`relative block rounded-lg px-3 py-2 text-[13px] font-semibold leading-snug transition-colors ${
-                            isActive
-                              ? 'bg-[#E8F3FF] text-[#0B4EA2] dark:bg-[#102B4F] dark:text-[#9AC3FF]'
-                              : 'text-[#526A8B] hover:bg-[#F4F9FF] hover:text-[#0B2E63] dark:text-slate-400 dark:hover:bg-[#0B1627] dark:hover:text-slate-100'
-                          }`}
-                        >
-                          {isActive && (
-                            <span className="absolute -left-[13px] top-1/2 h-6 w-0.5 -translate-y-1/2 rounded-full bg-[#1F5AAE] dark:bg-[#72A8FF]" />
-                          )}
-                          {item.title}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
+              <div className="mt-2 space-y-1 border-l border-[#D7E7FA] pl-3 dark:border-[#183354]">
+                {section.items.map((item) => {
+                  const isActive = item.id === activeId;
+
+                  return (
+                    <Link
+                      key={item.id}
+                      to={`/docs/${item.id}`}
+                      onClick={onCloseMobile}
+                      className={`relative block rounded-lg px-3 py-2 text-[13px] font-semibold leading-snug transition-colors ${
+                        isActive
+                          ? 'bg-[#E8F3FF] text-[#0B4EA2] dark:bg-[#102B4F] dark:text-[#9AC3FF]'
+                          : 'text-[#526A8B] hover:bg-[#F4F9FF] hover:text-[#0B2E63] dark:text-slate-400 dark:hover:bg-[#0B1627] dark:hover:text-slate-100'
+                      }`}
+                    >
+                      {isActive && (
+                        <span className="absolute -left-[13px] top-1/2 h-6 w-0.5 -translate-y-1/2 rounded-full bg-[#1F5AAE] dark:bg-[#72A8FF]" />
+                      )}
+                      {item.title}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
               </div>
             );
           })}

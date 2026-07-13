@@ -9,10 +9,25 @@ import { ScreenshotPlaceholder } from './ScreenshotPlaceholder';
 import {
   AlertTriangle,
   ArrowRight,
+  BookOpen,
   ChevronRight,
+  CreditCard,
+  FileText,
+  HelpCircle,
+  History,
+  LayoutDashboard,
   Lightbulb,
   ListChecks,
+  MessageSquare,
+  Send,
+  Settings,
+  ShieldAlert,
+  ShieldCheck,
   Sparkles,
+  Store,
+  UserPlus,
+  Users,
+  Wrench,
   X,
 } from 'lucide-react';
 
@@ -50,7 +65,7 @@ function getScreenshotMode(page: DocPage, screenshot: ScreenshotPlan, index: num
 }
 
 function getJourneyTitle(page: DocPage) {
-  if (page.id === 'welcome') return 'Learn NOLA SMS Pro';
+  if (page.id === 'welcome') return 'Product Overview';
   if (page.section === 'Getting Started') return 'Complete Setup Journey';
   if (page.section === 'Using NOLA SMS Pro') return 'Product Walkthrough';
   if (page.section === 'Troubleshooting') return 'Troubleshooting Path';
@@ -133,17 +148,450 @@ const SectionHeading: React.FC<{ children: React.ReactNode; eyebrow?: string }> 
   </div>
 );
 
-const PageIntro: React.FC<{ page: DocPage }> = ({ page }) => (
-  <header className={`${textWidth} mb-7`}>
-    <h1 className="text-[36px] font-black leading-[1.08] text-[#071A33] dark:text-white sm:text-[44px] lg:text-[50px]">
-      {page.title}
-    </h1>
+const pageIconMap = {
+  welcome: BookOpen,
+  'marketplace-install': Store,
+  'account-access': UserPlus,
+  'dashboard-overview': LayoutDashboard,
+  'first-sms-checklist': Send,
+  contacts: Users,
+  templates: FileText,
+  'sender-id': ShieldCheck,
+  'sms-credits': CreditCard,
+  'message-history': History,
+  settings: Settings,
+  troubleshooting: Wrench,
+  faq: HelpCircle,
+} satisfies Record<string, React.ComponentType<{ className?: string }>>;
 
-    <p className="mt-5 text-[18px] leading-8 text-[#425B7D] dark:text-slate-300">
-      {page.description}
-    </p>
-  </header>
+function getPageIcon(page: DocPage) {
+  if (pageIconMap[page.id as keyof typeof pageIconMap]) {
+    return pageIconMap[page.id as keyof typeof pageIconMap];
+  }
+
+  if (page.section === 'Troubleshooting') return ShieldAlert;
+  if (page.section === 'FAQ') return HelpCircle;
+  if (page.section === 'Using NOLA SMS Pro') return MessageSquare;
+  return BookOpen;
+}
+
+const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
+  const Icon = getPageIcon(page);
+
+  return (
+    <header className={`${textWidth} sticky top-[65px] z-20 mb-6 lg:top-0 -mx-4 sm:-mx-7 lg:-mx-10 w-[calc(100%+2rem)] sm:w-[calc(100%+3.5rem)] lg:w-[calc(100%+5rem)]`}>
+      <div className="relative isolate overflow-hidden rounded-b-[34px] border border-[#4F8EF7]/35 px-5 py-6 text-white shadow-xl shadow-[#184B8F]/18 dark:border-[#72A8FF]/25 dark:shadow-[#020817]/30 sm:px-8 sm:py-7 lg:px-10 w-full box-border">
+        {/* Smooth gradient background */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#4F8EF7] via-[#3B7FE0] to-[#1F5AAE]" />
+        
+        {/* Subtle top highlight for depth */}
+        <div className="absolute inset-x-0 top-0 -z-10 h-12 bg-gradient-to-b from-white/15 to-transparent" />
+        
+        {/* Subtle bottom shadow for depth */}
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-16 bg-gradient-to-t from-[#0b3a8a]/30 to-transparent" />
+
+        <div className="max-w-[900px]">
+          <div className="flex items-center gap-4 sm:gap-5">
+            <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl border border-white/30 bg-white/14 text-white shadow-lg shadow-[#07111F]/10 backdrop-blur-sm sm:h-16 sm:w-16">
+              <Icon className="h-7 w-7 sm:h-8 sm:w-8" />
+            </div>
+
+            <div className="min-w-0">
+              <h1 className="max-w-[760px] text-[28px] font-black leading-[1.05] text-white sm:text-[34px] lg:text-[38px]">
+                {page.title}
+              </h1>
+            </div>
+          </div>
+
+          <p className="mt-2 max-w-[780px] text-[14px] font-medium leading-6 text-[#E8F3FF] sm:ml-[88px] sm:text-[15px]">
+            {page.description}
+          </p>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+const welcomeFeatureNote = 'You do not need to download a separate desktop or mobile app.';
+
+interface WelcomeFeature {
+  title: string;
+  description: string;
+  docId: string;
+  filename: string;
+  alt: string;
+}
+
+const welcomeFeatures: WelcomeFeature[] = [
+  {
+    title: 'HighLevel Contacts',
+    description: 'Use contacts from the connected HighLevel sub-account when choosing SMS recipients.',
+    docId: 'contacts',
+    filename: '/images/docs/contacts-list.png',
+    alt: 'Contacts list inside NOLA SMS Pro.'
+  },
+  {
+    title: 'SMS Templates',
+    description: 'Save reusable message wording and insert templates when composing customer texts.',
+    docId: 'templates',
+    filename: '/images/docs/templates-list.png',
+    alt: 'Templates list inside NOLA SMS Pro.'
+  },
+  {
+    title: 'Sender IDs',
+    description: 'Send with the default NOLASMSPro sender or request an approved custom Sender ID.',
+    docId: 'sender-id',
+    filename: '/images/docs/sender-id-default.png',
+    alt: 'Sender ID screen showing NOLASMSPro as the default sender.'
+  },
+  {
+    title: 'SMS Credits',
+    description: 'Check your balance, request more credits, and review recent credit activity.',
+    docId: 'sms-credits',
+    filename: '/images/docs/credits-balance.png',
+    alt: 'SMS credit balance inside NOLA SMS Pro.'
+  },
+  {
+    title: 'Message History',
+    description: 'Track each message after sending with clear Sending, Sent, and Failed statuses.',
+    docId: 'message-history',
+    filename: '/images/docs/message-history-list.png',
+    alt: 'Message History list showing message statuses.'
+  },
+  {
+    title: 'Settings',
+    description: 'Review profile details, connected location, notifications, Sender IDs, and credits.',
+    docId: 'settings',
+    filename: '/images/docs/settings-profile.png',
+    alt: 'Profile settings in NOLA SMS Pro.'
+  },
+  {
+    title: 'Dashboard Activity',
+    description: 'See SMS credits, recent activity, alerts, and shortcuts from the dashboard home.',
+    docId: 'dashboard-overview',
+    filename: '/images/docs/dashboard-overview-home.png',
+    alt: 'NOLA SMS Pro dashboard home showing credits, activity, alerts, and navigation.'
+  },
+  {
+    title: 'SMS Compose',
+    description: 'Send individual or bulk SMS from inside the connected HighLevel location.',
+    docId: 'first-sms-checklist',
+    filename: '/images/docs/compose-first-sms.png',
+    alt: 'Compose screen with one SMS message ready to send.'
+  }
+];
+
+const FeatureImagePlaceholder: React.FC<{ title: string; alt: string; filename: string; withOverlay?: boolean }> = ({
+  title,
+  alt,
+  filename,
+  withOverlay = false,
+}) => (
+  <div
+    className="relative flex min-h-[260px] flex-1 overflow-hidden rounded-lg border border-[#D7E7FA] bg-[#E8F3FF] dark:border-[#183354] dark:bg-[#0B1627]"
+    role="img"
+    aria-label={alt}
+    data-screenshot-src={filename}
+  >
+    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(248,251,255,0.95),rgba(232,243,255,0.72))] dark:bg-[linear-gradient(135deg,rgba(7,17,31,0.98),rgba(16,43,79,0.72))]" />
+    <div className="relative flex h-full w-full flex-col p-3">
+      <div className="flex h-6 items-center gap-1 border-b border-[#D7E7FA] bg-white/72 px-2.5 dark:border-[#183354] dark:bg-[#07111F]/72">
+        <span className="h-2 w-2 rounded-full bg-rose-300" />
+        <span className="h-2 w-2 rounded-full bg-amber-300" />
+        <span className="h-2 w-2 rounded-full bg-emerald-300" />
+        <span className="ml-1.5 h-2 w-24 rounded bg-[#CFE2F7] dark:bg-[#1B2E4A]" />
+      </div>
+
+      <div className="grid min-h-0 flex-1 grid-cols-[60px_1fr] border-x border-b border-[#D7E7FA] bg-white/84 dark:border-[#183354] dark:bg-[#07111F]/84">
+        <div className="border-r border-[#D7E7FA] bg-[#F4F9FF] p-2.5 dark:border-[#183354] dark:bg-[#0B1627]">
+          <div className="mb-3 h-2.5 w-8 rounded bg-[#1F5AAE]/20 dark:bg-[#72A8FF]/25" />
+          <div className="space-y-1.5">
+            <div className="h-1.5 rounded bg-[#CFE2F7] dark:bg-[#1B2E4A]" />
+            <div className="h-1.5 rounded bg-[#CFE2F7] dark:bg-[#1B2E4A]" />
+            <div className="h-4 rounded bg-[#1F5AAE]/15 ring-1 ring-[#9BC4F5]/70 dark:bg-[#102B4F] dark:ring-[#315C8F]" />
+            <div className="h-1.5 rounded bg-[#CFE2F7] dark:bg-[#1B2E4A]" />
+          </div>
+        </div>
+
+        <div className="flex min-w-0 flex-col gap-2.5 p-3">
+          <div>
+            <div className="h-2.5 w-28 rounded bg-[#9CB5D4] dark:bg-[#315C8F]" />
+            <div className="mt-1.5 h-1.5 w-44 max-w-full rounded bg-[#CFE2F7] dark:bg-[#1B2E4A]" />
+          </div>
+          <div className="grid grid-cols-2 gap-1.5">
+            <div className="h-12 border border-[#D7E7FA] bg-[#F8FBFF] p-2.5 dark:border-[#183354] dark:bg-[#07111F]">
+              <div className="h-1.5 w-10 rounded bg-[#CFE2F7] dark:bg-[#1B2E4A]" />
+              <div className="mt-2 h-3 w-16 rounded bg-[#1F5AAE]/20 dark:bg-[#72A8FF]/20" />
+            </div>
+            <div className="h-12 border border-[#D7E7FA] bg-[#F8FBFF] p-2.5 dark:border-[#183354] dark:bg-[#07111F]">
+              <div className="h-1.5 w-8 rounded bg-[#CFE2F7] dark:bg-[#1B2E4A]" />
+              <div className="mt-2 h-3 w-12 rounded bg-emerald-300/50 dark:bg-emerald-500/25" />
+            </div>
+          </div>
+          <div className="flex min-h-0 flex-1 items-center justify-center border border-dashed border-[#4F8EF7]/55 bg-[#E8F3FF]/75 px-3 text-center dark:bg-[#102B4F]/55">
+            <div>
+              <p className="text-[12px] font-black text-[#0B2E63] dark:text-slate-100">
+                {title}
+              </p>
+              <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#6681A4] dark:text-slate-500">
+                Screenshot placeholder
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {withOverlay && (
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#07111F]/0 opacity-0 backdrop-blur-0 transition-all duration-200 group-hover:bg-[#07111F]/38 group-hover:opacity-100 group-hover:backdrop-blur-[2px] group-focus-visible:bg-[#07111F]/38 group-focus-visible:opacity-100 group-focus-visible:backdrop-blur-[2px]">
+        <span className="inline-flex rounded-lg border border-white/35 bg-white/95 px-3 py-1.5 text-[12px] font-black text-[#0B2E63] shadow-lg shadow-[#07111F]/18 dark:bg-[#07111F]/92 dark:text-[#9AC3FF]">
+          View Details
+        </span>
+      </div>
+    )}
+  </div>
 );
+
+const WelcomeFeatureCard: React.FC<WelcomeFeature & { onOpen: () => void }> = ({
+  title,
+  description,
+  filename,
+  alt,
+  onOpen,
+}) => (
+  <button
+    type="button"
+    onClick={onOpen}
+    className="group flex min-h-[340px] flex-col rounded-lg border border-[#D7E7FA] bg-white p-3 text-left shadow-sm shadow-[#184B8F]/6 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#9BC4F5] hover:shadow-xl hover:shadow-[#184B8F]/12 focus:outline-none focus:ring-2 focus:ring-[#4F8EF7] focus:ring-offset-2 focus:ring-offset-[#F7FAFE] dark:border-[#183354] dark:bg-[#0B1627] dark:shadow-none dark:hover:border-[#315C8F] dark:focus:ring-offset-[#07111F]"
+  >
+    <div className="mb-3 min-h-[60px]">
+      <h3 className="text-[16px] font-black leading-snug text-[#071A33] dark:text-white">
+        {title}
+      </h3>
+      <p className="mt-1.5 text-[13px] leading-5 text-[#425B7D] dark:text-slate-300">
+        {description}
+      </p>
+    </div>
+
+    <FeatureImagePlaceholder title={title} alt={alt} filename={filename} withOverlay />
+  </button>
+);
+
+const WelcomeFeatureModal: React.FC<{
+  activeFeature: WelcomeFeature | null;
+  onClose: () => void;
+  onPrevious: () => void;
+  onNext: () => void;
+}> = ({ activeFeature, onClose, onPrevious, onNext }) => {
+  useEffect(() => {
+    if (!activeFeature) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [activeFeature, onClose]);
+
+  if (!activeFeature) return null;
+
+  const featurePage = docsData.find((item) => item.id === activeFeature.docId);
+  const screenshot = featurePage?.screenshots?.[0] ?? {
+    filename: activeFeature.filename,
+    alt: activeFeature.alt,
+    caption: activeFeature.description,
+  };
+  const notesAndTips = [
+    ...(featurePage?.tips ?? []),
+    ...(featurePage?.notes ?? []),
+    ...(featurePage?.warnings ?? []),
+  ];
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#07111F]/62 p-4 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="welcome-feature-modal-title"
+    >
+      <button type="button" className="absolute inset-0 cursor-default" onClick={onClose} aria-label="Close feature details" />
+
+      <article className="relative z-10 flex h-[92vh] w-full max-w-[980px] flex-col overflow-hidden rounded-lg border border-[#D7E7FA] bg-[#F8FBFF] shadow-2xl shadow-[#07111F]/35 dark:border-[#183354] dark:bg-[#07111F]">
+        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-[820px]">
+            <p className="mb-2 text-[11px] font-black uppercase tracking-[0.16em] text-[#1F5AAE] dark:text-[#72A8FF]">
+              Feature Details
+            </p>
+            <h2 id="welcome-feature-modal-title" className="text-[30px] font-black leading-tight text-[#071A33] dark:text-white md:text-[38px]">
+              {activeFeature.title}
+            </h2>
+            <p className="mt-4 text-[16px] leading-7 text-[#425B7D] dark:text-slate-300">
+              {featurePage?.purpose ?? activeFeature.description}
+            </p>
+
+            <div className="mt-7">
+              <ScreenshotPlaceholder
+                caption={screenshot.caption}
+                alt={screenshot.alt}
+                filename={screenshot.filename}
+                variant="Feature Preview"
+                mode={getScreenshotMode(featurePage ?? docsData[0], screenshot, 0)}
+                height="lg"
+              />
+            </div>
+
+            {featurePage?.steps && featurePage.steps.length > 0 && (
+              <section className="mt-8">
+                <h3 className="mb-4 text-[20px] font-black leading-tight text-[#0B2E63] dark:text-white">
+                  Step-by-step instructions
+                </h3>
+                <ol className="space-y-3">
+                  {featurePage.steps.map((step, index) => (
+                    <li key={step} className="flex gap-3 rounded-lg border border-[#D7E7FA] bg-white p-4 dark:border-[#183354] dark:bg-[#0B1627]">
+                      <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#E8F3FF] text-xs font-black text-[#1F5AAE] dark:bg-[#102B4F] dark:text-[#9AC3FF]">
+                        {index + 1}
+                      </span>
+                      <p className="text-[14px] leading-7 text-[#425B7D] dark:text-slate-300">
+                        {step}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
+
+            {notesAndTips.length > 0 && (
+              <section className="mt-8 rounded-lg border border-[#D7E7FA] bg-white p-5 dark:border-[#183354] dark:bg-[#0B1627]">
+                <div className="mb-3 flex items-center gap-2 text-[#1F5AAE] dark:text-[#72A8FF]">
+                  <Lightbulb className="h-4 w-4" />
+                  <h3 className="text-[12px] font-black uppercase tracking-[0.16em]">Notes and tips</h3>
+                </div>
+                <div className="space-y-2 text-[13px] leading-6 text-[#425B7D] dark:text-slate-300">
+                  {notesAndTips.map((note, index) => (
+                    <p key={`${activeFeature.docId}-note-${index}`}>{note}</p>
+                  ))}
+                  <p>{welcomeFeatureNote}</p>
+                </div>
+              </section>
+            )}
+          </div>
+        </div>
+
+        <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-[#D7E7FA] bg-white px-5 py-4 dark:border-[#183354] dark:bg-[#0B1627] sm:px-8">
+          <button
+            type="button"
+            onClick={onPrevious}
+            className="inline-flex items-center gap-2 rounded-lg border border-[#BCD7F5] bg-[#F8FBFF] px-4 py-2 text-[13px] font-black text-[#1F5AAE] transition-colors hover:border-[#4F8EF7] hover:bg-[#E8F3FF] dark:border-[#1F3D68] dark:bg-[#07111F] dark:text-[#72A8FF] dark:hover:border-[#72A8FF] dark:hover:bg-[#102B4F]"
+          >
+            Previous
+          </button>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={onClose}
+              className="inline-flex items-center gap-2 rounded-lg border border-[#D7E7FA] bg-white px-4 py-2 text-[13px] font-black text-[#526A8B] transition-colors hover:border-[#9BC4F5] hover:text-[#0B2E63] dark:border-[#1F3D68] dark:bg-[#07111F] dark:text-slate-300 dark:hover:border-[#72A8FF] dark:hover:text-white"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              onClick={onNext}
+              className="inline-flex items-center gap-2 rounded-lg bg-[#1F5AAE] px-4 py-2 text-[13px] font-black text-white transition-colors hover:bg-[#174D99] dark:bg-[#72A8FF] dark:text-[#07111F] dark:hover:bg-[#9AC3FF]"
+            >
+              Next
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        </footer>
+      </article>
+    </div>
+  );
+};
+
+const WelcomeIntroduction: React.FC = () => {
+  return (
+    <>
+      {/* Welcome Section (anchor for sidebar nav) */}
+      <section id="welcome" className={`${panelWidth} scroll-mt-[304px] lg:scroll-mt-[190px]`} />
+      
+      {/* Overview Section */}
+      <section id="welcome-overview" className={`${panelWidth} mb-8 scroll-mt-[304px] lg:scroll-mt-[190px]`}>
+        <div className="max-w-[920px]">
+          <SectionHeading eyebrow="Quick Start">Overview</SectionHeading>
+          <p className="text-[15px] leading-7 text-[#425B7D] dark:text-slate-300">
+            NOLA SMS Pro brings SMS sending, HighLevel contacts, reusable templates, Sender IDs, credit tracking, message history, and account settings into your connected HighLevel sub-account.
+          </p>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="welcome-about" className={`${panelWidth} mb-8 scroll-mt-[304px] lg:scroll-mt-[190px]`}>
+        <div className="max-w-[920px]">
+          <SectionHeading eyebrow="Product">About NOLA SMS Pro</SectionHeading>
+          <p className="text-[15px] leading-7 text-[#425B7D] dark:text-slate-300">
+            NOLA SMS Pro is a dedicated SMS messaging solution that integrates directly with your HighLevel sub-account, simplifying sending and tracking without leaving the platform.
+          </p>
+        </div>
+      </section>
+
+      {/* Why Use section that transitions into feature cards */}
+      <section id="welcome-why" className={`${panelWidth} scroll-mt-[304px] lg:scroll-mt-[190px]`}>
+        <div className="max-w-[920px]">
+          <SectionHeading eyebrow="Benefits">Why Use NOLA SMS Pro?</SectionHeading>
+          <p className="text-[15px] leading-7 text-[#425B7D] dark:text-slate-300 mb-6">
+            Explore the key features that make NOLA SMS Pro the perfect SMS solution for your HighLevel workflow:
+          </p>
+        </div>
+      </section>
+    </>
+  );
+};
+
+const WelcomeProductOverview: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const activeFeature = activeIndex === null ? null : welcomeFeatures[activeIndex];
+
+  const goPrevious = () => {
+    setActiveIndex((current) => {
+      if (current === null) return welcomeFeatures.length - 1;
+      return current === 0 ? welcomeFeatures.length - 1 : current - 1;
+    });
+  };
+
+  const goNext = () => {
+    setActiveIndex((current) => {
+      if (current === null) return 0;
+      return current === welcomeFeatures.length - 1 ? 0 : current + 1;
+    });
+  };
+
+  return (
+    <section className={`${panelWidth} mb-8`}>
+      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        {welcomeFeatures.map((feature, index) => (
+          <WelcomeFeatureCard
+            key={feature.title}
+            {...feature}
+            onOpen={() => setActiveIndex(index)}
+          />
+        ))}
+      </div>
+
+      <WelcomeFeatureModal
+        activeFeature={activeFeature}
+        onClose={() => setActiveIndex(null)}
+        onPrevious={goPrevious}
+        onNext={goNext}
+      />
+    </section>
+  );
+};
 
 const QuickContext: React.FC<{ page: DocPage }> = ({ page }) => {
   if (!page.purpose) return null;
@@ -505,9 +953,17 @@ const FAQSection: React.FC<{ page: DocPage }> = ({ page }) => {
 const PageContent: React.FC<{ page: DocPage }> = ({ page }) => {
   const lessons = useMemo(() => getLessons(page), [page]);
 
+  if (['welcome', 'welcome-overview', 'welcome-about', 'welcome-why'].includes(page.id)) {
+    return (
+      <div className="w-full">
+        <WelcomeIntroduction />
+        <WelcomeProductOverview />
+      </div>
+    );
+  }
+
   return (
     <div className="w-full">
-      <PageIntro page={page} />
       <QuickContext page={page} />
       <LearningJourney page={page} lessons={lessons} />
       <PracticeWorkspace page={page} />
@@ -524,12 +980,24 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
   const navType = useNavigationType();
   const activeId = location.pathname.split('/docs/')[1] || page.id;
   const isScrollingFromClickRef = useRef(false);
+  const activePage = docsData.find((item) => item.id === activeId) ?? page;
 
   useEffect(() => {
     if (!activeId) return;
 
-    const el = document.getElementById(activeId);
-    if (el && (navType === 'PUSH' || navType === 'POP')) {
+    let el = document.getElementById(activeId);
+    // If we're on an intro sub-item, we want to stay on the welcome page and scroll to that section
+    if (['welcome-overview', 'welcome-about', 'welcome-why'].includes(activeId)) {
+      if (el && (navType === 'PUSH' || navType === 'POP')) {
+        isScrollingFromClickRef.current = true;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        const timer = setTimeout(() => {
+          isScrollingFromClickRef.current = false;
+        }, 1000);
+        return () => clearTimeout(timer);
+      }
+    } else if (el && (navType === 'PUSH' || navType === 'POP')) {
       isScrollingFromClickRef.current = true;
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
@@ -573,10 +1041,29 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
 
   return (
     <div className="w-full pb-16" aria-label={`Documentation guide focused on ${page.title}`}>
+      <StickyPageHeader page={activePage} />
       <div className="w-full">
         {sidebarStructure.map((section) => (
           <div key={section.title}>
             {section.items.map((item) => {
+              // For INTRODUCTION section, only render the welcome page content once
+              if (section.title === 'INTRODUCTION') {
+                if (item.id === 'welcome') {
+                  const subPage = docsData.find(p => p.id === item.id);
+                  if (!subPage) return null;
+                  return (
+                    <section
+                      id={subPage.id}
+                      key={subPage.id}
+                      className="scroll-mt-[304px] border-b border-[#D7E7FA] py-12 first:pt-0 last:border-b-0 dark:border-[#183354] lg:scroll-mt-[190px]"
+                    >
+                      <PageContent page={subPage} />
+                    </section>
+                  );
+                }
+                return null;
+              }
+
               const subPage = docsData.find(p => p.id === item.id);
               if (!subPage) return null;
 
@@ -584,7 +1071,7 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
                 <section
                   id={subPage.id}
                   key={subPage.id}
-                  className="scroll-mt-24 border-b border-[#D7E7FA] py-12 first:pt-0 last:border-b-0 dark:border-[#183354] lg:scroll-mt-8"
+                  className="scroll-mt-[304px] border-b border-[#D7E7FA] py-12 first:pt-0 last:border-b-0 dark:border-[#183354] lg:scroll-mt-[190px]"
                 >
                   <PageContent page={subPage} />
                 </section>

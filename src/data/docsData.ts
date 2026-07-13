@@ -18,7 +18,7 @@ export interface DocPage {
   id: string;
   title: string;
   description: string;
-  section: 'Welcome' | 'Getting Started' | 'Using NOLA SMS Pro' | 'Troubleshooting' | 'FAQ' | 'Support';
+  section: 'INTRODUCTION' | 'Getting Started' | 'Using NOLA SMS Pro' | 'Troubleshooting' | 'FAQ' | 'Support';
   subsection?: string;
   readingTime: string;
   purpose: string;
@@ -39,9 +39,12 @@ export const defaultSmsReminder =
 
 export const sidebarStructure = [
   {
-    title: 'Welcome',
+    title: 'INTRODUCTION',
     items: [
-      { id: 'welcome', title: 'Welcome' }
+      { id: 'welcome', title: 'Welcome to NOLA SMS Pro' },
+      { id: 'welcome-overview', title: 'Overview' },
+      { id: 'welcome-about', title: 'About NOLA SMS Pro' },
+      { id: 'welcome-why', title: 'Why Use NOLA SMS Pro' }
     ]
   },
   {
@@ -83,14 +86,14 @@ export const docsData: DocPage[] = [
     id: 'welcome',
     title: 'Welcome to NOLA SMS Pro',
     description: 'Use NOLA SMS Pro inside your HighLevel sub-account to send SMS, manage contacts, and track message status.',
-    section: 'Welcome',
+    section: 'INTRODUCTION',
     readingTime: '2 min read',
-    purpose: 'NOLA SMS Pro runs inside HighLevel after installation. Start by installing the app for the correct sub-account, then create or sign in to your NOLA account before sending SMS.',
+    purpose: 'NOLA SMS Pro brings SMS sending, HighLevel contacts, reusable templates, Sender IDs, credit management, message status, and account settings into your connected HighLevel sub-account.',
     steps: [
-      'Install NOLA SMS Pro from the HighLevel Marketplace.',
-      'Select the correct sub-account/location during installation.',
-      'Create a NOLA account, or sign in if the location is already registered.',
-      'Confirm the dashboard, credits, and Sender ID before sending.'
+      'Send SMS from the connected HighLevel sub-account.',
+      'Manage HighLevel contacts and reusable SMS templates.',
+      'Use the default sender or an approved custom Sender ID.',
+      'Track SMS credits, message status, notifications, and connected location settings.'
     ],
     notes: [
       'You do not need to download a separate desktop or mobile app.'
@@ -105,6 +108,39 @@ export const docsData: DocPage[] = [
     relatedPages: [
       { id: 'marketplace-install', title: 'Install NOLA SMS Pro' },
       { id: 'first-sms-checklist', title: 'Send Your First SMS' }
+    ]
+  },
+  {
+    id: 'welcome-overview',
+    title: 'Overview',
+    description: 'Get an overview of NOLA SMS Pro features.',
+    section: 'INTRODUCTION',
+    readingTime: '1 min read',
+    purpose: 'NOLA SMS Pro brings SMS sending, HighLevel contacts, reusable templates, Sender IDs, credit tracking, message history, and account settings into your connected HighLevel sub-account.',
+    notes: [
+      'You do not need to download a separate desktop or mobile app.'
+    ]
+  },
+  {
+    id: 'welcome-about',
+    title: 'About NOLA SMS Pro',
+    description: 'Learn about what NOLA SMS Pro is.',
+    section: 'INTRODUCTION',
+    readingTime: '1 min read',
+    purpose: 'NOLA SMS Pro is a dedicated SMS messaging solution that integrates directly with your HighLevel sub-account, simplifying sending and tracking without leaving the platform.',
+    notes: [
+      'You do not need to download a separate desktop or mobile app.'
+    ]
+  },
+  {
+    id: 'welcome-why',
+    title: 'Why Use NOLA SMS Pro',
+    description: 'Discover why NOLA SMS Pro is the right choice.',
+    section: 'INTRODUCTION',
+    readingTime: '1 min read',
+    purpose: 'Explore the key features that make NOLA SMS Pro the perfect SMS solution for your HighLevel workflow.',
+    notes: [
+      'You do not need to download a separate desktop or mobile app.'
     ]
   },
   {

@@ -62,7 +62,7 @@ export const DocLayout: React.FC<DocLayoutProps> = ({ children, page }) => {
             </div>
           </div>
 
-          <main className="w-full px-4 py-6 sm:px-7 md:py-8 lg:px-10">
+          <main className="w-full px-4 pb-4 sm:px-7 md:pb-6 lg:px-10">
             {children}
           </main>
         </div>
