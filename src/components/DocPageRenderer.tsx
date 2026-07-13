@@ -1,20 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useLocation, useNavigate, useNavigationType } from 'react-router-dom';
+import { useLocation, useNavigate, useNavigationType } from 'react-router-dom';
 import type { DocPage, ScreenshotPlan } from '../data/docsData';
 import { docsData, sidebarStructure } from '../data/docsData';
 import { TipBox, InfoBox, WarningBox } from './Callouts';
 import { Accordion } from './Accordion';
 import { InteractiveChecklist } from './InteractiveChecklist';
-import { TicketForm } from './TicketForm';
 import { ScreenshotPlaceholder } from './ScreenshotPlaceholder';
-import { Pagination } from './Pagination';
 import {
   AlertTriangle,
   ArrowRight,
-  CheckCircle2,
   ChevronRight,
-  Clock,
-  Gauge,
   Lightbulb,
   ListChecks,
   Sparkles,
@@ -23,13 +18,26 @@ import {
 
 const textWidth = 'w-full';
 const panelWidth = 'w-full';
-const visualWidth = 'w-full';
 
-function getPreviewVariant(page: DocPage): PreviewVariant {
-  if (page.id === 'dashboard-overview' || page.id === 'welcome' || page.id === 'what-is-nola') return 'Application Preview';
-  if (page.steps && page.steps.length > 0) return 'Step Preview';
-  if (page.id === 'features' || page.id === 'benefits') return 'Feature Preview';
-  return 'Result Preview';
+interface Props {
+  page: DocPage;
+}
+
+type ScreenshotMode = 'large' | 'medium' | 'comparison';
+type LessonKind = 'step' | 'issue' | 'faq';
+
+interface Lesson {
+  id: string;
+  number: number;
+  kind: LessonKind;
+  title: string;
+  description: string;
+  body: string;
+  category: string;
+  estimatedTime: string;
+  difficulty: string;
+  required: boolean;
+  screenshot?: ScreenshotPlan;
 }
 
 function getScreenshotMode(page: DocPage, screenshot: ScreenshotPlan, index: number): ScreenshotMode {
@@ -39,12 +47,6 @@ function getScreenshotMode(page: DocPage, screenshot: ScreenshotPlan, index: num
   if (text.includes('history') || text.includes('dashboard') || text.includes('contacts list') || text.includes('credits-history')) return 'large';
   if (text.includes('form') || text.includes('settings') || text.includes('account') || text.includes('sender')) return 'medium';
   return index === 0 ? 'large' : 'medium';
-}
-
-function getScreenshotHeight(mode: ScreenshotMode, isPrimary: boolean): 'sm' | 'md' | 'lg' | 'xl' {
-  if (mode === 'comparison') return 'md';
-  if (mode === 'large') return isPrimary ? 'xl' : 'lg';
-  return 'md';
 }
 
 function getJourneyTitle(page: DocPage) {
@@ -424,29 +426,6 @@ const LearningJourney: React.FC<{ page: DocPage; lessons: Lesson[] }> = ({ page,
         onSelectLesson={setActiveLesson}
       />
     </section>
-  );
-};
-
-const ScreenshotBlock: React.FC<{
-  page: DocPage;
-  screenshot: ScreenshotPlan;
-  index: number;
-  variant: PreviewVariant;
-}> = ({ page, screenshot, index, variant }) => {
-  const mode = getScreenshotMode(page, screenshot, index);
-
-  return (
-    <div className={`${visualWidth} my-7`}>
-      <ScreenshotPlaceholder
-        figure={index + 1}
-        caption={screenshot.caption}
-        alt={screenshot.alt}
-        filename={screenshot.filename}
-        variant={variant}
-        mode={mode}
-        height={getScreenshotHeight(mode, index === 0)}
-      />
-    </div>
   );
 };
 
