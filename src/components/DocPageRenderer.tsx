@@ -4,7 +4,15 @@ import type { DocPage } from '../data/docsData';
 import { docsData, sidebarStructure } from '../data/docsData';
 import { WelcomeContent } from './docs/WelcomeContent';
 import { FeaturePageContent } from './docs/FeaturePageContent';
+<<<<<<< HEAD
 import { Pagination } from './Pagination';
+=======
+import { InstallNolaSmsProContent } from './docs/InstallNolaSmsProContent';
+import { CreateOrSignInContent } from './docs/CreateOrSignInContent';
+import { ConnectedHighlevelContent } from './docs/ConnectedHighlevelContent';
+import { DashboardOverviewContent } from './docs/DashboardOverviewContent';
+import { SendFirstSMSContent } from './docs/SendFirstSMSContent';
+>>>>>>> bdcb8ae4d9dc9f9c27b19f230c66da6a27e977d7
 import {
   ArrowUpRight,
   BookOpen,
@@ -132,6 +140,7 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
 
   const headerPage = getHeaderPage(activeId, page);
   const isWelcome = activeId === 'welcome';
+<<<<<<< HEAD
   
   // Resolve current active section to determine whether to render tabs
   const activeSection = sidebarStructure.find((sec) =>
@@ -141,6 +150,15 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
   
   // Non-overview/messaging pages in SETUP, ACCOUNT, SUPPORT that don't have contents populated yet
   const isBlankPage = !showTabs && ['SETUP', 'ACCOUNT', 'SUPPORT'].includes(page.section);
+=======
+  const isInstallPage = activeId === 'install-nola-sms-pro';
+  const isCreateOrSignInPage = activeId === 'create-or-sign-in';
+  const isConnectedHighlevelPage = activeId === 'connect-highlevel';
+  const isDashboardOverviewPage = activeId === 'dashboard-overview';
+  const isSendFirstSMSPage = activeId === 'send-your-first-sms';
+  const isBlankPage = !isInstallPage && !isCreateOrSignInPage && !isConnectedHighlevelPage && !isDashboardOverviewPage && !isSendFirstSMSPage && (['what-is-nola-sms-pro', 'how-nola-sms-pro-works', 'core-features'].includes(activeId) ||
+    ['SETUP', 'MESSAGING', 'ACCOUNT', 'SUPPORT'].includes(page.section));
+>>>>>>> bdcb8ae4d9dc9f9c27b19f230c66da6a27e977d7
 
   return (
     <div className="mx-auto w-full max-w-[980px] pb-16" aria-label={`Documentation guide focused on ${page.title}`}>
@@ -177,6 +195,26 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
             )}
             <Pagination currentId={page.id} />
           </div>
+        </div>
+      ) : isInstallPage ? (
+        <div className="pt-6">
+          <InstallNolaSmsProContent page={page} />
+        </div>
+      ) : isCreateOrSignInPage ? (
+        <div className="pt-6">
+          <CreateOrSignInContent page={page} />
+        </div>
+      ) : isConnectedHighlevelPage ? (
+        <div className="pt-6">
+          <ConnectedHighlevelContent page={page} />
+        </div>
+      ) : isDashboardOverviewPage ? (
+        <div className="pt-6">
+          <DashboardOverviewContent page={page} />
+        </div>
+      ) : isSendFirstSMSPage ? (
+        <div className="pt-6">
+          <SendFirstSMSContent page={page} />
         </div>
       ) : isBlankPage ? (
         null

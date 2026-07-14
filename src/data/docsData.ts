@@ -74,7 +74,7 @@ export const sidebarStructure = [
     items: [
       { id: 'install-nola-sms-pro', title: 'Install NOLA SMS Pro' },
       { id: 'create-or-sign-in', title: 'Create or Sign In' },
-      { id: 'connect-highlevel', title: 'Connect HighLevel' },
+      { id: 'connect-highlevel', title: 'Connected Highlevel' },
       { id: 'dashboard-overview', title: 'Dashboard Overview' },
       { id: 'send-your-first-sms', title: 'Send Your First SMS' }
     ]
@@ -239,8 +239,30 @@ export const docsData: DocPage[] = [
     description: 'Deploy NOLA SMS Pro from the Marketplace to your HighLevel sub-account.',
     section: 'SETUP',
     readingTime: '3 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'Authorize GoHighLevel to integrate with the NOLA platform so the app can send text messages and synchronize your contact database.',
+    whyItMatters: 'Establishing a direct marketplace integration secures communication pathways and enables instant bi-directional database synchronization without manual exporting.',
+    prerequisites: [
+      'Administrator-level access to your GoHighLevel Agency Account.',
+      'The specific sub-account (location) name where the app should be installed.'
+    ],
+    steps: [
+      'Log in to GoHighLevel.',
+      'In the sidebar, select Agency View.',
+      'Open the Marketplace and search for NOLA SMS Pro.',
+      'Click Install.',
+      'Select the designated sub-account/location you want to use.',
+      'Review the requested permissions (contacts, messages, location details), then click Allow & Install.'
+    ],
+    expectAfter: 'After completing the installation steps, GoHighLevel will establish the connection and automatically redirect you to the account setup screen.',
+    nextPageCTA: {
+      title: 'Create or Sign In',
+      desc: 'Register your owner profile to access settings, credits, and logs.',
+      id: 'create-or-sign-in'
+    },
+    relatedPages: [
+      { id: 'welcome', title: 'Welcome to NOLA SMS Pro' },
+      { id: 'create-or-sign-in', title: 'Create or Sign In' }
+    ]
   },
   {
     id: 'create-or-sign-in',
@@ -248,17 +270,58 @@ export const docsData: DocPage[] = [
     description: 'Register your owner profile to access settings, credits, and logs.',
     section: 'SETUP',
     readingTime: '2 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'Map each installed sub-account/location in GHL to a registered owner profile in NOLA SMS Pro to secure data and track credit balances.',
+    whyItMatters: 'Registering or signing in with the canonical owner profile ensures credit balances are correctly tracked and data is secured at the location level.',
+    prerequisites: [
+      'A valid business email address.',
+      'A contact mobile number.'
+    ],
+    steps: [
+      'Once redirected to the registration page, enter your Full Name, Email Address, Phone Number, and Password.',
+      'Click Create Account to map your user account as the canonical owner of this location.',
+      'Or, if NOLA SMS Pro was previously set up, navigate to the Sign In screen, enter existing owner credentials, and click Sign In.'
+    ],
+    expectAfter: 'Once you complete registration or sign in, your location mapping is verified and the setup wizard proceeds to the connection confirmation step.',
+    nextPageCTA: {
+      title: 'Connect HighLevel',
+      desc: 'Verify the active integration status between your CRM and NOLA SMS Pro.',
+      id: 'connect-highlevel'
+    },
+    relatedPages: [
+      { id: 'install-nola-sms-pro', title: 'Install NOLA SMS Pro' },
+      { id: 'connect-highlevel', title: 'Connect HighLevel' }
+    ]
   },
   {
     id: 'connect-highlevel',
-    title: 'Connect HighLevel',
+    title: 'Connected Highlevel',
     description: 'Verify the active integration status between your CRM and NOLA SMS Pro.',
     section: 'SETUP',
     readingTime: '2 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'Verify that NOLA SMS Pro is successfully connected to your GoHighLevel sub-account by confirming location identifiers and contact synchronization.',
+    whyItMatters: 'Ensuring locations and contacts sync correctly is key to message formatting and delivery.',
+    prerequisites: [
+      'Completed Marketplace installation.',
+      'Active owner profile login.'
+    ],
+    steps: [
+      'Open NOLA SMS Pro from your GoHighLevel left navigation sidebar.',
+      'Click Settings in the NOLA SMS Pro menu.',
+      'Scroll to the profile details and confirm the correct Location Name and Location ID are displayed.',
+      'Navigate to the Contacts section in NOLA SMS Pro.',
+      'Verify that customer contacts from your GoHighLevel sub-account have been successfully synchronized.',
+      'Return to Settings and confirm the connection badge displays API Connected. If it shows Disconnected, click Connect API to re-authorize the integration.'
+    ],
+    expectAfter: 'Your location identity, owner profile, and GoHighLevel contact database are successfully synchronized and ready for standard messaging operations.',
+    nextPageCTA: {
+      title: 'Dashboard Overview',
+      desc: 'Learn the primary tabs and control modules in NOLA SMS Pro.',
+      id: 'dashboard-overview'
+    },
+    relatedPages: [
+      { id: 'create-or-sign-in', title: 'Create or Sign In' },
+      { id: 'dashboard-overview', title: 'Dashboard Overview' }
+    ]
   },
   {
     id: 'dashboard-overview',
@@ -266,8 +329,29 @@ export const docsData: DocPage[] = [
     description: 'Learn the primary tabs and control modules in NOLA SMS Pro.',
     section: 'SETUP',
     readingTime: '3 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'Understand the layout of your workspace, monitor essential operational alerts, and navigate each menu panel to run your messaging campaigns.',
+    whyItMatters: 'Standardizing operators to dashboard controls reduces UI confusion.',
+    prerequisites: [
+      'Successfully completed the Marketplace installation and connected your GoHighLevel account.'
+    ],
+    steps: [
+      'Home: View credits, messaging statistics, credit alerts, and compose/topup shortcuts.',
+      'Contacts: Browse, search, filter GHL contacts, create numbers using local formatting, and load chat views.',
+      'Compose SMS: Draft messages with character/credit estimation, and load templates.',
+      'Templates: Create reusable message snippets and folder structures.',
+      'Message History: Track delivery statuses (Sending, Sent, Failed) and credits costs.',
+      'Settings: Request custom Sender IDs, set alert limits, and buy credits packages.'
+    ],
+    expectAfter: 'With a clear understanding of the dashboard highlights and menu functionalities, you can confidently manage contacts, templates, SMS credits, and outbound messaging from the NOLA SMS Pro workspace.',
+    nextPageCTA: {
+      title: 'Send Your First SMS',
+      desc: 'A pre-flight workflow mapping the journey of a text message from composition to delivery.',
+      id: 'send-your-first-sms'
+    },
+    relatedPages: [
+      { id: 'connect-highlevel', title: 'Connected Highlevel' },
+      { id: 'send-your-first-sms', title: 'Send Your First SMS' }
+    ]
   },
   {
     id: 'send-your-first-sms',
@@ -275,8 +359,33 @@ export const docsData: DocPage[] = [
     description: 'A pre-flight workflow mapping the journey of a text message from composition to delivery.',
     section: 'SETUP',
     readingTime: '2 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'Verify that you can successfully send an SMS and confirm that it is received on the recipient\'s mobile device.',
+    whyItMatters: 'Completing a test send verifies credit debiting, carrier delivery channels, and contact syncing prior to live campaigns.',
+    prerequisites: [
+      'Available SMS credits (new accounts receive 10 free trial credits upon registration).',
+      'A test contact with a valid Philippine mobile number formatted as 09XXXXXXXXX.'
+    ],
+    steps: [
+      'Navigate to Contacts and select Add Contact. Save a test contact using your own mobile number.',
+      'Open Compose SMS.',
+      'Select your test contact as the recipient.',
+      'Choose the default sender identity NOLASMSPro.',
+      'Compose a natural message (e.g. "Hi, this is a delivery test from NOLA SMS Pro. No reply is required.").',
+      'Review the character count before sending (1 standard SMS = 160 characters).',
+      'Click Send once.',
+      'Verify that the SMS arrives on your physical mobile handset.',
+      'Open Message History and confirm the message status displays Sent or Delivered.'
+    ],
+    expectAfter: 'Once your test SMS is successfully received and the message status shows Delivered, your setup is complete and you are ready to begin normal messaging operations.',
+    nextPageCTA: {
+      title: 'Contacts',
+      desc: 'Search and manage contact records synchronized directly from HighLevel.',
+      id: 'contacts'
+    },
+    relatedPages: [
+      { id: 'dashboard-overview', title: 'Dashboard Overview' },
+      { id: 'contacts', title: 'Contacts' }
+    ]
   },
   {
     id: 'contacts',
