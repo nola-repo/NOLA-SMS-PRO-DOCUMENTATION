@@ -1,10 +1,12 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import type { DocPage } from '../data/docsData';
-import { docsData } from '../data/docsData';
+import { docsData, sidebarStructure } from '../data/docsData';
 import { WelcomeContent } from './docs/WelcomeContent';
 import { FeaturePageContent } from './docs/FeaturePageContent';
+import { Pagination } from './Pagination';
 import {
+  ArrowUpRight,
   BookOpen,
   CreditCard,
   FileText,
@@ -68,53 +70,124 @@ const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
   const Icon = getPageIcon(page);
 
   return (
-    <header className="sticky top-[65px] z-20 -mx-4 mb-6 w-[calc(100%+2rem)] sm:-mx-7 sm:w-[calc(100%+3.5rem)] lg:top-0 lg:-mx-10 lg:w-[calc(100%+5rem)]">
-      <div className="relative isolate box-border w-full overflow-hidden rounded-b-[34px] border border-[#4F8EF7]/35 px-5 py-6 text-white shadow-xl shadow-[#184B8F]/18 dark:border-[#72A8FF]/25 dark:shadow-[#020817]/30 sm:px-8 sm:py-7 lg:px-10">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#4F8EF7] via-[#3B7FE0] to-[#1F5AAE]" />
-        <div className="absolute inset-x-0 top-0 -z-10 h-12 bg-gradient-to-b from-white/15 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-16 bg-gradient-to-t from-[#0b3a8a]/30 to-transparent" />
-
-        <div className="max-w-[900px]">
-          <div className="flex items-center gap-4 sm:gap-5">
-            <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl border border-white/30 bg-white/14 text-white shadow-lg shadow-[#07111F]/10 backdrop-blur-sm sm:h-16 sm:w-16">
-              <Icon className="h-7 w-7 sm:h-8 sm:w-8" />
+    <header className="mb-7">
+      <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm shadow-slate-200/60 dark:border-slate-800 dark:bg-[#111827] dark:shadow-none">
+        <div className="grid gap-0 lg:grid-cols-[1fr_260px]">
+          <div className="px-5 py-6 sm:px-7 sm:py-8">
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 text-[#334155] dark:border-[#334155] dark:bg-[#1E293B] dark:text-[#CBD5E1]">
+                <Icon className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#334155] dark:text-[#CBD5E1]">
+                  {page.section}
+                </p>
+                {page.subsection && (
+                  <p className="mt-1 truncate text-[12px] font-semibold text-slate-400 dark:text-slate-500">
+                    {page.subsection}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="min-w-0">
-              <h1 className="max-w-[760px] text-[28px] font-black leading-[1.05] text-white sm:text-[34px] lg:text-[38px]">
-                {page.title}
-              </h1>
-            </div>
+            <h1 className="max-w-[780px] text-[30px] font-black leading-[1.05] tracking-tight text-[#0F172A] sm:text-[38px] dark:text-white">
+              {page.title}
+            </h1>
+            <p className="mt-4 max-w-[760px] text-[14px] font-medium leading-7 text-[#475569] sm:text-[15px] dark:text-slate-350">
+              {page.description}
+            </p>
           </div>
-          <p className="mt-2 max-w-[780px] text-[14px] font-medium leading-6 text-[#E8F3FF] sm:ml-[88px] sm:text-[15px]">
-            {page.description}
-          </p>
+
+          <div className="hidden border-l border-slate-100 bg-[#F8FAFC] p-5 dark:border-slate-800 dark:bg-[#020617] lg:flex lg:flex-col lg:justify-between">
+            <div>
+              <div className="mb-4 h-28 overflow-hidden rounded-2xl border border-white bg-white shadow-sm dark:border-slate-800 dark:bg-[#111827]">
+                <img
+                  src="/illustration.jpg"
+                  alt=""
+                  className="h-full w-full object-cover opacity-90"
+                />
+              </div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                Reading path
+              </p>
+              <p className="mt-2 text-[13px] font-semibold leading-5 text-[#475569] dark:text-slate-300">
+                Use the section list to move through setup, messaging, account, and support guides without leaving this page shell.
+              </p>
+            </div>
+            <a
+              href="#"
+              className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-black text-[#334155] transition-colors hover:text-[#1E293B] dark:text-[#CBD5E1]"
+            >
+              Top of guide
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
         </div>
       </div>
     </header>
   );
 };
-
 export const DocPageRenderer: React.FC<Props> = ({ page }) => {
   const location = useLocation();
   const activeId = location.pathname.split('/docs/')[1] || 'welcome';
 
   const headerPage = getHeaderPage(activeId, page);
   const isWelcome = activeId === 'welcome';
-  const isBlankPage = ['what-is-nola-sms-pro', 'how-nola-sms-pro-works', 'core-features'].includes(activeId) ||
-    ['SETUP', 'MESSAGING', 'ACCOUNT', 'SUPPORT'].includes(page.section);
+  
+  // Resolve current active section to determine whether to render tabs
+  const activeSection = sidebarStructure.find((sec) =>
+    sec.items.some((item) => item.id === activeId)
+  );
+  const showTabs = activeSection && (activeSection.title === 'OVERVIEW' || activeSection.title === 'MESSAGING');
+  
+  // Non-overview/messaging pages in SETUP, ACCOUNT, SUPPORT that don't have contents populated yet
+  const isBlankPage = !showTabs && ['SETUP', 'ACCOUNT', 'SUPPORT'].includes(page.section);
 
   return (
-    <div className="w-full pb-16" aria-label={`Documentation guide focused on ${page.title}`}>
+    <div className="mx-auto w-full max-w-[980px] pb-16" aria-label={`Documentation guide focused on ${page.title}`}>
       <StickyPageHeader page={headerPage} />
-      {isWelcome ? (
-        <div className="pt-6">
-          <WelcomeContent />
+      
+      {showTabs && activeSection ? (
+        <div className="space-y-6">
+          {/* Custom Tabs Navigation List */}
+          <div className="sticky top-[7.25rem] z-20 mb-7 flex gap-1 overflow-x-auto rounded-xl border border-slate-200 bg-white/92 p-1.5 shadow-sm shadow-slate-200/50 backdrop-blur-xl dark:border-slate-800 dark:bg-[#020617]/92 dark:shadow-none">
+            {activeSection.items.map((item) => {
+              const isActive = item.id === activeId;
+              return (
+                <Link
+                  key={item.id}
+                  to={`/docs/${item.id}`}
+                  className={`min-w-fit px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? 'bg-slate-900 text-white shadow-sm dark:bg-slate-800 dark:text-white font-bold'
+                      : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-900 dark:hover:text-slate-100'
+                  }`}
+                >
+                  {item.title}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Tab Content Panel */}
+          <div>
+            {isWelcome ? (
+              <WelcomeContent />
+            ) : (
+              <FeaturePageContent page={page} />
+            )}
+            <Pagination currentId={page.id} />
+          </div>
         </div>
       ) : isBlankPage ? (
         null
       ) : (
         <div className="pt-6">
-          <FeaturePageContent page={page} />
+          {isWelcome ? (
+            <WelcomeContent />
+          ) : (
+            <FeaturePageContent page={page} />
+          )}
+          <Pagination currentId={page.id} />
         </div>
       )}
     </div>

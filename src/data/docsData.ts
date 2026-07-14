@@ -284,8 +284,48 @@ export const docsData: DocPage[] = [
     description: 'Search and manage contact records synchronized directly from HighLevel.',
     section: 'MESSAGING',
     readingTime: '3 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'The Contacts panel displays a real-time list of customer records synced directly from your HighLevel sub-account location. This allows you to select recipients instantly without manual database exports.',
+    whyItMatters: 'Using real-time synced contacts avoids duplicate data entry, reduces error risk, and maintains a single source of truth across both HighLevel and NOLA SMS Pro.',
+    prerequisites: [
+      'An active HighLevel location connection with sync permissions.',
+      'Customer records populated in your HighLevel CRM with mobile numbers.'
+    ],
+    steps: [
+      'Navigate to the Contacts tab in the sidebar navigation.',
+      'Format validation: Ensure phone numbers follow the 11-digit local format (09XXXXXXXXX) without country codes or spaces.',
+      'Search filters: Use the search field to query contacts by name, email, or phone number.',
+      'Tag synchronization: Select contacts to view and filter based on their active GHL tags.'
+    ],
+    expectAfter: 'You can quickly select contacts, view their details, and launch the composer to send a message immediately.',
+    tips: [
+      'Contacts are synced automatically in the background using the active location ID.',
+      'Delete or modify a contact inside GoHighLevel to see updates synced to your NOLA contact index.'
+    ],
+    warnings: [
+      'Ensure the GHL marketplace scopes include contacts.readonly for real-time contact retrieval.',
+      'Numbers with invalid formatting (e.g. including hyphens or country codes) might fail validation rules.'
+    ],
+    screenshots: [
+      {
+        filename: '/images/docs/contacts-list.png',
+        alt: 'Real-time HighLevel synced contacts list.',
+        caption: 'Search and review contacts synchronized from your active HighLevel location ID.'
+      },
+      {
+        filename: '/images/docs/contacts-add-contact.png',
+        alt: 'Philippine mobile format validation check.',
+        caption: 'Verify that recipient phone numbers follow local 11-digit formatting.'
+      }
+    ],
+    relatedPages: [
+      { id: 'compose-sms', title: 'Compose SMS' },
+      { id: 'message-history', title: 'Message History' }
+    ],
+    nextPageCTA: {
+      title: 'Compose SMS',
+      desc: 'Learn how to compose, segment, and send SMS messages to your contacts.',
+      id: 'compose-sms'
+    }
   },
   {
     id: 'compose-sms',
@@ -293,8 +333,45 @@ export const docsData: DocPage[] = [
     description: 'Personalize, draft, and dispatch text messages to selected recipients.',
     section: 'MESSAGING',
     readingTime: '3 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'The Compose console provides a comprehensive writing outbox where you can draft message bodies, select sending masks, insert template blocks, and review character counts before dispatching.',
+    whyItMatters: 'Having a unified composer prevents tab fatigue and ensures clear overview of character segmentation costs, protecting your credit balance from unexpected deductions.',
+    prerequisites: [
+      'At least one recipient contact selected or entered.',
+      'Available SMS credits in your account balance.',
+      'An approved Sender ID or fallback system default NOLASMSPro.'
+    ],
+    steps: [
+      'Select a contact from your synced list or enter a destination number.',
+      'Choose your preferred sending identity (Sender ID) from the dropdown selector.',
+      'Draft your custom message in the compose body box or load a pre-written template.',
+      'Review character segments: Check standard GSM-7 limits (160 chars) or Unicode limits (70 chars) on the counter.',
+      'Click the Send button to dispatch the SMS through local Philippine carriers.'
+    ],
+    expectAfter: 'Your message will be sent to the carrier queue, credits will be deducted based on the calculated segment count, and transmission status will log in your outbox.',
+    tips: [
+      'A standard message segment allows up to 160 characters. Exceeding this limit will trigger multi-segment splits.',
+      'Check the character counter closely to avoid accidental multi-credit charges.'
+    ],
+    warnings: [
+      'Using special characters or emojis shifts the character encoding to Unicode, reducing the segment limit to 70 characters.',
+      'Insufficient credit balance (below the required segments * recipients) will return a 402 error.'
+    ],
+    screenshots: [
+      {
+        filename: '/images/docs/credits-balance.png',
+        alt: 'SMS credit segment rules calculator.',
+        caption: 'Monitor character count limits and estimate segments before sending.'
+      }
+    ],
+    relatedPages: [
+      { id: 'message-templates', title: 'Message Templates' },
+      { id: 'sender-ids', title: 'Sender IDs' }
+    ],
+    nextPageCTA: {
+      title: 'Message Templates',
+      desc: 'Save time by setting up reusable standard templates and tags.',
+      id: 'message-templates'
+    }
   },
   {
     id: 'message-templates',
@@ -302,8 +379,45 @@ export const docsData: DocPage[] = [
     description: 'Save and reuse pre-written standard message blocks.',
     section: 'MESSAGING',
     readingTime: '2 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'The Templates panel allows you to write, save, and manage reusable standard responses and notifications with dynamic placeholders for quick CRM integration.',
+    whyItMatters: 'Using saved templates ensures spelling accuracy, maintains brand consistency, and drastically reduces response times for support teams.',
+    prerequisites: [
+      'Active location scope permissions to create and edit templates.',
+      'Understanding of standard personalization tags (e.g. {{contact.first_name}}).'
+    ],
+    steps: [
+      'Navigate to the Templates tab in the sidebar menu.',
+      'Click the Create Template button to open the template designer.',
+      'Enter a clear template name and write the default message body.',
+      'Insert dynamic CRM variables or tags for personalized fields.',
+      'Save the template. It will instantly appear in the Composer dropdown menu.'
+    ],
+    expectAfter: 'Your template is stored locally in the NOLA SMS DB, scoped to your specific location ID and ready for use in the outbox.',
+    tips: [
+      'Use descriptive naming conventions (e.g. "Booking Confirm", "Feedback Request") to help agents pick the correct file.',
+      'Personalization tags are replaced dynamically in real-time when the template is loaded in the composer.'
+    ],
+    screenshots: [
+      {
+        filename: '/images/docs/templates-list.png',
+        alt: 'Saved message templates library list.',
+        caption: 'Access and select from your library of pre-written standard templates.'
+      },
+      {
+        filename: '/images/docs/templates-create-template.png',
+        alt: 'Template variables personalization preview.',
+        caption: 'Incorporate dynamic placeholders that fill automatically based on contact details.'
+      }
+    ],
+    relatedPages: [
+      { id: 'compose-sms', title: 'Compose SMS' },
+      { id: 'sender-ids', title: 'Sender IDs' }
+    ],
+    nextPageCTA: {
+      title: 'Sender IDs',
+      desc: 'Request custom alphanumeric headers to brand your outgoing text messages.',
+      id: 'sender-ids'
+    }
   },
   {
     id: 'sender-ids',
@@ -311,8 +425,49 @@ export const docsData: DocPage[] = [
     description: 'Request custom brand names to replace default sending numbers.',
     section: 'MESSAGING',
     readingTime: '3 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'The Sender IDs module allows you to submit custom alphanumeric masks (up to 11 characters) that represent your business name to carriers, replacing generic gateway mobile numbers.',
+    whyItMatters: 'Branded Sender IDs establish instant trust, eliminate recipient concerns about spam, and significantly improve open rates and campaign success.',
+    prerequisites: [
+      'A registered account with NOLA SMS Pro.',
+      'Valid business registration or authorization documents matching your requested brand mask.'
+    ],
+    steps: [
+      'Review custom Sender ID benefits over anonymous generic numbers.',
+      'Navigate to the Sender IDs tab and click Request Sender ID.',
+      'Enter your desired brand header (maximum 11 characters, letters and numbers only).',
+      'Upload the required carrier documentation showing trademark or business ownership.',
+      'Submit the request and track its approval status in the registry panel.'
+    ],
+    expectAfter: 'Once approved by local networks, the Sender ID is saved to your location integrations and becomes selectable in the Compose panel.',
+    tips: [
+      'Custom sender approvals are strictly regulated by local carriers (Globe, Smart, DITO) to prevent spoofing.',
+      'Keep your brand masks short and direct to fit within the 11-character carrier constraint.'
+    ],
+    warnings: [
+      'Sending with a custom Sender ID deducts from your paid credits and does not qualify for free system credits.',
+      'Incorrect credentials or unmatching registration papers will result in rejection of the sender ID request.'
+    ],
+    screenshots: [
+      {
+        filename: '/images/docs/sender-id-default.png',
+        alt: 'Approved and pending custom Sender ID registry.',
+        caption: 'Verify active registration and default masks in your Sender ID dashboard.'
+      },
+      {
+        filename: '/images/docs/sender-id-comparison.png',
+        alt: 'Branded vs anonymous SMS mockup comparison.',
+        caption: 'Deliver branded messages directly to lockscreens, building immediate trust.'
+      }
+    ],
+    relatedPages: [
+      { id: 'compose-sms', title: 'Compose SMS' },
+      { id: 'message-history', title: 'Message History' }
+    ],
+    nextPageCTA: {
+      title: 'Message History',
+      desc: 'Learn how to monitor status logs and delivery codes for all sent SMS.',
+      id: 'message-history'
+    }
   },
   {
     id: 'message-history',
@@ -320,8 +475,38 @@ export const docsData: DocPage[] = [
     description: 'Audit and track delivery statuses for sent messages.',
     section: 'MESSAGING',
     readingTime: '3 min read',
-    purpose: '',
-    whyItMatters: ''
+    purpose: 'The Message History panel details every SMS dispatched, showcasing timestamps, recipient numbers, sender identities, content previews, and real-time carrier delivery status codes.',
+    whyItMatters: 'Monitoring logs ensures transparency on delivery failures, helps you manage credit usage patterns, and allows you to audit campaign performance.',
+    prerequisites: [
+      'Outbound or inbound messages processed by your location.'
+    ],
+    steps: [
+      'Navigate to the Message History tab in the sidebar menu.',
+      'Inspect the log table: Review chronological lists of sent texts, recipient phone numbers, and credits used.',
+      'Filter and search: Use date range picker, recipient phone number, or status filters to isolate specific logs.',
+      'Check delivery state updates: Look for real-time status changes updated via cloud synchronization crons.'
+    ],
+    expectAfter: 'You will have complete audit trails of all messaging traffic, including specific error codes returned by local gateways for failed dispatches.',
+    tips: [
+      'Filter history by "Failed" to clean up inactive numbers from your HighLevel CRM lists.',
+      'A background status sync cron queries carrier networks every 5 minutes to update pending/queued statuses.'
+    ],
+    screenshots: [
+      {
+        filename: '/images/docs/message-history-list.png',
+        alt: 'Chronological outbox message history log.',
+        caption: 'Track receipt states, identities, and credit costs for each SMS dispatched.'
+      }
+    ],
+    relatedPages: [
+      { id: 'compose-sms', title: 'Compose SMS' },
+      { id: 'sms-credits', title: 'SMS Credits' }
+    ],
+    nextPageCTA: {
+      title: 'SMS Credits',
+      desc: 'Understand how credits are deducted and how to request top-ups.',
+      id: 'sms-credits'
+    }
   },
   {
     id: 'sms-credits',

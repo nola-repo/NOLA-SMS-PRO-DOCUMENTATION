@@ -92,7 +92,7 @@ export const WelcomePresentation: React.FC = () => {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {onboarding.map((step) => (
               <div key={step.title} className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950/20">
-                <div className="mb-2 flex items-center gap-2 text-[#1F5AAE] dark:text-[#4F8EF7]">
+                <div className="mb-2 flex items-center gap-2 text-[#334155] dark:text-[#475569]">
                   {step.icon}
                   <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">{step.title}</h3>
                 </div>
@@ -127,7 +127,7 @@ export const WelcomePresentation: React.FC = () => {
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {checks.map((check) => (
               <div key={check.title} className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950/20">
-                <div className="flex items-center gap-2 text-[#1F5AAE] dark:text-[#4F8EF7]">
+                <div className="flex items-center gap-2 text-[#334155] dark:text-[#475569]">
                   {check.icon}
                   <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {check.title}

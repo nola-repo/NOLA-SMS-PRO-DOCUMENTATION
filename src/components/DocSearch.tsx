@@ -95,27 +95,27 @@ export const DocSearch: React.FC<DocSearchProps> = ({ isOpen, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-start justify-center bg-[#07111F]/60 px-4 pt-[10vh] backdrop-blur-sm transition-all duration-200 dark:bg-slate-950/80"
+      className="fixed inset-0 z-50 flex items-start justify-center bg-[#020617]/60 px-4 pt-[10vh] backdrop-blur-sm transition-all duration-200 dark:bg-slate-950/80"
       onClick={handleBackdropClick}
     >
       <div 
         ref={containerRef}
-        className="w-full max-w-xl overflow-hidden rounded-lg border border-[#BCD7F5] bg-white shadow-2xl shadow-[#07111F]/20 transition-all duration-200 dark:border-[#1F3D68] dark:bg-[#07111F]"
+        className="w-full max-w-xl overflow-hidden rounded-lg border border-[#CBD5E1] bg-white shadow-2xl shadow-[#020617]/20 transition-all duration-200 dark:border-[#334155] dark:bg-[#020617]"
       >
         {/* Search Input Bar */}
-        <div className="flex items-center gap-3 border-b border-[#D7E7FA] px-4 dark:border-[#183354]">
-          <Search className="h-5 w-5 flex-shrink-0 text-[#1F5AAE] dark:text-[#72A8FF]" />
+        <div className="flex items-center gap-3 border-b border-[#E2E8F0] px-4 dark:border-[#1E293B]">
+          <Search className="h-5 w-5 flex-shrink-0 text-[#334155] dark:text-[#CBD5E1]" />
           <input
             ref={inputRef}
             type="text"
             placeholder="Search documentation (e.g. Sender ID, credits...)"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent py-4 text-base text-[#13233D] placeholder-[#7B93B1] focus:outline-none focus:ring-0 dark:text-slate-100"
+            className="w-full bg-transparent py-4 text-base text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-0 dark:text-slate-100"
           />
           <button 
             onClick={onClose}
-            className="rounded-lg p-1 text-[#7B93B1] hover:bg-[#F4F9FF] hover:text-[#1F5AAE] dark:hover:bg-[#10243C] dark:hover:text-[#72A8FF]"
+            className="rounded-lg p-1 text-[#94A3B8] hover:bg-[#F8FAFC] hover:text-[#334155] dark:hover:bg-[#111827] dark:hover:text-[#CBD5E1]"
           >
             <X className="h-4 w-4" />
           </button>
@@ -147,13 +147,13 @@ export const DocSearch: React.FC<DocSearchProps> = ({ isOpen, onClose }) => {
                     onMouseEnter={() => setSelectedIndex(idx)}
                     className={`flex cursor-pointer items-center justify-between rounded-lg px-4 py-3 transition-all duration-150 ${
                       isSelected 
-                        ? 'border-l-4 border-[#1F5AAE] bg-[#F4F9FF] pl-3 text-[#071A33] dark:border-[#72A8FF] dark:bg-[#10243C] dark:text-slate-100' 
-                        : 'text-[#526A8B] dark:text-slate-400'
+                        ? 'border-l-4 border-[#334155] bg-[#F8FAFC] pl-3 text-[#0F172A] dark:border-[#CBD5E1] dark:bg-[#111827] dark:text-slate-100' 
+                        : 'text-[#475569] dark:text-slate-400'
                     }`}
                   >
                     <div className="flex-1 min-w-0 pr-4">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1F5AAE] dark:text-[#72A8FF]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#334155] dark:text-[#CBD5E1]">
                           {page.section}
                         </span>
                         {page.subsection && (
@@ -165,7 +165,7 @@ export const DocSearch: React.FC<DocSearchProps> = ({ isOpen, onClose }) => {
                           </>
                         )}
                       </div>
-                      <h4 className="truncate text-sm font-bold text-[#0B2E63] dark:text-slate-100">
+                      <h4 className="truncate text-sm font-bold text-[#0F172A] dark:text-slate-100">
                         {page.title}
                       </h4>
                       <p className="truncate text-xs text-[#6681A4] dark:text-slate-400">
@@ -186,7 +186,7 @@ export const DocSearch: React.FC<DocSearchProps> = ({ isOpen, onClose }) => {
 
         {/* Search Modal Footer / Legend */}
         {results.length > 0 && (
-          <div className="flex items-center justify-between border-t border-[#D7E7FA] bg-[#F8FBFF] px-4 py-3 text-[10px] font-semibold uppercase text-[#7B93B1] dark:border-[#183354] dark:bg-[#0B1627] dark:text-slate-500">
+          <div className="flex items-center justify-between border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3 text-[10px] font-semibold uppercase text-[#94A3B8] dark:border-[#1E293B] dark:bg-[#111827] dark:text-slate-500">
             <div className="flex gap-4">
               <span className="flex items-center gap-1">
                 <ArrowUp className="h-3 w-3" /> <ArrowDown className="h-3 w-3" /> Navigate

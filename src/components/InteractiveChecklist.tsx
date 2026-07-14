@@ -75,7 +75,7 @@ export const InteractiveChecklist: React.FC = () => {
   };
 
   return (
-    <div className="my-8 rounded-lg border border-[#D7E7FA] bg-white p-6 shadow-sm shadow-[#184B8F]/5 transition-colors duration-200 dark:border-[#183354] dark:bg-[#0B1627]">
+    <div className="my-8 rounded-lg border border-[#E2E8F0] bg-white p-6 shadow-sm shadow-[#0F172A]/5 transition-colors duration-200 dark:border-[#1E293B] dark:bg-[#111827]">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <div>
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Send Your First SMS</h3>
@@ -95,9 +95,9 @@ export const InteractiveChecklist: React.FC = () => {
           <span>Progress</span>
           <span>{completedCount} of {items.length} completed ({progressPercent}%)</span>
         </div>
-        <div className="h-2 w-full overflow-hidden rounded-full bg-[#E8F3FF] dark:bg-[#07111F]">
+        <div className="h-2 w-full overflow-hidden rounded-full bg-[#F1F5F9] dark:bg-[#020617]">
           <div 
-            className="h-full bg-[#1F5AAE] transition-all duration-300 dark:bg-[#72A8FF]"
+            className="h-full bg-[#334155] transition-all duration-300 dark:bg-[#CBD5E1]"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -113,13 +113,13 @@ export const InteractiveChecklist: React.FC = () => {
               onClick={() => toggleItem(item.id)}
               className={`flex w-full items-start gap-4 rounded-lg border p-3 text-left transition-all duration-200 ${
                 isItemChecked
-                  ? 'border-[#9BC4F5] bg-[#E8F3FF] text-[#0B2E63] dark:border-[#315C8F] dark:bg-[#102B4F] dark:text-slate-200'
-                  : 'border-[#D7E7FA] bg-white text-[#425B7D] hover:border-[#9BC4F5] dark:border-[#183354] dark:bg-[#07111F] dark:text-slate-400 dark:hover:border-[#315C8F]'
+                  ? 'border-[#CBD5E1] bg-[#F1F5F9] text-[#0F172A] dark:border-[#475569] dark:bg-[#1E293B] dark:text-slate-200'
+                  : 'border-[#E2E8F0] bg-white text-[#475569] hover:border-[#CBD5E1] dark:border-[#1E293B] dark:bg-[#020617] dark:text-slate-400 dark:hover:border-[#475569]'
               }`}
             >
               <div className="mt-0.5 flex-shrink-0">
                 {isItemChecked ? (
-                  <CheckSquare className="h-5 w-5 text-[#1F5AAE] dark:text-[#72A8FF]" />
+                  <CheckSquare className="h-5 w-5 text-[#334155] dark:text-[#CBD5E1]" />
                 ) : (
                   <Square className="h-5 w-5 text-slate-300 dark:text-slate-600" />
                 )}

@@ -11,7 +11,7 @@ interface HomeProps {
 
 const quickLinks = [
   {
-    icon: <Zap className="h-5 w-5 text-[#1F5AAE]" />,
+    icon: <Zap className="h-5 w-5 text-[#334155]" />,
     title: 'Install NOLA SMS Pro',
     desc: 'Connect the correct HighLevel location.',
     href: '/docs/marketplace-install',
@@ -41,7 +41,7 @@ const quickLinks = [
     href: '/docs/settings',
   },
   {
-    icon: <CheckCircle className="h-5 w-5 text-[#4F8EF7]" />,
+    icon: <CheckCircle className="h-5 w-5 text-[#475569]" />,
     title: 'Troubleshooting',
     desc: 'Fix common issues with login, sending, and credits.',
     href: '/docs/troubleshooting',
@@ -62,7 +62,7 @@ export const Home: React.FC<HomeProps> = ({ onSearchClick }) => {
       {/* Hero */}
       <section className="pt-4">
         {/* Eyebrow */}
-        <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#1F5AAE] dark:text-[#4F8EF7] uppercase tracking-wider mb-5">
+        <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#334155] dark:text-[#475569] uppercase tracking-wider mb-5">
           <Star className="h-3.5 w-3.5 fill-current opacity-70" />
           <span>NOLA SMS Pro · User Knowledge Base</span>
         </div>
@@ -70,7 +70,7 @@ export const Home: React.FC<HomeProps> = ({ onSearchClick }) => {
         <h1 className="text-[32px] md:text-[44px] font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-5">
           Everything you need to{' '}
           <br className="hidden sm:block" />
-          <span className="text-[#1F5AAE] dark:text-[#4F8EF7]">use NOLA SMS Pro.</span>
+          <span className="text-[#334155] dark:text-[#475569]">use NOLA SMS Pro.</span>
         </h1>
 
         <p className="text-[16px] text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl mb-8">
@@ -82,13 +82,13 @@ export const Home: React.FC<HomeProps> = ({ onSearchClick }) => {
         <div className="flex flex-wrap gap-3">
           <Link
             to="/docs/marketplace-install"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1F5AAE] hover:bg-[#174d99] text-white text-[13px] font-semibold rounded-lg transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#334155] hover:bg-[#1E293B] text-white text-[13px] font-semibold rounded-lg transition-colors shadow-sm"
           >
             Get started <ArrowRight className="h-4 w-4" />
           </Link>
           <button
             onClick={onSearchClick}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-[#4F8EF7]/40 text-[13px] font-semibold rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-[#475569]/40 text-[13px] font-semibold rounded-lg transition-colors"
           >
             <Search className="h-4 w-4" />
             Search docs
@@ -106,13 +106,13 @@ export const Home: React.FC<HomeProps> = ({ onSearchClick }) => {
             <Link
               key={card.href}
               to={card.href}
-              className="group flex items-start gap-3.5 p-4 rounded-xl border border-slate-100 dark:border-slate-800/60 hover:border-[#4F8EF7]/30 dark:hover:border-[#4F8EF7]/25 hover:bg-[#DCEEFF]/10 dark:hover:bg-[#1F5AAE]/5 bg-white dark:bg-slate-900/30 transition-all duration-150"
+              className="group flex items-start gap-3.5 p-4 rounded-xl border border-slate-100 dark:border-slate-800/60 hover:border-[#475569]/30 dark:hover:border-[#475569]/25 hover:bg-[#F1F5F9]/10 dark:hover:bg-[#334155]/5 bg-white dark:bg-slate-900/30 transition-all duration-150"
             >
               <div className="mt-0.5 flex-shrink-0 w-9 h-9 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-center">
                 {card.icon}
               </div>
               <div className="min-w-0">
-                <p className="text-[14px] font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#1F5AAE] dark:group-hover:text-[#4F8EF7] transition-colors leading-snug">
+                <p className="text-[14px] font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#334155] dark:group-hover:text-[#475569] transition-colors leading-snug">
                   {card.title}
                 </p>
                 <p className="text-[12px] text-slate-400 dark:text-slate-500 leading-snug mt-0.5">
@@ -134,12 +134,12 @@ export const Home: React.FC<HomeProps> = ({ onSearchClick }) => {
             <Link
               key={article.href}
               to={article.href}
-              className="group flex items-center justify-between px-4 py-3.5 hover:bg-[#DCEEFF]/10 dark:hover:bg-[#1F5AAE]/5 transition-colors"
+              className="group flex items-center justify-between px-4 py-3.5 hover:bg-[#F1F5F9]/10 dark:hover:bg-[#334155]/5 transition-colors"
             >
-              <span className="text-[14px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-[#1F5AAE] dark:group-hover:text-[#4F8EF7] transition-colors">
+              <span className="text-[14px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-[#334155] dark:group-hover:text-[#475569] transition-colors">
                 {article.title}
               </span>
-              <ArrowRight className="h-3.5 w-3.5 text-slate-300 dark:text-slate-600 group-hover:text-[#4F8EF7] flex-shrink-0 ml-3 group-hover:translate-x-0.5 transition-all" />
+              <ArrowRight className="h-3.5 w-3.5 text-slate-300 dark:text-slate-600 group-hover:text-[#475569] flex-shrink-0 ml-3 group-hover:translate-x-0.5 transition-all" />
             </Link>
           ))}
         </div>
@@ -148,7 +148,7 @@ export const Home: React.FC<HomeProps> = ({ onSearchClick }) => {
       {/* Support CTA */}
       <section className="flex items-start gap-4 p-5 rounded-xl border border-slate-100 dark:border-slate-800/60 bg-slate-50/60 dark:bg-slate-900/30">
         <div className="w-9 h-9 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center flex-shrink-0">
-          <MessageSquare className="h-4.5 w-4.5 text-[#1F5AAE] dark:text-[#4F8EF7]" />
+          <MessageSquare className="h-4.5 w-4.5 text-[#334155] dark:text-[#475569]" />
         </div>
         <div>
           <p className="text-[14px] font-semibold text-slate-800 dark:text-slate-200">
@@ -159,7 +159,7 @@ export const Home: React.FC<HomeProps> = ({ onSearchClick }) => {
           </p>
           <a
             href="mailto:support@nolasmspro.com"
-            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1F5AAE] dark:text-[#4F8EF7] mt-2 hover:underline"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#334155] dark:text-[#475569] mt-2 hover:underline"
           >
             Email Support <ArrowRight className="h-3.5 w-3.5" />
           </a>

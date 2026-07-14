@@ -31,12 +31,12 @@ export const RelatedPages: React.FC<RelatedPagesProps> = ({ relatedPages, curren
               <Link
                 key={page.id}
                 to={`/docs/${page.id}`}
-                className="group flex items-center justify-between gap-3 rounded-xl border border-[#D7E7FA] bg-white px-5 py-4 transition-all hover:border-[#4F8EF7] hover:shadow-md hover:shadow-[#184B8F]/8 dark:border-[#183354] dark:bg-[#0B1627] dark:hover:border-[#72A8FF]"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-[#E2E8F0] bg-white px-5 py-4 transition-all hover:border-[#475569] hover:shadow-md hover:shadow-[#0F172A]/8 dark:border-[#1E293B] dark:bg-[#111827] dark:hover:border-[#CBD5E1]"
               >
-                <span className="text-[14px] font-bold text-[#0B2E63] group-hover:text-[#1F5AAE] dark:text-white dark:group-hover:text-[#72A8FF]">
+                <span className="text-[14px] font-bold text-[#0F172A] group-hover:text-[#334155] dark:text-white dark:group-hover:text-[#CBD5E1]">
                   {page.title}
                 </span>
-                <ChevronRight className="h-4 w-4 flex-shrink-0 text-[#7B93B1] transition-transform group-hover:translate-x-0.5 group-hover:text-[#1F5AAE] dark:group-hover:text-[#72A8FF]" />
+                <ChevronRight className="h-4 w-4 flex-shrink-0 text-[#94A3B8] transition-transform group-hover:translate-x-0.5 group-hover:text-[#334155] dark:group-hover:text-[#CBD5E1]" />
               </Link>
             ))}
           </div>
@@ -46,15 +46,15 @@ export const RelatedPages: React.FC<RelatedPagesProps> = ({ relatedPages, curren
       {nextPage && (
         <Link
           to={`/docs/${nextPage.id}`}
-          className="group flex items-center justify-between gap-4 rounded-2xl border border-[#BCD7F5] bg-gradient-to-r from-[#E8F3FF]/80 to-white px-6 py-5 transition-all hover:border-[#4F8EF7] hover:shadow-lg hover:shadow-[#184B8F]/10 dark:border-[#315C8F] dark:from-[#102B4F]/40 dark:to-[#0B1627] dark:hover:border-[#72A8FF]"
+          className="group flex items-center justify-between gap-4 rounded-2xl border border-[#CBD5E1] bg-gradient-to-r from-[#F1F5F9]/80 to-white px-6 py-5 transition-all hover:border-[#475569] hover:shadow-lg hover:shadow-[#0F172A]/10 dark:border-[#475569] dark:from-[#1E293B]/40 dark:to-[#111827] dark:hover:border-[#CBD5E1]"
         >
           <div>
             <p className="doc-eyebrow mb-1">Continue reading</p>
-            <p className="text-[16px] font-black text-[#0B2E63] dark:text-white">
+            <p className="text-[16px] font-black text-[#0F172A] dark:text-white">
               {nextPage.title}
             </p>
           </div>
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1F5AAE] text-white transition-transform group-hover:translate-x-0.5 dark:bg-[#72A8FF] dark:text-[#07111F]">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#334155] text-white transition-transform group-hover:translate-x-0.5 dark:bg-[#CBD5E1] dark:text-[#020617]">
             <ArrowRight className="h-4 w-4" />
           </span>
         </Link>

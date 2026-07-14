@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearchClick, onToggleMobileSid
         {/* Search trigger */}
         <button
           onClick={onSearchClick}
-          className="hidden md:flex items-center gap-2 px-3 py-1.5 text-[12px] text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-lg hover:border-[#4F8EF7]/40 transition-all"
+          className="hidden md:flex items-center gap-2 px-3 py-1.5 text-[12px] text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-lg hover:border-[#475569]/40 transition-all"
         >
           <Search className="h-3.5 w-3.5" />
           <span>Search</span>

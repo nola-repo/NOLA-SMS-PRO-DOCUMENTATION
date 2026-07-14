@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { getNextAndPrevPages, sidebarStructure } from '../data/docsData';
+import { getNextAndPrevPages, sidebarStructure, docsData } from '../data/docsData';
 
 interface PaginationProps {
   currentId: string;
@@ -34,22 +34,26 @@ export const Pagination: React.FC<PaginationProps> = ({ currentId, isMergedSecti
 
   if (!prevLink && !nextLink) return null;
 
+  // Retrieve descriptions
+  const prevPage = prevLink ? docsData.find(p => p.id === prevLink!.id) : null;
+  const nextPage = nextLink ? docsData.find(p => p.id === nextLink!.id) : null;
+
   return (
-    <nav className="mt-8 grid gap-3 border-t border-[#D7E7FA] pt-5 dark:border-[#183354] sm:grid-cols-2" aria-label="Previous and next documentation pages">
+    <nav className="mt-12 grid gap-4 border-t border-slate-200 pt-8 dark:border-slate-800 sm:grid-cols-2" aria-label="Previous and next documentation pages">
       {prevLink ? (
         <Link
           to={`/docs/${prevLink.id}`}
-          className="group flex min-h-[88px] items-center gap-3 rounded-lg border border-[#D7E7FA] bg-white p-4 transition-all hover:border-[#9BC4F5] hover:bg-[#F4F9FF] dark:border-[#183354] dark:bg-[#0B1627] dark:hover:border-[#315C8F]"
+          className="group flex flex-col justify-center rounded-2xl border border-slate-200 bg-[#FBFDFF]/80 p-5 transition-all duration-300 hover:border-[#334155]/35 hover:bg-[#F1F5F9]/30 dark:border-slate-800 dark:bg-[#020617]/30 dark:hover:border-[#CBD5E1]/40 dark:hover:bg-[#1E293B]/10 shadow-sm"
         >
-          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#E8F3FF] text-[#6681A4] transition-colors group-hover:text-[#1F5AAE] dark:bg-[#102B4F] dark:group-hover:text-[#72A8FF]">
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
-          </span>
-          <span className="min-w-0">
-            <span className="block text-[11px] font-bold uppercase tracking-wider text-[#7B93B1]">Previous</span>
-            <span className="mt-1 block truncate text-sm font-semibold text-[#0B2E63] group-hover:text-[#1F5AAE] dark:text-slate-200 dark:group-hover:text-[#72A8FF]">
-              {prevLink.title}
-            </span>
-          </span>
+          <div className="flex items-center gap-1.5 font-black text-slate-800 dark:text-white mb-2 text-sm">
+            <ArrowLeft className="h-4 w-4 text-[#334155] dark:text-[#CBD5E1] transition-transform group-hover:-translate-x-0.5" />
+            <span>{prevLink.title}</span>
+          </div>
+          {prevPage?.description && (
+            <p className="text-xs text-slate-450 dark:text-slate-400 leading-relaxed font-semibold">
+              {prevPage.description}
+            </p>
+          )}
         </Link>
       ) : (
         <div className="hidden sm:block" />
@@ -58,17 +62,17 @@ export const Pagination: React.FC<PaginationProps> = ({ currentId, isMergedSecti
       {nextLink ? (
         <Link
           to={`/docs/${nextLink.id}`}
-          className="group flex min-h-[88px] items-center justify-between gap-3 rounded-lg border border-[#D7E7FA] bg-white p-4 transition-all hover:border-[#9BC4F5] hover:bg-[#F4F9FF] dark:border-[#183354] dark:bg-[#0B1627] dark:hover:border-[#315C8F]"
+          className="group flex flex-col justify-center rounded-2xl border border-slate-200 bg-[#FBFDFF]/80 p-5 transition-all duration-300 hover:border-[#334155]/35 hover:bg-[#F1F5F9]/30 dark:border-slate-800 dark:bg-[#020617]/30 dark:hover:border-[#CBD5E1]/40 dark:hover:bg-[#1E293B]/10 shadow-sm"
         >
-          <span className="min-w-0">
-            <span className="block text-[11px] font-bold uppercase tracking-wider text-[#7B93B1]">Next</span>
-            <span className="mt-1 block truncate text-sm font-semibold text-[#0B2E63] group-hover:text-[#1F5AAE] dark:text-slate-200 dark:group-hover:text-[#72A8FF]">
-              {nextLink.title}
-            </span>
-          </span>
-          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#E8F3FF] text-[#6681A4] transition-colors group-hover:text-[#1F5AAE] dark:bg-[#102B4F] dark:group-hover:text-[#72A8FF]">
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </span>
+          <div className="flex items-center justify-between font-black text-slate-800 dark:text-white mb-2 text-sm">
+            <span>{nextLink.title}</span>
+            <ArrowRight className="h-4 w-4 text-[#334155] dark:text-[#CBD5E1] transition-transform group-hover:translate-x-0.5" />
+          </div>
+          {nextPage?.description && (
+            <p className="text-xs text-slate-450 dark:text-slate-400 leading-relaxed font-semibold">
+              {nextPage.description}
+            </p>
+          )}
         </Link>
       ) : null}
     </nav>

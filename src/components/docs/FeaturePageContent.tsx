@@ -88,10 +88,10 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
           )
         }
       >
-        <div className="flex items-start gap-3 rounded-2xl border-l-4 border-[#1F5AAE] bg-white px-5 py-4 shadow-sm shadow-[#184B8F]/3 dark:border-[#72A8FF] dark:bg-[#0B1627]">
-          <Sparkles className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#1F5AAE] dark:text-[#72A8FF]" />
+        <div className="flex items-start gap-3 rounded-2xl border-l-4 border-[#334155] bg-white px-5 py-4 shadow-sm shadow-[#0F172A]/3 dark:border-[#CBD5E1] dark:bg-[#111827]">
+          <Sparkles className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#334155] dark:text-[#CBD5E1]" />
           <div>
-            <p className="text-[13.5px] leading-relaxed text-[#425B7D] dark:text-slate-355 font-medium">
+            <p className="text-[13.5px] leading-relaxed text-[#475569] dark:text-slate-355 font-medium">
               {page.purpose}
             </p>
           </div>
@@ -191,9 +191,9 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
             afterTitle="Workspace Authentication (Existing Profile Login)"
             afterDesc="For sub-accounts already registered, bypass signup. Log in using your existing admin owner credentials to restore location mapping and credit request pipelines."
           />
-          <div className="mt-6 bg-[#F8FBFF] p-5 rounded-2xl dark:bg-[#0B1627] border border-[#BCD7F5] dark:border-blue-900/30">
-            <h4 className="text-[13px] font-black text-[#0B2E63] dark:text-white uppercase tracking-wider mb-2">Dynamic Session Resumption</h4>
-            <p className="text-[13.5px] leading-relaxed text-[#5D7596] dark:text-slate-400">
+          <div className="mt-6 bg-[#F8FAFC] p-5 rounded-2xl dark:bg-[#111827] border border-[#CBD5E1] dark:border-slate-900/30">
+            <h4 className="text-[13px] font-black text-[#0F172A] dark:text-white uppercase tracking-wider mb-2">Dynamic Session Resumption</h4>
+            <p className="text-[13.5px] leading-relaxed text-[#64748B] dark:text-slate-400">
               NOLA SMS Pro checks active cookies on subsequent launches. Authorized owners will bypass the login credentials verification entirely and load the main command panel directly.
             </p>
           </div>
@@ -243,9 +243,9 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
               />
             </div>
           )}
-          <div className="bg-[#F8FBFF] border border-[#BCD7F5] p-5 rounded-2xl dark:bg-[#0B1627] dark:border-blue-900/30">
-            <h4 className="text-[13px] font-black text-[#0B2E63] dark:text-white uppercase tracking-wider mb-3">Compliance Sync Explanation</h4>
-            <p className="text-[13.5px] leading-relaxed text-[#425B7D] dark:text-slate-300 font-medium">
+          <div className="bg-[#F8FAFC] border border-[#CBD5E1] p-5 rounded-2xl dark:bg-[#111827] dark:border-slate-900/30">
+            <h4 className="text-[13px] font-black text-[#0F172A] dark:text-white uppercase tracking-wider mb-3">Compliance Sync Explanation</h4>
+            <p className="text-[13.5px] leading-relaxed text-[#475569] dark:text-slate-300 font-medium">
               A persistent oauth background handshake keeps contacts lists, CRM templates, and outbox logs updated. Reconnection alerts trigger only if sub-account credentials or permissions values decrease.
             </p>
           </div>
@@ -286,15 +286,15 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
             afterTitle="After: Branded custom Sender ID"
             afterDesc="Texts show your legally approved brand name mask (e.g. BRANDNAME) on lockscreens, boosting customer trust and delivery open rates."
           />
-          <div className="mt-6 border-t border-[#D7E7FA] pt-6 dark:border-[#183354]">
-            <h4 className="text-[13px] font-black text-[#0B2E63] dark:text-white uppercase tracking-wider mb-4">Registration Submission Steps</h4>
+          <div className="mt-6 border-t border-[#E2E8F0] pt-6 dark:border-[#1E293B]">
+            <h4 className="text-[13px] font-black text-[#0F172A] dark:text-white uppercase tracking-wider mb-4">Registration Submission Steps</h4>
             <div className="space-y-3">
               {page.steps?.slice(1).map((step, idx) => (
-                <div key={idx} className="flex gap-4 rounded-xl border border-[#D7E7FA] bg-white p-4 dark:border-[#183354] dark:bg-[#0B1627] shadow-sm">
-                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-lg bg-[#E8F3FF] text-[11px] font-black text-[#1F5AAE] dark:bg-[#102B4F] dark:text-[#9AC3FF]">
+                <div key={idx} className="flex gap-4 rounded-xl border border-[#E2E8F0] bg-white p-4 dark:border-[#1E293B] dark:bg-[#111827] shadow-sm">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-lg bg-[#F1F5F9] text-[11px] font-black text-[#334155] dark:bg-[#1E293B] dark:text-[#E2E8F0]">
                     {idx + 1}
                   </span>
-                  <p className="text-[13px] leading-relaxed text-[#5D7596] dark:text-slate-400">{step}</p>
+                  <p className="text-[13px] leading-relaxed text-[#64748B] dark:text-slate-400">{step}</p>
                 </div>
               ))}
             </div>
@@ -322,12 +322,12 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
         {page.steps?.map((step, index) => (
           <div
             key={step}
-            className="flex gap-4 rounded-2xl border border-[#D7E7FA] bg-white p-5 dark:border-[#183354] dark:bg-[#0B1627] shadow-sm shadow-[#184B8F]/3 transition-colors hover:border-[#4F8EF7]"
+            className="flex gap-4 rounded-2xl border border-[#E2E8F0] bg-white p-5 dark:border-[#1E293B] dark:bg-[#111827] shadow-sm shadow-[#0F172A]/3 transition-colors hover:border-[#475569]"
           >
-            <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-xl bg-[#E8F3FF] text-[12px] font-black text-[#1F5AAE] dark:bg-[#102B4F] dark:text-[#9AC3FF]">
+            <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-xl bg-[#F1F5F9] text-[12px] font-black text-[#334155] dark:bg-[#1E293B] dark:text-[#E2E8F0]">
               {index + 1}
             </span>
-            <p className="text-[13.5px] leading-6 text-[#425B7D] dark:text-slate-350">{step}</p>
+            <p className="text-[13.5px] leading-6 text-[#475569] dark:text-slate-350">{step}</p>
           </div>
         ))}
       </div>
@@ -346,11 +346,11 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
       return (
         <div className="space-y-3">
           {checklistItems.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3.5 rounded-xl border border-blue-150 bg-blue-50/5 p-4 dark:border-blue-900/30 dark:bg-[#0B1627] shadow-sm">
-              <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
+            <div key={idx} className="flex items-center gap-3.5 rounded-xl border border-slate-150 bg-slate-50/5 p-4 dark:border-slate-900/30 dark:bg-[#111827] shadow-sm">
+              <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 dark:bg-slate-950/40 dark:text-slate-400">
                 <Check className="h-3 w-3" />
               </div>
-              <p className="text-[13px] leading-relaxed text-[#425B7D] dark:text-slate-300 font-semibold">{item}</p>
+              <p className="text-[13px] leading-relaxed text-[#475569] dark:text-slate-300 font-semibold">{item}</p>
             </div>
           ))}
         </div>
@@ -406,7 +406,7 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
 
         {/* Support ticket submission form */}
         {page.hasTicketForm && (
-          <div className="mt-6 border-t border-[#D7E7FA] pt-6 dark:border-[#183354]">
+          <div className="mt-6 border-t border-[#E2E8F0] pt-6 dark:border-[#1E293B]">
             <TicketForm />
           </div>
         )}
@@ -419,8 +419,8 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
       
       {/* HEADER METADATA — hidden on Welcome, shown on all other pages */}
       {page.id !== 'welcome' && (
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#D7E7FA] pb-4 dark:border-[#183354]">
-          <span className="inline-flex items-center gap-1.5 rounded-md bg-[#E8F3FF] px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#1F5AAE] dark:bg-[#102B4F] dark:text-[#9AC3FF]">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#E2E8F0] pb-4 dark:border-[#1E293B]">
+          <span className="inline-flex items-center gap-1.5 rounded-md bg-[#F1F5F9] px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#334155] dark:bg-[#1E293B] dark:text-[#E2E8F0]">
             {page.readingTime}
           </span>
           <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
@@ -439,13 +439,13 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
         {/* Dynamic visual guides explaining "what this is" under INTRODUCTION */}
         {page.hasProblemsSolved && (
           <div className="mt-6">
-            <h4 className="text-[11px] font-black text-[#1F5AAE] dark:text-[#72A8FF] uppercase tracking-[0.14em] mb-3">Core Operational Painpoints Solved</h4>
+            <h4 className="text-[11px] font-black text-[#334155] dark:text-[#CBD5E1] uppercase tracking-[0.14em] mb-3">Core Operational Painpoints Solved</h4>
             <ProblemsSolved />
           </div>
         )}
         {page.hasTargetPersonas && (
           <div className="mt-6">
-            <h4 className="text-[11px] font-black text-[#1F5AAE] dark:text-[#72A8FF] uppercase tracking-[0.14em] mb-3">Target Operators</h4>
+            <h4 className="text-[11px] font-black text-[#334155] dark:text-[#CBD5E1] uppercase tracking-[0.14em] mb-3">Target Operators</h4>
             <TargetPersonas />
           </div>
         )}
@@ -465,8 +465,8 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
       {page.whyItMatters && (
         <DocSection id={`${page.id}-why-is-it-important`}>
           <DocSectionHeading eyebrow="2. Why is it important?">Value & Impact</DocSectionHeading>
-          <div className="rounded-2xl border border-blue-200/50 bg-[#F4F9FF] p-5 dark:border-blue-900/25 dark:bg-[#0B1627] shadow-sm shadow-[#184B8F]/2">
-            <p className="text-[14px] leading-7 text-[#0B2E63] dark:text-slate-200 font-semibold">
+          <div className="rounded-2xl border border-slate-200/50 bg-[#F8FAFC] p-5 dark:border-slate-900/25 dark:bg-[#111827] shadow-sm shadow-[#0F172A]/2">
+            <p className="text-[14px] leading-7 text-[#0F172A] dark:text-slate-200 font-semibold">
               {page.whyItMatters}
             </p>
           </div>
@@ -481,12 +481,12 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
             {page.prerequisites.map((prereq) => (
               <div
                 key={prereq}
-                className="flex items-start gap-3 rounded-xl border border-[#D7E7FA] bg-[#F8FBFF] px-4 py-3.5 dark:border-[#183354] dark:bg-[#0B1627] shadow-sm shadow-[#184B8F]/2"
+                className="flex items-start gap-3 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3.5 dark:border-[#1E293B] dark:bg-[#111827] shadow-sm shadow-[#0F172A]/2"
               >
-                <div className="mt-0.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950/40 dark:text-blue-450">
+                <div className="mt-0.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-slate-100 text-slate-600 dark:bg-slate-950/40 dark:text-slate-450">
                   <Check className="h-3 w-3" />
                 </div>
-                <span className="text-[13px] font-semibold leading-relaxed text-[#0B2E63] dark:text-white">
+                <span className="text-[13px] font-semibold leading-relaxed text-[#0F172A] dark:text-white">
                   {prereq}
                 </span>
               </div>
@@ -540,23 +540,23 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
       )}
 
       {/* 7. WHERE SHOULD I GO NEXT? */}
-      <div className="border-t border-[#D7E7FA] pt-8 dark:border-[#183354]">
+      <div className="border-t border-[#E2E8F0] pt-8 dark:border-[#1E293B]">
         {page.nextPageCTA ? (
           <DocSection id={`${page.id}-next-step`} className="!scroll-mt-0">
             <p className="doc-eyebrow mb-3">7. Where should I go next?</p>
             <Link
               to={`/docs/${page.nextPageCTA.id}`}
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-[#BCD7F5] bg-gradient-to-r from-[#E8F3FF]/70 to-white/10 px-6 py-5 transition-all hover:border-[#4F8EF7] hover:shadow-lg hover:shadow-[#184B8F]/10 dark:border-[#315C8F] dark:from-[#102B4F]/40 dark:to-[#0B1627] dark:hover:border-[#72A8FF]"
+              className="group flex items-center justify-between gap-4 rounded-2xl border border-[#CBD5E1] bg-gradient-to-r from-[#F1F5F9]/70 to-white/10 px-6 py-5 transition-all hover:border-[#475569] hover:shadow-lg hover:shadow-[#0F172A]/10 dark:border-[#475569] dark:from-[#1E293B]/40 dark:to-[#111827] dark:hover:border-[#CBD5E1]"
             >
               <div>
-                <p className="text-[16px] font-black text-[#0B2E63] dark:text-white">
+                <p className="text-[16px] font-black text-[#0F172A] dark:text-white">
                   {page.nextPageCTA.title}
                 </p>
-                <p className="mt-1 text-[13px] text-[#5D7596] dark:text-slate-400">
+                <p className="mt-1 text-[13px] text-[#64748B] dark:text-slate-400">
                   {page.nextPageCTA.desc}
                 </p>
               </div>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1F5AAE] text-white transition-transform group-hover:translate-x-0.5 dark:bg-[#72A8FF] dark:text-[#07111F]">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#334155] text-white transition-transform group-hover:translate-x-0.5 dark:bg-[#CBD5E1] dark:text-[#020617]">
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Link>

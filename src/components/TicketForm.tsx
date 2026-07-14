@@ -69,9 +69,9 @@ export const TicketForm: React.FC = () => {
   return (
     <div className="space-y-10 my-8">
       {/* Create Ticket Card */}
-      <div className="rounded-lg border border-[#D7E7FA] bg-white p-6 shadow-sm shadow-[#184B8F]/5 transition-colors duration-200 dark:border-[#183354] dark:bg-[#0B1627]">
+      <div className="rounded-lg border border-[#E2E8F0] bg-white p-6 shadow-sm shadow-[#0F172A]/5 transition-colors duration-200 dark:border-[#1E293B] dark:bg-[#111827]">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-          <MessageSquarePlus className="h-5 w-5 text-[#1F5AAE] dark:text-[#72A8FF]" />
+          <MessageSquarePlus className="h-5 w-5 text-[#334155] dark:text-[#CBD5E1]" />
           Create Support Ticket
         </h3>
 
@@ -86,7 +86,7 @@ export const TicketForm: React.FC = () => {
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               placeholder="e.g. Credit balance did not update after request"
-              className="w-full rounded-lg border border-[#D7E7FA] bg-[#F8FBFF] px-3.5 py-2 text-sm text-[#13233D] placeholder-[#7B93B1] focus:border-[#1F5AAE] focus:outline-none dark:border-[#183354] dark:bg-[#07111F] dark:text-slate-100 dark:focus:border-[#72A8FF]"
+              className="w-full rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 py-2 text-sm text-[#0F172A] placeholder-[#94A3B8] focus:border-[#334155] focus:outline-none dark:border-[#1E293B] dark:bg-[#020617] dark:text-slate-100 dark:focus:border-[#CBD5E1]"
             />
           </div>
 
@@ -98,7 +98,7 @@ export const TicketForm: React.FC = () => {
               <select
                 value={priority}
                 onChange={(e) => setPriority(e.target.value as any)}
-                className="w-full rounded-lg border border-[#D7E7FA] bg-[#F8FBFF] px-3.5 py-2 text-sm text-[#13233D] focus:border-[#1F5AAE] focus:outline-none dark:border-[#183354] dark:bg-[#07111F] dark:text-slate-100 dark:focus:border-[#72A8FF]"
+                className="w-full rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 py-2 text-sm text-[#0F172A] focus:border-[#334155] focus:outline-none dark:border-[#1E293B] dark:bg-[#020617] dark:text-slate-100 dark:focus:border-[#CBD5E1]"
               >
                 <option value="Low">Low (General Question)</option>
                 <option value="Medium">Medium (Setup Issue)</option>
@@ -109,7 +109,7 @@ export const TicketForm: React.FC = () => {
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
                 Official Support Email
               </label>
-              <div className="flex items-center gap-2 rounded-lg border border-[#D7E7FA] bg-[#F4F9FF] px-3.5 py-2 text-sm text-[#526A8B] dark:border-[#183354] dark:bg-[#07111F] dark:text-slate-400">
+              <div className="flex items-center gap-2 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 py-2 text-sm text-[#475569] dark:border-[#1E293B] dark:bg-[#020617] dark:text-slate-400">
                 <Mail className="h-4 w-4" />
                 <span>support@nolasmspro.com</span>
               </div>
@@ -126,13 +126,13 @@ export const TicketForm: React.FC = () => {
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
               placeholder="Include what you clicked, what happened, the HighLevel location name, recipient number, send time, message status, and any visible error."
-              className="w-full rounded-lg border border-[#D7E7FA] bg-[#F8FBFF] px-3.5 py-2 text-sm text-[#13233D] placeholder-[#7B93B1] focus:border-[#1F5AAE] focus:outline-none dark:border-[#183354] dark:bg-[#07111F] dark:text-slate-100 dark:focus:border-[#72A8FF]"
+              className="w-full rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-3.5 py-2 text-sm text-[#0F172A] placeholder-[#94A3B8] focus:border-[#334155] focus:outline-none dark:border-[#1E293B] dark:bg-[#020617] dark:text-slate-100 dark:focus:border-[#CBD5E1]"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-[#1F5AAE] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-[#174D99] active:scale-[0.98] dark:bg-[#72A8FF] dark:text-[#071A33] sm:w-auto"
+            className="w-full rounded-lg bg-[#334155] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-[#1E293B] active:scale-[0.98] dark:bg-[#CBD5E1] dark:text-[#0F172A] sm:w-auto"
           >
             Submit Ticket
           </button>
@@ -146,13 +146,13 @@ export const TicketForm: React.FC = () => {
       </div>
 
       {/* Ticket History List */}
-      <div className="rounded-lg border border-[#D7E7FA] bg-[#F8FBFF] p-6 transition-colors duration-200 dark:border-[#183354] dark:bg-[#07111F]">
+      <div className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-6 transition-colors duration-200 dark:border-[#1E293B] dark:bg-[#020617]">
         <h3 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4">
           Submitted Support Tickets ({tickets.length})
         </h3>
 
         {tickets.length === 0 ? (
-          <div className="rounded-lg border border-dashed border-[#BCD7F5] bg-white py-8 text-center dark:border-[#1F3D68] dark:bg-[#0B1627]">
+          <div className="rounded-lg border border-dashed border-[#CBD5E1] bg-white py-8 text-center dark:border-[#334155] dark:bg-[#111827]">
             <Clock className="h-8 w-8 text-slate-300 dark:text-slate-700 mx-auto mb-2" />
             <p className="text-xs text-slate-400 dark:text-slate-500">No active support tickets created in this session.</p>
           </div>
@@ -161,7 +161,7 @@ export const TicketForm: React.FC = () => {
             {tickets.map((t) => (
               <div 
                 key={t.id} 
-                className="space-y-3 rounded-lg border border-[#D7E7FA] bg-white p-4 dark:border-[#183354] dark:bg-[#0B1627]"
+                className="space-y-3 rounded-lg border border-[#E2E8F0] bg-white p-4 dark:border-[#1E293B] dark:bg-[#111827]"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-2">
                   <div className="flex items-center gap-2">
@@ -178,7 +178,7 @@ export const TicketForm: React.FC = () => {
                       {t.priority}
                     </span>
                     {/* Status Badge */}
-                    <span className="rounded-md border border-[#BCD7F5] bg-[#E8F3FF] px-2 py-0.5 text-[9px] font-bold uppercase text-[#0B4EA2] dark:border-[#1F3D68] dark:bg-[#102B4F] dark:text-[#9AC3FF]">
+                    <span className="rounded-md border border-[#CBD5E1] bg-[#F1F5F9] px-2 py-0.5 text-[9px] font-bold uppercase text-[#334155] dark:border-[#334155] dark:bg-[#1E293B] dark:text-[#E2E8F0]">
                       {t.status}
                     </span>
                   </div>
