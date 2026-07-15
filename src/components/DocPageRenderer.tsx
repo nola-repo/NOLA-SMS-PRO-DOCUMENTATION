@@ -10,6 +10,16 @@ import { CreateOrSignInContent } from './docs/CreateOrSignInContent';
 import { ConnectedHighlevelContent } from './docs/ConnectedHighlevelContent';
 import { DashboardOverviewContent } from './docs/DashboardOverviewContent';
 import { SendFirstSMSContent } from './docs/SendFirstSMSContent';
+import { ContactsContent } from './docs/ContactsContent';
+import { ComposeSmsContent } from './docs/ComposeSmsContent';
+import { MessageTemplatesContent } from './docs/MessageTemplatesContent';
+import { SenderIdsContent } from './docs/SenderIdsContent';
+import { MessageHistoryContent } from './docs/MessageHistoryContent';
+import { SmsCreditsContent } from './docs/SmsCreditsContent';
+import { SettingsContent } from './docs/SettingsContent';
+import { TroubleshootingContent } from './docs/TroubleshootingContent';
+import { SupportHelpContent } from './docs/SupportHelpContent';
+import { FAQContent } from './docs/FAQContent';
 import {
   ArrowUpRight,
   BookOpen,
@@ -222,6 +232,18 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
   const isConnectedHighlevelPage = activeId === 'connect-highlevel';
   const isDashboardOverviewPage = activeId === 'dashboard-overview';
   const isSendFirstSMSPage = activeId === 'send-your-first-sms';
+  const isContactsPage = activeId === 'contacts';
+  const isComposeSmsPage = activeId === 'compose-sms';
+  const isMessageTemplatesPage = activeId === 'message-templates';
+  const isSenderIdsPage = activeId === 'sender-ids';
+  const isMessageHistoryPage = activeId === 'message-history';
+  const isSmsCreditsPage = activeId === 'sms-credits';
+  const isSettingsPage = activeId === 'settings';
+  const isTroubleshootingPage = activeId === 'troubleshooting';
+  const isSupportHelpPage = activeId === 'support-help';
+  const isFaqPage = activeId === 'faq';
+  
+  
   
   // Resolve current active section to determine whether to render tabs
   const activeSection = sidebarStructure.find((sec) =>
@@ -230,7 +252,7 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
   const showTabs = activeSection && !isWelcome && (activeSection.title === 'OVERVIEW' || activeSection.title === 'MESSAGING');
   
   // Non-overview/messaging pages in SETUP, ACCOUNT, SUPPORT that don't have contents populated yet
-  const isBlankPage = !showTabs && !isInstallPage && !isCreateOrSignInPage && !isConnectedHighlevelPage && !isDashboardOverviewPage && !isSendFirstSMSPage && ['SETUP', 'ACCOUNT', 'SUPPORT'].includes(page.section);
+  const isBlankPage = !showTabs && !isInstallPage && !isCreateOrSignInPage && !isConnectedHighlevelPage && !isDashboardOverviewPage && !isSendFirstSMSPage && !isSmsCreditsPage && !isSettingsPage && !isTroubleshootingPage && !isSupportHelpPage && !isFaqPage && ['SETUP', 'ACCOUNT', 'SUPPORT'].includes(page.section);
 
   return (
     <div className="mx-auto w-full max-w-[980px] pb-16" aria-label={`Documentation guide focused on ${page.title}`}>
@@ -262,6 +284,16 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
           <div>
             {isWelcome ? (
               <WelcomeContent />
+            ) : isContactsPage ? (
+              <ContactsContent page={page} />
+            ) : isComposeSmsPage ? (
+              <ComposeSmsContent page={page} />
+            ) : isMessageTemplatesPage ? (
+              <MessageTemplatesContent page={page} />
+            ) : isSenderIdsPage ? (
+              <SenderIdsContent page={page} />
+            ) : isMessageHistoryPage ? (
+              <MessageHistoryContent page={page} />
             ) : (
               <FeaturePageContent page={page} />
             )}
@@ -288,12 +320,52 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
         <div className="pt-6">
           <SendFirstSMSContent page={page} />
         </div>
+      ) : isSmsCreditsPage ? (
+        <div className="pt-6">
+          <SmsCreditsContent page={page} />
+        </div>
+      ) : isSettingsPage ? (
+        <div className="pt-6">
+          <SettingsContent page={page} />
+        </div>
+      ) : isTroubleshootingPage ? (
+        <div className="pt-6">
+          <TroubleshootingContent page={page} />
+        </div>
+      ) : isSupportHelpPage ? (
+        <div className="pt-6">
+          <SupportHelpContent page={page} />
+        </div>
+      ) : isFaqPage ? (
+        <div className="pt-6">
+          <FAQContent page={page} />
+        </div>
       ) : isBlankPage ? (
         null
       ) : (
         <div className="pt-6">
           {isWelcome ? (
             <WelcomeContent />
+          ) : isContactsPage ? (
+            <ContactsContent page={page} />
+          ) : isComposeSmsPage ? (
+            <ComposeSmsContent page={page} />
+          ) : isMessageTemplatesPage ? (
+            <MessageTemplatesContent page={page} />
+          ) : isSenderIdsPage ? (
+            <SenderIdsContent page={page} />
+          ) : isMessageHistoryPage ? (
+            <MessageHistoryContent page={page} />
+          ) : isSmsCreditsPage ? (
+            <SmsCreditsContent page={page} />
+          ) : isSettingsPage ? (
+            <SettingsContent page={page} />
+          ) : isTroubleshootingPage ? (
+            <TroubleshootingContent page={page} />
+          ) : isSupportHelpPage ? (
+            <SupportHelpContent page={page} />
+          ) : isFaqPage ? (
+            <FAQContent page={page} />
           ) : (
             <FeaturePageContent page={page} />
           )}

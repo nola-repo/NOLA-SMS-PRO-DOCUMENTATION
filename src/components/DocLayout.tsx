@@ -4,8 +4,8 @@ import { Sidebar } from './Sidebar';
 import { DocSearch } from './DocSearch';
 import { type DocPage } from '../data/docsData';
 import {
-  Menu, Sun, Moon, Search, Globe, ChevronRight,
-  Check, Copy, ArrowUp, LifeBuoy
+  Menu, Sun, Moon, Search, ChevronRight,
+  ArrowUp, LifeBuoy
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -19,7 +19,6 @@ export const DocLayout: React.FC<DocLayoutProps> = ({ children, page }) => {
   const { theme, toggleTheme } = useTheme();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-  const [copiedText, setCopiedText] = useState(false);
   const [activeHeading, setActiveHeading] = useState('');
 
   // Global Ctrl+K and custom event listeners
@@ -91,11 +90,7 @@ export const DocLayout: React.FC<DocLayoutProps> = ({ children, page }) => {
     };
   }, [tocItems, page.id]);
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText('npm i nola-sms-pro');
-    setCopiedText(true);
-    setTimeout(() => setCopiedText(false), 2000);
-  };
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
