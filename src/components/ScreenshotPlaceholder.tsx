@@ -46,8 +46,8 @@ const ContactFormatMockup: React.FC = () => (
         <span className="font-mono text-xs text-red-700 dark:text-red-400 font-bold">0917-123-4567</span>
         <span className="text-[11px] font-semibold text-red-600 flex items-center gap-1"><XCircle className="h-3 w-3" /> Avoid hyphens/spaces</span>
       </div>
-      <div className="flex items-center justify-between rounded-lg border border-emerald-250 bg-emerald-50/30 p-2.5 dark:border-emerald-950/20 dark:bg-emerald-950/5">
-        <span className="font-mono text-xs text-emerald-800 dark:text-emerald-450 font-black">09171234567</span>
+      <div className="flex items-center justify-between rounded-lg border border-emerald-200 bg-emerald-50/30 p-2.5 dark:border-emerald-950/20 dark:bg-emerald-950/5">
+        <span className="font-mono text-xs text-emerald-800 dark:text-emerald-400 font-black">09171234567</span>
         <span className="text-[11px] font-bold text-emerald-600 flex items-center gap-1"><CheckCircle2 className="h-3 w-3" /> Valid local format (11-digits)</span>
       </div>
     </div>
@@ -74,12 +74,12 @@ const ContactsListMockup: React.FC = () => (
           <tr>
             <td className="py-1.5 font-bold">Maria Santos</td>
             <td className="py-1.5 font-mono">09171234567</td>
-            <td className="py-1.5"><span className="rounded bg-emerald-50 text-emerald-650 px-1.5 py-0.5 text-[9px] font-bold dark:bg-emerald-950/20">Synced ✅</span></td>
+            <td className="py-1.5"><span className="rounded bg-emerald-50 text-emerald-600 px-1.5 py-0.5 text-[9px] font-bold dark:bg-emerald-950/20">Synced ✅</span></td>
           </tr>
           <tr>
             <td className="py-1.5 font-bold">Juan Dela Cruz</td>
             <td className="py-1.5 font-mono">09187654321</td>
-            <td className="py-1.5"><span className="rounded bg-emerald-50 text-emerald-650 px-1.5 py-0.5 text-[9px] font-bold dark:bg-emerald-950/20">Synced ✅</span></td>
+            <td className="py-1.5"><span className="rounded bg-emerald-50 text-emerald-600 px-1.5 py-0.5 text-[9px] font-bold dark:bg-emerald-950/20">Synced ✅</span></td>
           </tr>
         </tbody>
       </table>
@@ -103,7 +103,7 @@ const TemplateInterpolationMockup: React.FC = () => (
       <div className="rounded-xl border border-emerald-200 bg-white p-3.5 dark:border-emerald-900/30 dark:bg-slate-900 w-full">
         <span className="text-[10px] font-black text-emerald-600 uppercase tracking-wider block mb-2">Dynamic Outgoing Result</span>
         <div className="rounded border border-[#E2E8F0] p-2.5 font-mono text-[11.5px] text-slate-800 dark:border-[#334155] dark:bg-[#020617] min-h-[72px] bg-slate-50/50">
-          Hello <span className="text-emerald-700 font-bold dark:text-emerald-450">Maria</span>, your appointment is set for <span className="text-emerald-700 font-bold dark:text-emerald-450">Tuesday at 3 PM</span>.
+          Hello <span className="text-emerald-700 font-bold dark:text-emerald-400">Maria</span>, your appointment is set for <span className="text-emerald-700 font-bold dark:text-emerald-400">Tuesday at 3 PM</span>.
         </div>
       </div>
     </div>
@@ -118,11 +118,11 @@ const TemplatesListMockup: React.FC = () => (
       <div className="h-5 w-24 rounded bg-slate-500 text-white text-[9px] flex items-center justify-center font-bold cursor-pointer">+ New Template</div>
     </div>
     <div className="grid gap-3 grid-cols-2">
-      <div className="rounded-lg border border-[#E2E8F0] p-3 dark:border-slate-850 bg-white dark:bg-slate-905">
+      <div className="rounded-lg border border-[#E2E8F0] p-3 dark:border-slate-800 bg-white dark:bg-slate-900">
         <h5 className="text-[12px] font-black text-[#0F172A] dark:text-white">Booking Confirm</h5>
         <p className="text-[10.5px] leading-relaxed text-[#64748B] dark:text-slate-400 mt-1 truncate">"Your appointment is set for Tuesday..."</p>
       </div>
-      <div className="rounded-lg border border-[#E2E8F0] p-3 dark:border-slate-850 bg-white dark:bg-slate-905">
+      <div className="rounded-lg border border-[#E2E8F0] p-3 dark:border-slate-800 bg-white dark:bg-slate-900">
         <h5 className="text-[12px] font-black text-[#0F172A] dark:text-white">Payment Reminder</h5>
         <p className="text-[10.5px] leading-relaxed text-[#64748B] dark:text-slate-400 mt-1 truncate">"A friendly reminder that your balance..."</p>
       </div>
@@ -134,10 +134,10 @@ const TemplatesListMockup: React.FC = () => (
 const SenderTrustMockup: React.FC = () => (
   <div className="grid h-full gap-4 p-4 sm:p-5 sm:grid-cols-2 justify-center items-center">
     <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-[#111827] flex flex-col items-center">
-      <span className="text-[10px] font-black text-rose-650 uppercase tracking-wider mb-3">Unbranded SMS Outbox</span>
-      <div className="w-[180px] rounded-3xl border-4 border-slate-350 p-2.5 dark:border-slate-700 bg-slate-50 dark:bg-[#020617]">
-        <div className="mb-2 text-center text-[10px] font-black text-slate-450">+63 917 987 6543</div>
-        <div className="rounded-2xl bg-white p-2.5 text-[11px] leading-relaxed text-[#475569] dark:bg-[#1E293B] dark:text-slate-350 shadow-sm">
+      <span className="text-[10px] font-black text-rose-600 uppercase tracking-wider mb-3">Unbranded SMS Outbox</span>
+      <div className="w-[180px] rounded-3xl border-4 border-slate-400 p-2.5 dark:border-slate-700 bg-slate-50 dark:bg-[#020617]">
+        <div className="mb-2 text-center text-[10px] font-black text-slate-400">+63 917 987 6543</div>
+        <div className="rounded-2xl bg-white p-2.5 text-[11px] leading-relaxed text-[#475569] dark:bg-[#1E293B] dark:text-slate-400 shadow-sm">
           Please confirm your checkout with NOLA SMS Pro.
         </div>
       </div>
@@ -166,17 +166,17 @@ const SenderIdListMockup: React.FC = () => (
       <span className="text-[10px] text-slate-400 font-bold">Standard Mask: NOLASMSPro</span>
     </div>
     <div className="space-y-2">
-      <div className="flex justify-between items-center rounded-lg border border-slate-100 p-2.5 bg-white dark:border-slate-800 dark:bg-slate-905">
+      <div className="flex justify-between items-center rounded-lg border border-slate-100 p-2.5 bg-white dark:border-slate-800 dark:bg-slate-900">
         <span className="text-xs font-black text-[#0F172A] dark:text-white">NOLASMSPro</span>
-        <span className="rounded bg-slate-50 text-slate-650 px-1.5 py-0.5 text-[9px] font-black dark:bg-[#1E293B] dark:text-[#CBD5E1]">System Default</span>
+        <span className="rounded bg-slate-50 text-slate-600 px-1.5 py-0.5 text-[9px] font-black dark:bg-[#1E293B] dark:text-[#CBD5E1]">System Default</span>
       </div>
-      <div className="flex justify-between items-center rounded-lg border border-slate-100 p-2.5 bg-white dark:border-slate-800 dark:bg-slate-905 shadow-sm shadow-[#334155]/3">
+      <div className="flex justify-between items-center rounded-lg border border-slate-100 p-2.5 bg-white dark:border-slate-800 dark:bg-slate-900 shadow-sm shadow-[#334155]/3">
         <span className="text-xs font-black text-[#0F172A] dark:text-white">STORENAME</span>
-        <span className="rounded bg-emerald-50 text-emerald-650 px-1.5 py-0.5 text-[9px] font-black dark:bg-emerald-950/20">Approved ✅</span>
+        <span className="rounded bg-emerald-50 text-emerald-600 px-1.5 py-0.5 text-[9px] font-black dark:bg-emerald-950/20">Approved ✅</span>
       </div>
-      <div className="flex justify-between items-center rounded-lg border border-slate-100 p-2.5 bg-white dark:border-slate-800 dark:bg-slate-905">
+      <div className="flex justify-between items-center rounded-lg border border-slate-100 p-2.5 bg-white dark:border-slate-800 dark:bg-slate-900">
         <span className="text-xs font-black text-[#0F172A] dark:text-white">MYAGENCY</span>
-        <span className="rounded bg-amber-50 text-amber-650 px-1.5 py-0.5 text-[9px] font-black dark:bg-amber-955/10">Pending 🕒</span>
+        <span className="rounded bg-amber-50 text-amber-600 px-1.5 py-0.5 text-[9px] font-black dark:bg-amber-950/10">Pending 🕒</span>
       </div>
     </div>
   </div>
@@ -201,7 +201,7 @@ const CreditDeductionMockup: React.FC = () => (
           <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[9px] font-black text-amber-800 dark:bg-amber-950/20">2 Credits</span>
         </div>
         <p className="text-xs font-mono text-amber-700 leading-relaxed mb-2 dark:text-amber-400">"Your booking #123 is confirmed! 🕒"</p>
-        <span className="text-[9.5px] text-amber-650 font-bold block">33 characters • 🕒 emoji shifts limit to Unicode</span>
+        <span className="text-[9.5px] text-amber-600 font-bold block">33 characters • 🕒 emoji shifts limit to Unicode</span>
       </div>
     </div>
   </div>
@@ -232,7 +232,7 @@ const MessageHistoryListMockup: React.FC = () => (
           <tr>
             <td className="py-1.5 font-mono">09187654321</td>
             <td className="py-1.5 font-bold">NOLASMSPro</td>
-            <td className="py-1.5"><span className="rounded bg-slate-550/10 text-slate-650 px-1.5 py-0.5 text-[9px] font-black dark:bg-[#1E293B] dark:text-[#CBD5E1]">Sending 🕒</span></td>
+            <td className="py-1.5"><span className="rounded bg-slate-500/10 text-slate-600 px-1.5 py-0.5 text-[9px] font-black dark:bg-[#1E293B] dark:text-[#CBD5E1]">Sending 🕒</span></td>
           </tr>
           <tr>
             <td className="py-1.5 font-mono">09223334444</td>

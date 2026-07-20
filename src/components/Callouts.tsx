@@ -10,50 +10,50 @@ interface CalloutProps {
 const base = 'my-6 flex gap-4 border rounded-2xl p-5 text-sm leading-relaxed transition-all shadow-sm';
 
 export const TipBox: React.FC<CalloutProps> = ({ children, title = 'Tip' }) => (
-  <div className={`${base} border-emerald-200 bg-emerald-50/20 text-emerald-800 dark:border-emerald-900/40 dark:bg-emerald-950/10 dark:text-emerald-250`}>
+  <div className={`${base} border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:text-emerald-200`}>
     <Lightbulb className="h-5 w-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
     <div className="min-w-0">
-      <span className="font-black block mb-1 text-emerald-700 dark:text-emerald-350 uppercase tracking-wider text-[11px]">{title}</span>
+      <span className="font-black block mb-1 text-emerald-700 dark:text-emerald-300 uppercase tracking-wider text-[11px]">{title}</span>
       <div className="font-medium">{children}</div>
     </div>
   </div>
 );
 
 export const InfoBox: React.FC<CalloutProps> = ({ children, title = 'Note' }) => (
-  <div className={`${base} border-slate-200 bg-[#F8FAFC]/80 text-[#0F172A] dark:border-slate-900/40 dark:bg-[#1E293B]/15 dark:text-slate-200`}>
-    <Info className="h-5 w-5 text-[#334155] dark:text-[#CBD5E1] flex-shrink-0 mt-0.5" />
+  <div className={`${base} border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-700/50 dark:bg-blue-950/40 dark:text-blue-200`}>
+    <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
     <div className="min-w-0">
-      <span className="font-black block mb-1 text-[#334155] dark:text-slate-300 uppercase tracking-wider text-[11px]">{title}</span>
+      <span className="font-black block mb-1 text-blue-700 dark:text-blue-300 uppercase tracking-wider text-[11px]">{title}</span>
       <div className="font-medium">{children}</div>
     </div>
   </div>
 );
 
 export const WarningBox: React.FC<CalloutProps> = ({ children, title = 'Warning' }) => (
-  <div className={`${base} border-amber-250 bg-amber-50/20 text-amber-800 dark:border-amber-900/35 dark:bg-amber-955/5 dark:text-amber-250`}>
+  <div className={`${base} border-amber-200 bg-amber-50 text-amber-900 dark:border-amber-700/50 dark:bg-amber-950/30 dark:text-amber-200`}>
     <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
     <div className="min-w-0">
-      <span className="font-black block mb-1 text-amber-700 dark:text-amber-350 uppercase tracking-wider text-[11px]">{title}</span>
+      <span className="font-black block mb-1 text-amber-700 dark:text-amber-300 uppercase tracking-wider text-[11px]">{title}</span>
       <div className="font-medium">{children}</div>
     </div>
   </div>
 );
 
 export const SuccessBox: React.FC<CalloutProps> = ({ children, title = 'Success' }) => (
-  <div className={`${base} border-emerald-200 bg-emerald-50/20 text-emerald-800 dark:border-emerald-900/40 dark:bg-emerald-950/10 dark:text-emerald-250`}>
-    <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-450 flex-shrink-0 mt-0.5" />
+  <div className={`${base} border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:text-emerald-200`}>
+    <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
     <div className="min-w-0">
-      <span className="font-black block mb-1 text-emerald-700 dark:text-emerald-350 uppercase tracking-wider text-[11px]">{title}</span>
+      <span className="font-black block mb-1 text-emerald-700 dark:text-emerald-300 uppercase tracking-wider text-[11px]">{title}</span>
       <div className="font-medium">{children}</div>
     </div>
   </div>
 );
 
 export const ErrorBox: React.FC<CalloutProps> = ({ children, title = 'Error' }) => (
-  <div className={`${base} border-red-200 bg-red-50/15 text-red-800 dark:border-red-950/25 dark:bg-red-950/5 dark:text-red-250`}>
+  <div className={`${base} border-red-200 bg-red-50 text-red-900 dark:border-red-800/50 dark:bg-red-950/30 dark:text-red-200`}>
     <XCircle className="h-5 w-5 text-red-500 dark:text-red-400 flex-shrink-0 mt-0.5" />
     <div className="min-w-0">
-      <span className="font-black block mb-1 text-red-700 dark:text-red-350 uppercase tracking-wider text-[11px]">{title}</span>
+      <span className="font-black block mb-1 text-red-700 dark:text-red-300 uppercase tracking-wider text-[11px]">{title}</span>
       <div className="font-medium">{children}</div>
     </div>
   </div>

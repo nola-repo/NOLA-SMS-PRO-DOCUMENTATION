@@ -82,7 +82,7 @@ export const sidebarStructure = [
     items: [
       { id: 'install-nola-sms-pro', title: 'Install NOLA SMS Pro' },
       { id: 'create-or-sign-in', title: 'Create or Sign In' },
-      { id: 'connect-highlevel', title: 'Connected Highlevel' },
+      { id: 'connect-highlevel', title: 'Connect HighLevel' },
       { id: 'dashboard-overview', title: 'Dashboard Overview' },
       { id: 'send-your-first-sms', title: 'Send Your First SMS' }
     ]
@@ -309,7 +309,7 @@ export const docsData: DocPage[] = [
   },
   {
     id: 'connect-highlevel',
-    title: 'Connected Highlevel',
+    title: 'Connect HighLevel',
     description: 'Verify the active integration status between your CRM and NOLA SMS Pro.',
     section: 'SETUP',
     readingTime: '2 min read',
@@ -364,7 +364,7 @@ export const docsData: DocPage[] = [
       id: 'send-your-first-sms'
     },
     relatedPages: [
-      { id: 'connect-highlevel', title: 'Connected Highlevel' },
+      { id: 'connect-highlevel', title: 'Connect HighLevel' },
       { id: 'send-your-first-sms', title: 'Send Your First SMS' }
     ]
   },

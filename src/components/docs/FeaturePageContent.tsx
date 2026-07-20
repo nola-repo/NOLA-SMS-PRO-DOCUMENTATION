@@ -70,7 +70,7 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
                     <ul className="space-y-1">
                       {step.details.map((d, i) => (
                         <li key={i} className="flex items-start gap-2 text-[13px] text-slate-500 dark:text-slate-400 font-medium">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300 dark:bg-slate-650" />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300 dark:bg-slate-600" />
                           {d}
                         </li>
                       ))}
@@ -95,7 +95,7 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
             <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-xl bg-[#F1F5F9] text-[12px] font-black text-[#334155] dark:bg-[#1E293B] dark:text-[#E2E8F0]">
               {index + 1}
             </span>
-            <p className="text-[13.5px] leading-6 text-[#475569] dark:text-slate-355 font-medium">{step}</p>
+            <p className="text-[13.5px] leading-6 text-[#475569] dark:text-slate-300 font-medium">{step}</p>
           </div>
         ))}
       </div>
@@ -433,17 +433,19 @@ export const FeaturePageContent: React.FC<FeaturePageContentProps> = ({ page }) 
                 </div>
               )}
               {page.notes && page.notes.length > 0 && (
-                <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50/40 px-5 py-4 dark:border-blue-800/40 dark:bg-blue-900/10">
+                <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 px-5 py-4 dark:border-blue-700/50 dark:bg-blue-950/40">
+                  <p className="text-[11px] font-black uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Note</p>
                   {page.notes.map((note, idx) => (
-                    <p key={idx} className="text-[13px] leading-6 text-blue-800 dark:text-blue-300 font-semibold">{note}</p>
+                    <p key={idx} className="text-[13px] leading-6 text-blue-800 dark:text-blue-200 font-semibold">{note}</p>
                   ))}
                 </div>
               )}
               {page.warnings && page.warnings.length > 0 && (
-                <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50/40 px-5 py-4 dark:border-amber-800/40 dark:bg-amber-900/10">
+                <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 dark:border-amber-700/50 dark:bg-amber-950/30">
+                  <p className="text-[11px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-2">Warning</p>
                   {page.warnings.map((warn, idx) => (
-                    <p key={idx} className="text-[13px] leading-6 text-amber-800 dark:text-amber-300 font-semibold">
-                      <strong>⚠ Warning:</strong> {warn}
+                    <p key={idx} className="text-[13px] leading-6 text-amber-800 dark:text-amber-200 font-semibold">
+                      {warn}
                     </p>
                   ))}
                 </div>

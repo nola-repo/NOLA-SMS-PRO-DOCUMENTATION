@@ -19,12 +19,12 @@ export const Pagination: React.FC<PaginationProps> = ({ currentId, isMergedSecti
     if (currentSectionIndex > 0) {
       const prevSection = sidebarStructure[currentSectionIndex - 1];
       const prevItem = prevSection.items[prevSection.items.length - 1];
-      prevLink = { id: prevItem.id, title: prevSection.title };
+      prevLink = { id: prevItem.id, title: prevItem.title };
     }
     if (currentSectionIndex < sidebarStructure.length - 1) {
       const nextSection = sidebarStructure[currentSectionIndex + 1];
       const nextItem = nextSection.items[0];
-      nextLink = { id: nextItem.id, title: nextSection.title };
+      nextLink = { id: nextItem.id, title: nextItem.title };
     }
   } else {
     const { prev, next } = getNextAndPrevPages(currentId);

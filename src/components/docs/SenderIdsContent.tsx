@@ -42,7 +42,7 @@ export const SenderIdsContent: React.FC<Props> = ({ page }) => {
           {statusLifecycle.map((item) => {
             const colorMap: Record<string, { bg: string; badge: string; text: string }> = {
               emerald: { bg: 'border-emerald-200 bg-[#E8F3FF]/10 dark:border-emerald-900/30 dark:bg-emerald-950/5', badge: 'bg-emerald-500', text: 'text-emerald-800 dark:text-emerald-300' },
-              amber: { bg: 'border-amber-200 bg-[#E8F3FF]/10 dark:border-amber-900/30 dark:bg-amber-955/5', badge: 'bg-amber-400', text: 'text-amber-805 dark:text-amber-300' },
+              amber: { bg: 'border-amber-200 bg-[#E8F3FF]/10 dark:border-amber-900/30 dark:bg-amber-950/5', badge: 'bg-amber-400', text: 'text-amber-800 dark:text-amber-300' },
               blue: { bg: 'border-blue-200 bg-[#E8F3FF]/10 dark:border-blue-900/30 dark:bg-blue-950/5', badge: 'bg-blue-500', text: 'text-blue-800 dark:text-blue-300' },
               rose: { bg: 'border-rose-200 bg-[#E8F3FF]/10 dark:border-rose-900/30 dark:bg-rose-950/5', badge: 'bg-rose-500', text: 'text-rose-800 dark:text-rose-300' },
             };
@@ -76,12 +76,12 @@ export const SenderIdsContent: React.FC<Props> = ({ page }) => {
       <section id="sender-ids-prerequisite">
         <div className="rounded-2xl border border-blue-200 dark:border-blue-900/40 border-l-4 border-l-blue-500 dark:border-l-blue-600 bg-gradient-to-br from-blue-50 to-sky-50/60 dark:from-[#060E1E] dark:to-[#0A1628] p-6 shadow-sm">
           <div className="flex items-start gap-3">
-            <div className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-655 dark:text-slate-400">
+            <div className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
               <ShieldCheck className="h-4 w-4" />
             </div>
             <div>
               <p className="text-[13.5px] font-black text-slate-900 dark:text-white">Registration documentation required</p>
-              <p className="text-[13.5px] leading-relaxed text-slate-750 dark:text-blue-200 mt-1">
+              <p className="text-[13.5px] leading-relaxed text-slate-700 dark:text-blue-200 mt-1">
                 Active business registration details and supporting documents (SEC/DTI, BIR Certificate, or trademark authorization papers) matching your requested brand name must be uploaded on submission.
               </p>
             </div>
@@ -95,12 +95,12 @@ export const SenderIdsContent: React.FC<Props> = ({ page }) => {
         <div className="space-y-4">
           {steps.map((step, idx) => (
             <div key={idx} className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800/80 dark:bg-[#111827] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-md group">
-              <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-slate-150 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-[11px] font-black border border-slate-300 dark:border-slate-700 mt-0.5">
+              <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-[11px] font-black border border-slate-300 dark:border-slate-700 mt-0.5">
                 {idx + 1}
               </div>
               <div>
                 <p className="text-[15px] font-black text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{step.title}</p>
-                <p className="mt-1 text-[13.5px] leading-relaxed text-slate-550 dark:text-slate-400">{step.desc}</p>
+                <p className="mt-1 text-[13.5px] leading-relaxed text-slate-500 dark:text-slate-400">{step.desc}</p>
               </div>
             </div>
           ))}
@@ -115,7 +115,7 @@ export const SenderIdsContent: React.FC<Props> = ({ page }) => {
             <thead>
               <tr className="bg-slate-50 dark:bg-[#111827] border-b border-slate-200 dark:border-slate-800">
                 {['Rule', 'Value', 'Note'].map((h) => (
-                  <th key={h} className="px-5 py-3.5 text-[11px] font-black text-slate-655 dark:text-slate-305 uppercase tracking-wider">{h}</th>
+                  <th key={h} className="px-5 py-3.5 text-[11px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-wider">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -142,7 +142,7 @@ export const SenderIdsContent: React.FC<Props> = ({ page }) => {
       <section id="sender-ids-outcome">
         <div className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/40 px-5 py-4 dark:border-emerald-800/40 dark:bg-emerald-900/10">
           <CheckCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
-          <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-450 font-medium">
+          <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-400 font-medium">
             Once approved, your custom Sender ID becomes available as a selectable identity when composing outbound SMS messages.
           </p>
         </div>

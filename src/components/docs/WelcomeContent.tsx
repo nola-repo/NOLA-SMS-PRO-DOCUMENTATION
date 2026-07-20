@@ -330,7 +330,7 @@ export const WelcomeContent: React.FC = () => {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100/50 dark:border-slate-800 text-slate-600 dark:text-slate-400 transition-colors group-hover:bg-slate-950 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-slate-950">
                     {item.icon}
                   </div>
-                  <span className="text-[11px] font-black text-slate-350 dark:text-slate-600">
+                  <span className="text-[11px] font-black text-slate-400 dark:text-slate-600">
                     0{index + 1}
                   </span>
                 </div>

@@ -11,7 +11,7 @@ export const IntegrationFlow: React.FC = () => (
       <div className="rounded-xl border border-[#CBD5E1] bg-white px-4 py-3 dark:border-[#334155] dark:bg-[#020617] text-xs font-bold text-[#0F172A] dark:text-white shadow-sm flex flex-col items-center gap-1.5 min-w-[125px]">
         <Smartphone className="h-4 w-4 text-[#334155] dark:text-[#CBD5E1]" />
         <span>HighLevel CRM</span>
-        <span className="text-[10px] text-slate-450 dark:text-slate-500 font-medium">Sub-Account</span>
+        <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Sub-Account</span>
       </div>
       <ArrowRightLeft className="h-4 w-4 text-[#94A3B8]" />
       <div className="rounded-xl border border-slate-400 bg-slate-50/50 px-5 py-4 dark:border-slate-900/40 dark:bg-slate-950/20 text-sm font-black text-[#334155] dark:text-[#CBD5E1] shadow-md shadow-slate-500/5 flex flex-col items-center gap-2 min-w-[170px]">
@@ -23,12 +23,12 @@ export const IntegrationFlow: React.FC = () => (
       </div>
       <ArrowRightLeft className="h-4 w-4 text-[#94A3B8]" />
       <div className="rounded-xl border border-emerald-300 bg-white px-4 py-3 dark:border-emerald-900/35 dark:bg-[#020617] text-xs font-bold text-[#0F172A] dark:text-white shadow-sm flex flex-col items-center gap-1.5 min-w-[125px]">
-        <Terminal className="h-4 w-4 text-emerald-600 dark:text-emerald-455" />
+        <Terminal className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
         <span>Carriers (SMS)</span>
-        <span className="text-[10px] text-slate-450 dark:text-slate-500 font-medium">Carrier Gateway</span>
+        <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Carrier Gateway</span>
       </div>
     </div>
-    <p className="text-[12px] text-[#64748B] dark:text-slate-450 max-w-md leading-relaxed mt-2">
+    <p className="text-[12px] text-[#64748B] dark:text-slate-400 max-w-md leading-relaxed mt-2">
       Direct connection maps your CRM contacts, registers custom Sender IDs, and debits credits, synchronizing outbound message status logs inside your sub-account.
     </p>
   </div>
@@ -92,7 +92,7 @@ export const TargetPersonas: React.FC = () => (
     ].map((item) => (
       <div key={item.role} className="rounded-xl border border-[#E2E8F0] bg-white p-4 dark:border-[#1E293B] dark:bg-[#111827] shadow-sm shadow-[#0F172A]/2">
         <h4 className="text-[13px] font-black text-[#0F172A] dark:text-white mb-1">{item.role}</h4>
-        <p className="text-[12px] leading-5 text-[#64748B] dark:text-slate-450">{item.desc}</p>
+        <p className="text-[12px] leading-5 text-[#64748B] dark:text-slate-400">{item.desc}</p>
       </div>
     ))}
   </div>

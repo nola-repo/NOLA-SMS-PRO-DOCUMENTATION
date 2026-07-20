@@ -304,7 +304,9 @@ export const DocLayout: React.FC<DocLayoutProps> = ({ children, page }) => {
       ? 'Intro'
       : page.section === 'SETUP'
         ? 'Getting started'
-        : page.section.charAt(0) + page.section.slice(1).toLowerCase();
+        : page.section === 'WORKFLOW'
+          ? 'Workflow'
+          : page.section.charAt(0) + page.section.slice(1).toLowerCase();
   return (
     <div className="h-screen overflow-hidden bg-[#F8FAFC] text-[#0F172A] transition-colors duration-200 dark:bg-[#020617] dark:text-slate-100 flex flex-col">
 
@@ -361,6 +363,15 @@ export const DocLayout: React.FC<DocLayoutProps> = ({ children, page }) => {
               <Menu className="h-4 w-4" />
             </button>
 
+            {/* Mobile search icon — visible below md breakpoint */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 transition-colors hover:text-slate-900 dark:border-slate-800 dark:bg-[#020617] dark:text-slate-400 dark:hover:text-slate-100 md:hidden"
+              aria-label="Search documentation"
+            >
+              <Search className="h-4 w-4" />
+            </button>
+
             <nav className="flex min-w-0 items-center gap-1.5 overflow-hidden rounded-full border border-slate-200 bg-white px-2.5 py-1.5 font-semibold text-slate-500 dark:border-slate-800 dark:bg-[#111827] dark:text-slate-400">
               <span className="hidden sm:inline">Docs</span>
               <ChevronRight className="hidden h-3 w-3 flex-shrink-0 text-slate-300 dark:text-slate-600 sm:block" />
@@ -381,13 +392,13 @@ export const DocLayout: React.FC<DocLayoutProps> = ({ children, page }) => {
           </div>
 
           <div className="flex flex-shrink-0 items-center gap-2">
-            <a
-              href="#/docs/support-help"
-              className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-bold text-slate-600 transition-colors hover:text-slate-955 dark:border-slate-800 dark:bg-[#111827] dark:text-slate-300 dark:hover:text-white"
+            <Link
+              to="/docs/support-help"
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-bold text-slate-600 transition-colors hover:text-slate-900 dark:border-slate-800 dark:bg-[#111827] dark:text-slate-300 dark:hover:text-white"
             >
               <LifeBuoy className="h-3.5 w-3.5" />
               <span>Support</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

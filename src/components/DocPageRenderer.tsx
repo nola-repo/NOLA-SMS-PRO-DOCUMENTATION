@@ -142,7 +142,7 @@ const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
         {/* Soft background glow decoration */}
         <div className="absolute top-[-50%] right-[-10%] h-[300px] w-[300px] rounded-full bg-blue-500/10 blur-[80px] dark:bg-blue-500/10" />
         <div className="absolute bottom-[-50%] left-[-10%] h-[300px] w-[300px] rounded-full bg-emerald-500/5 blur-[80px] dark:bg-emerald-500/5" />
-        
+
         <div className="relative z-10 flex h-full flex-col justify-center px-8 py-8 sm:px-10 sm:py-10">
           {renderOverviewBadges({
             primary: badge1,
@@ -175,10 +175,10 @@ const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
         >
           {/* Desktop theme-adaptive overlay: rich deep blue in light mode */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#bae6fd] via-[#93c5fd]/95 to-transparent dark:from-[#0a1223] dark:via-[#0a1223]/95 dark:to-transparent" />
-          
+
           {/* Mobile theme-adaptive overlay: rich deep blue in light mode */}
           <div className="pointer-events-none absolute inset-0 lg:hidden bg-gradient-to-b from-[#bae6fd]/30 to-[#93c5fd]/90 dark:from-transparent dark:to-[#0a1223]/95" />
-          
+
           <div className="relative z-10 flex h-full flex-col justify-center px-8 py-10 sm:px-10 sm:py-12 lg:max-w-[55%] lg:py-16 xl:max-w-[50%]">
             {renderOverviewBadges({
               primary: 'Overview',
@@ -260,105 +260,105 @@ const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
     headline: string; headlineAccent?: string; subtext: string;
   }> = {
     'install-nola-sms-pro': {
-      badge1: 'Setup Guide',      badge1Icon: <Store className="h-3 w-3" />,
-      badge2: 'GHL Marketplace',  badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Install',        headlineAccent: 'NOLA SMS Pro',
+      badge1: 'Setup Guide', badge1Icon: <Store className="h-3 w-3" />,
+      badge2: 'GHL Marketplace', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Install', headlineAccent: 'NOLA SMS Pro',
       subtext: 'Add NOLA SMS Pro from the HighLevel Marketplace, authorize your sub-account, and get your SMS workspace running in minutes.',
     },
     'create-or-sign-in': {
-      badge1: 'Account Access',   badge1Icon: <UserPlus className="h-3 w-3" />,
-      badge2: 'Owner Profile',    badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Create Account or',  headlineAccent: 'Sign In',
+      badge1: 'Account Access', badge1Icon: <UserPlus className="h-3 w-3" />,
+      badge2: 'Owner Profile', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Create Account or', headlineAccent: 'Sign In',
       subtext: 'Register a new owner admin profile or authenticate with your existing credentials to unlock billing, credit settings, and dashboard access.',
     },
     'connect-highlevel': {
-      badge1: 'Integration',      badge1Icon: <ArrowRightLeft className="h-3 w-3" />,
-      badge2: 'Live API Sync',    badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Connect to',     headlineAccent: 'HighLevel',
+      badge1: 'Integration', badge1Icon: <ArrowRightLeft className="h-3 w-3" />,
+      badge2: 'Live API Sync', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Connect to', headlineAccent: 'HighLevel',
       subtext: 'Authorize your GoHighLevel sub-account through the Marketplace OAuth handshake to sync contacts, templates, and conversation logs in real-time.',
     },
     'dashboard-overview': {
-      badge1: 'Control Room',     badge1Icon: <LayoutDashboard className="h-3 w-3" />,
-      badge2: '5 Panel Zones',    badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Dashboard',      headlineAccent: 'Overview',
+      badge1: 'Control Room', badge1Icon: <LayoutDashboard className="h-3 w-3" />,
+      badge2: '5 Panel Zones', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Dashboard', headlineAccent: 'Overview',
       subtext: 'Explore every panel of your SMS command center — contacts, compose, templates, history, and account settings — all in a single embedded workspace.',
     },
     'send-your-first-sms': {
-      badge1: 'Getting Started',  badge1Icon: <Send className="h-3 w-3" />,
-      badge2: 'Test Flight',      badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Send Your',      headlineAccent: 'First SMS',
+      badge1: 'Getting Started', badge1Icon: <Send className="h-3 w-3" />,
+      badge2: 'Test Flight', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Send Your', headlineAccent: 'First SMS',
       subtext: 'Complete a live test dispatch to verify credit debiting, carrier routing, and HighLevel sync — so you are confident before running any real campaigns.',
     },
     contacts: {
-      badge1: 'Messaging',        badge1Icon: <Users className="h-3 w-3" />,
-      badge2: 'GHL Synced',       badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Contacts',       headlineAccent: 'Directory',
+      badge1: 'Messaging', badge1Icon: <Users className="h-3 w-3" />,
+      badge2: 'GHL Synced', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Contacts', headlineAccent: 'Directory',
       subtext: 'Browse, search, and select HighLevel contacts synced in real-time. Instantly launch a message from any contact record without switching tabs.',
     },
     'compose-sms': {
-      badge1: 'Messaging',        badge1Icon: <MessageSquare className="h-3 w-3" />,
-      badge2: 'Live Credit Meter',badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Compose',        headlineAccent: 'SMS',
+      badge1: 'Messaging', badge1Icon: <MessageSquare className="h-3 w-3" />,
+      badge2: 'Live Credit Meter', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Compose', headlineAccent: 'SMS',
       subtext: 'Draft, preview, and dispatch outbound SMS with a live character counter and credit cost estimate — before you ever tap send.',
     },
     'message-templates': {
-      badge1: 'Messaging',        badge1Icon: <FileText className="h-3 w-3" />,
-      badge2: 'Reusable Copy',    badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Message',        headlineAccent: 'Templates',
+      badge1: 'Messaging', badge1Icon: <FileText className="h-3 w-3" />,
+      badge2: 'Reusable Copy', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Message', headlineAccent: 'Templates',
       subtext: 'Store and organize approved message copy in reusable template folders — load them instantly inside the Compose panel for fast, consistent outreach.',
     },
     'sender-ids': {
-      badge1: 'Messaging',        badge1Icon: <ShieldCheck className="h-3 w-3" />,
-      badge2: 'PH Carrier Reg.',  badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Sender',         headlineAccent: 'IDs',
+      badge1: 'Messaging', badge1Icon: <ShieldCheck className="h-3 w-3" />,
+      badge2: 'PH Carrier Reg.', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Sender', headlineAccent: 'IDs',
       subtext: 'Register a branded alphanumeric sender identity with Philippine telco carriers so your messages arrive as a trusted business name instead of a random number.',
     },
     'message-history': {
-      badge1: 'Messaging',        badge1Icon: <History className="h-3 w-3" />,
+      badge1: 'Messaging', badge1Icon: <History className="h-3 w-3" />,
       badge2: 'Live Status Sync', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Message',        headlineAccent: 'History',
+      headline: 'Message', headlineAccent: 'History',
       subtext: 'Review your full outbound message log with carrier delivery statuses, credit costs, and error codes — all updated automatically in the background.',
     },
     automation: {
-      badge1: 'Workflow',         badge1Icon: <Send className="h-3 w-3" />,
-      badge2: 'GHL Actions',      badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Workflow',       headlineAccent: 'Automation',
+      badge1: 'Workflow', badge1Icon: <Send className="h-3 w-3" />,
+      badge2: 'GHL Actions', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Workflow', headlineAccent: 'Automation',
       subtext: 'Trigger outbound SMS automatically when contacts enter a GoHighLevel workflow step — no manual typing, instant response times for every campaign event.',
     },
     'ghl-conversation': {
-      badge1: 'Workflow',         badge1Icon: <MessageSquare className="h-3 w-3" />,
-      badge2: 'Native Sync',      badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'GHL',            headlineAccent: 'Conversation',
+      badge1: 'Workflow', badge1Icon: <MessageSquare className="h-3 w-3" />,
+      badge2: 'Native Sync', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'GHL', headlineAccent: 'Conversation',
       subtext: 'Every SMS sent through NOLA SMS Pro is pushed back to the native GoHighLevel Conversations tab so your team sees one unified client timeline.',
     },
     'sms-credits': {
-      badge1: 'Account',          badge1Icon: <CreditCard className="h-3 w-3" />,
-      badge2: 'Billing Wallet',   badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'SMS',            headlineAccent: 'Credits',
+      badge1: 'Account', badge1Icon: <CreditCard className="h-3 w-3" />,
+      badge2: 'Billing Wallet', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'SMS', headlineAccent: 'Credits',
       subtext: 'Monitor your credit balance, review ledger history, and top up your wallet with a credit package so campaigns never stop mid-send.',
     },
     settings: {
-      badge1: 'Account',          badge1Icon: <Settings className="h-3 w-3" />,
-      badge2: 'Admin Config',     badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Account',        headlineAccent: 'Settings',
+      badge1: 'Account', badge1Icon: <Settings className="h-3 w-3" />,
+      badge2: 'Admin Config', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Account', headlineAccent: 'Settings',
       subtext: 'Update your admin profile, verify your connected HighLevel location tokens, and configure credit alert thresholds to keep your workspace secure.',
     },
     troubleshooting: {
-      badge1: 'Support',          badge1Icon: <Wrench className="h-3 w-3" />,
-      badge2: 'Quick Fixes',      badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Trouble-',       headlineAccent: 'shooting',
+      badge1: 'Support', badge1Icon: <Wrench className="h-3 w-3" />,
+      badge2: 'Quick Fixes', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Trouble', headlineAccent: 'shooting',
       subtext: 'Diagnose and resolve the most common setup, billing, and message delivery issues — step-by-step resolution paths for every known error state.',
     },
     'support-help': {
-      badge1: 'Support',          badge1Icon: <HelpCircle className="h-3 w-3" />,
-      badge2: 'Ticket Queue',     badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Support',        headlineAccent: '& Help',
+      badge1: 'Support', badge1Icon: <HelpCircle className="h-3 w-3" />,
+      badge2: 'Ticket Queue', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Support', headlineAccent: '& Help',
       subtext: 'Submit a support ticket directly to the engineering team and track its resolution status — for billing, Sender ID, delivery, or integration issues.',
     },
     faq: {
-      badge1: 'Support',          badge1Icon: <HelpCircle className="h-3 w-3" />,
-      badge2: 'Self-Service',     badge2Icon: <CheckCircle2 className="h-3 w-3" />,
-      headline: 'Frequently Asked',   headlineAccent: 'Questions',
+      badge1: 'Support', badge1Icon: <HelpCircle className="h-3 w-3" />,
+      badge2: 'Self-Service', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Frequently Asked', headlineAccent: 'Questions',
       subtext: 'Quick reference answers to the most common questions about character billing, Sender ID timelines, reply limits, and multi-location setups.',
     },
   };
@@ -414,7 +414,7 @@ export const DocPageRenderer: React.FC<Props> = ({ page }) => {
   return (
     <div className="mx-auto w-full max-w-[980px] pb-16" aria-label={`Documentation guide focused on ${page.title}`}>
       <StickyPageHeader page={headerPage} />
-      
+
       <div className="pt-6">
         {isWelcome ? (
           <WelcomeContent />

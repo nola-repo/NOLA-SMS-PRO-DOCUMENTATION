@@ -80,7 +80,7 @@ export const SupportHelpContent: React.FC<Props> = ({ page }) => {
         <div className="grid gap-3 sm:grid-cols-2">
           {ticketCategories.map((cat, idx) => (
             <div key={idx} className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-[#111827] flex gap-3 shadow-sm">
-              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-850 text-slate-600 dark:text-slate-400">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                 {cat.icon}
               </div>
               <div>

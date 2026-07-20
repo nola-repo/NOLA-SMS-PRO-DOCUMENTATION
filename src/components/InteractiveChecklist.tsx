@@ -142,7 +142,7 @@ export const InteractiveChecklist: React.FC = () => {
         <div className="mt-6 flex items-start gap-3 rounded-lg border border-emerald-200 bg-emerald-50/60 p-4 text-slate-800 transition-all duration-200 dark:border-emerald-900/35 dark:bg-emerald-950/20 dark:text-slate-200">
           <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
           <div>
-            <h4 className="font-bold text-sm text-emerald-900 dark:text-emerald-350 uppercase tracking-wider mb-0.5">Checklist Complete</h4>
+            <h4 className="font-bold text-sm text-emerald-900 dark:text-emerald-300 uppercase tracking-wider mb-0.5">Checklist Complete</h4>
             <p className="text-xs text-emerald-700 dark:text-slate-300 leading-relaxed">Your first send is ready. After sending, keep Message History open until the status is clear.</p>
           </div>
         </div>

@@ -66,7 +66,7 @@ export const ContactsContent: React.FC<Props> = ({ page }) => {
             { icon: <RefreshCw className="h-4 w-4" />, label: 'Active Integration', detail: 'Active HighLevel sub-account with API Connected status in Settings.' },
           ].map((item) => (
             <div key={item.label} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900/30">
-              <div className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100/50 dark:border-slate-800 text-slate-600 dark:text-slate-450">
+              <div className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100/50 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                 {item.icon}
               </div>
               <div>
@@ -92,7 +92,7 @@ export const ContactsContent: React.FC<Props> = ({ page }) => {
             <div className="p-5 space-y-4">
               {lookupSteps.map((step) => (
                 <div key={step.n} className="flex gap-3">
-                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-150 text-slate-700 dark:bg-slate-850 dark:text-slate-300 text-[10px] font-black mt-0.5">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 text-[10px] font-black mt-0.5">
                     {step.n}
                   </span>
                   <div>
@@ -113,7 +113,7 @@ export const ContactsContent: React.FC<Props> = ({ page }) => {
             <div className="p-5 space-y-4">
               {addSteps.map((step) => (
                 <div key={step.n} className="flex gap-3">
-                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-150 text-slate-700 dark:bg-slate-850 dark:text-slate-300 text-[10px] font-black mt-0.5">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 text-[10px] font-black mt-0.5">
                     {step.n}
                   </span>
                   <div>
@@ -153,15 +153,15 @@ export const ContactsContent: React.FC<Props> = ({ page }) => {
 
         <div className="rounded-2xl border border-blue-200 dark:border-blue-900/40 border-l-4 border-l-blue-500 dark:border-l-blue-600 bg-gradient-to-br from-blue-50 to-sky-50/60 dark:from-[#060E1E] dark:to-[#0A1628] p-6 shadow-sm space-y-3 mt-4">
           <div className="flex items-start gap-2.5">
-            <Lightbulb className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-650 dark:text-blue-400" />
-            <p className="text-[13.5px] leading-relaxed text-slate-750 dark:text-blue-205">
+            <Lightbulb className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-400" />
+            <p className="text-[13.5px] leading-relaxed text-slate-700 dark:text-blue-205">
               Contacts sync automatically using the active location ID. Modify a contact in GoHighLevel and the update will reflect in NOLA SMS Pro within seconds.
             </p>
           </div>
           <div className="flex items-start gap-2.5">
             <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-500" />
-            <p className="text-[13.5px] leading-relaxed text-slate-750 dark:text-blue-205">
-              Ensure GHL Marketplace scopes include <code className="text-[12px] bg-slate-150 dark:bg-slate-800 px-1.5 py-0.5 rounded font-mono text-slate-800 dark:text-slate-200">contacts.readonly</code> for real-time contact retrieval.
+            <p className="text-[13.5px] leading-relaxed text-slate-700 dark:text-blue-205">
+              Ensure GHL Marketplace scopes include <code className="text-[12px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded font-mono text-slate-800 dark:text-slate-200">contacts.readonly</code> for real-time contact retrieval.
             </p>
           </div>
         </div>
@@ -171,7 +171,7 @@ export const ContactsContent: React.FC<Props> = ({ page }) => {
       <section id="contacts-outcome">
         <div className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/40 px-5 py-4 dark:border-emerald-800/40 dark:bg-emerald-900/10">
           <CheckCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
-          <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-450 font-medium">
+          <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-400 font-medium">
             Synchronized contacts are immediately available for searching, viewing, and selecting when composing new SMS messages.
           </p>
         </div>

@@ -62,7 +62,7 @@ export const ComposeSmsContent: React.FC<Props> = ({ page }) => {
             { icon: <ShieldCheck className="h-4 w-4" />, label: 'Sender Identity', detail: 'Active NOLASMSPro or approved custom Sender ID.' },
           ].map((item) => (
             <div key={item.label} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900/30">
-              <div className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100/50 dark:border-slate-800 text-slate-655 dark:text-slate-400">
+              <div className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100/50 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                 {item.icon}
               </div>
               <div>
@@ -80,12 +80,12 @@ export const ComposeSmsContent: React.FC<Props> = ({ page }) => {
         <div className="space-y-4">
           {steps.map((step, idx) => (
             <div key={idx} className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800/80 dark:bg-[#111827] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-md group">
-              <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-slate-150 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-[11px] font-black border border-slate-300 dark:border-slate-700 mt-0.5">
+              <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-[11px] font-black border border-slate-300 dark:border-slate-700 mt-0.5">
                 {idx + 1}
               </div>
               <div>
                 <p className="text-[15px] font-black text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{step.title}</p>
-                <p className="mt-1 text-[13.5px] leading-relaxed text-slate-550 dark:text-slate-400">{step.desc}</p>
+                <p className="mt-1 text-[13.5px] leading-relaxed text-slate-500 dark:text-slate-400">{step.desc}</p>
               </div>
             </div>
           ))}
@@ -100,7 +100,7 @@ export const ComposeSmsContent: React.FC<Props> = ({ page }) => {
             <thead>
               <tr className="bg-slate-50 dark:bg-[#111827] border-b border-slate-200 dark:border-slate-800">
                 {['Encoding', 'Char Limit', 'Credits', 'When it applies'].map((h) => (
-                  <th key={h} className="px-5 py-3.5 text-[11px] font-black text-slate-655 dark:text-slate-300 uppercase tracking-wider">{h}</th>
+                  <th key={h} className="px-5 py-3.5 text-[11px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-wider">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -120,10 +120,10 @@ export const ComposeSmsContent: React.FC<Props> = ({ page }) => {
 
       {/* DELIVERY WARNING */}
       <section id="compose-warning">
-        <div className="flex items-start gap-3.5 rounded-xl border border-amber-200 bg-amber-50/40 px-5 py-4 dark:border-amber-900/40 dark:bg-amber-955/10">
+        <div className="flex items-start gap-3.5 rounded-xl border border-amber-200 bg-amber-50/40 px-5 py-4 dark:border-amber-900/40 dark:bg-amber-950/10">
           <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600 dark:text-amber-400" />
           <div>
-            <p className="text-[13.5px] font-black text-amber-808 dark:text-amber-305 uppercase tracking-wide mb-1">Verify handset delivery</p>
+            <p className="text-[13.5px] font-black text-amber-808 dark:text-amber-300 uppercase tracking-wide mb-1">Verify handset delivery</p>
             <p className="text-[13px] leading-relaxed text-amber-700 dark:text-amber-400 font-medium">
               Alphanumeric Sender IDs support one-way outbound messaging only. Recipients cannot reply. If a message status remains pending, do not click Send again — review your credit balance and check Message History first.
             </p>
@@ -135,7 +135,7 @@ export const ComposeSmsContent: React.FC<Props> = ({ page }) => {
       <section id="compose-outcome">
         <div className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/40 px-5 py-4 dark:border-emerald-800/40 dark:bg-emerald-900/10">
           <CheckCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
-          <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-450 font-medium">
+          <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-400 font-medium">
             Outbound messages are successfully queued for delivery, SMS credits are deducted accordingly, and status logs can be monitored from Message History.
           </p>
         </div>

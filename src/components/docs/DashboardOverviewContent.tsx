@@ -47,7 +47,7 @@ export const DashboardOverviewContent: React.FC<Props> = ({ page }) => {
             <CheckCircle2 className="h-4 w-4" />
           </div>
           <div>
-            <p className="text-[13.5px] font-semibold leading-relaxed text-slate-850 dark:text-slate-250 mt-1">
+            <p className="text-[13.5px] font-semibold leading-relaxed text-slate-800 dark:text-slate-200 mt-1">
               Successfully completed the Marketplace installation and connected your GoHighLevel account.
             </p>
           </div>
@@ -61,7 +61,7 @@ export const DashboardOverviewContent: React.FC<Props> = ({ page }) => {
           {/* Card 1: 10 Free Trial Credits */}
           <div className="premium-card flex flex-col justify-between h-full">
             <div>
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-850 text-slate-600 dark:text-slate-400">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                 <Gift className="h-5 w-5 text-amber-500" />
               </div>
               <h3 className="text-[15px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2">
@@ -76,7 +76,7 @@ export const DashboardOverviewContent: React.FC<Props> = ({ page }) => {
           {/* Card 2: Active SMS Credit Balance */}
           <div className="premium-card flex flex-col justify-between h-full">
             <div>
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-855 text-slate-600 dark:text-slate-400">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                 <CreditCard className="h-5 w-5 text-blue-500" />
               </div>
               <h3 className="text-[15px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2">
@@ -91,7 +91,7 @@ export const DashboardOverviewContent: React.FC<Props> = ({ page }) => {
           {/* Card 3: Real-time GHL Sync */}
           <div className="premium-card flex flex-col justify-between h-full">
             <div>
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-850 text-slate-600 dark:text-slate-400">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                 <RefreshCw className="h-5 w-5 text-emerald-500" />
               </div>
               <h3 className="text-[15px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2">
@@ -106,7 +106,7 @@ export const DashboardOverviewContent: React.FC<Props> = ({ page }) => {
           {/* Card 4: Segment Length Constraints */}
           <div className="premium-card flex flex-col justify-between h-full sm:col-span-1">
             <div>
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-850 text-slate-600 dark:text-slate-400">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                 <FileText className="h-5 w-5 text-purple-500" />
               </div>
               <h3 className="text-[15px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2">
@@ -121,7 +121,7 @@ export const DashboardOverviewContent: React.FC<Props> = ({ page }) => {
           {/* Card 5: Sending Identity */}
           <div className="premium-card flex flex-col justify-between h-full sm:col-span-2">
             <div>
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-850 text-slate-600 dark:text-slate-400">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                 <ShieldCheck className="h-5 w-5 text-teal-500" />
               </div>
               <h3 className="text-[15px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2">
@@ -217,7 +217,7 @@ export const DashboardOverviewContent: React.FC<Props> = ({ page }) => {
                     <Icon className={`h-5 w-5 ${menu.color}`} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-450 dark:text-slate-500">
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400 dark:text-slate-500">
                       Sidebar Panel
                     </span>
                     <h4 className="text-[16px] font-black text-slate-900 dark:text-white leading-tight mt-0.5">
@@ -244,8 +244,8 @@ export const DashboardOverviewContent: React.FC<Props> = ({ page }) => {
         <div className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/40 px-5 py-4 dark:border-emerald-800/40 dark:bg-emerald-900/10">
           <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
           <div>
-            <p className="text-[13.5px] font-black text-emerald-800 dark:text-emerald-305 uppercase tracking-wide mb-0.5">Expected Outcome</p>
-            <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-450 font-medium">
+            <p className="text-[13.5px] font-black text-emerald-800 dark:text-emerald-300 uppercase tracking-wide mb-0.5">Expected Outcome</p>
+            <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-400 font-medium">
               With a clear understanding of the dashboard highlights and menu functionalities, you can confidently manage contacts, templates, SMS credits, and outbound messaging from the NOLA SMS Pro workspace.
             </p>
           </div>

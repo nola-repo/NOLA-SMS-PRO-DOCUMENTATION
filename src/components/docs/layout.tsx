@@ -112,7 +112,7 @@ export const FeatureCard: React.FC<{
       <h3 className="text-[15px] font-black text-[#0F172A] group-hover:text-[#334155] dark:text-white dark:group-hover:text-[#CBD5E1]">
         {title}
       </h3>
-      <p className="mt-2 flex-1 text-[13px] leading-5 text-[#475569] dark:text-slate-350">
+      <p className="mt-2 flex-1 text-[13px] leading-5 text-[#475569] dark:text-slate-400">
         {description}
       </p>
       {onClick && (
@@ -136,7 +136,7 @@ export const ComparisonTable: React.FC<{
     {title && <h3 className="mb-4 text-[14px] font-black text-[#0F172A] dark:text-white uppercase tracking-wider">{title}</h3>}
     <div className="grid gap-4 lg:grid-cols-2">
       <div className="rounded-2xl border border-rose-100 bg-rose-50/20 p-5 dark:border-rose-950/20 dark:bg-rose-950/5">
-        <h4 className="mb-3 text-[13px] font-black text-rose-700 dark:text-rose-455 uppercase tracking-wider flex items-center gap-2">
+        <h4 className="mb-3 text-[13px] font-black text-rose-700 dark:text-rose-400 uppercase tracking-wider flex items-center gap-2">
           <X className="h-4 w-4" /> {traditionalTitle}
         </h4>
         <ul className="space-y-2.5">
@@ -148,8 +148,8 @@ export const ComparisonTable: React.FC<{
           ))}
         </ul>
       </div>
-      <div className="rounded-2xl border border-emerald-150 bg-emerald-50/20 p-5 dark:border-emerald-950/25 dark:bg-emerald-950/5 shadow-sm shadow-[#334155]/3">
-        <h4 className="mb-3 text-[13px] font-black text-emerald-700 dark:text-emerald-450 uppercase tracking-wider flex items-center gap-2">
+      <div className="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-5 dark:border-emerald-950/25 dark:bg-emerald-950/5 shadow-sm shadow-[#334155]/3">
+        <h4 className="mb-3 text-[13px] font-black text-emerald-700 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-2">
           <Check className="h-4 w-4" /> {nolaTitle}
         </h4>
         <ul className="space-y-2.5">
@@ -195,14 +195,14 @@ export const BeforeAfterComparison: React.FC<{
   afterDesc: string;
 }> = ({ beforeTitle, beforeDesc, afterTitle, afterDesc }) => (
   <div className="grid gap-6 md:grid-cols-2 my-6">
-    <div className="rounded-2xl border border-rose-100 bg-rose-50/10 p-5 dark:border-rose-955/20 dark:bg-rose-950/5">
+    <div className="rounded-2xl border border-rose-100 bg-rose-50/10 p-5 dark:border-rose-950/20 dark:bg-rose-950/5">
       <h4 className="text-[13px] font-black text-rose-700 dark:text-rose-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
         <X className="h-4 w-4" /> {beforeTitle}
       </h4>
       <p className="text-[13px] leading-relaxed text-[#64748B] dark:text-slate-400">{beforeDesc}</p>
     </div>
-    <div className="rounded-2xl border border-emerald-250 bg-emerald-50/10 p-5 dark:border-emerald-950/20 dark:bg-emerald-950/5">
-      <h4 className="text-[13px] font-black text-emerald-700 dark:text-emerald-450 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+    <div className="rounded-2xl border border-emerald-200 bg-emerald-50/10 p-5 dark:border-emerald-950/20 dark:bg-emerald-950/5">
+      <h4 className="text-[13px] font-black text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
         <Check className="h-4 w-4" /> {afterTitle}
       </h4>
       <p className="text-[13px] leading-relaxed text-slate-800 dark:text-slate-300">{afterDesc}</p>
@@ -268,7 +268,7 @@ export const AlternatingSection: React.FC<{
               </span>
               <div>
                 <h4 className="text-[15px] font-black text-[#0F172A] dark:text-white mb-2">{step.title}</h4>
-                <p className="text-[13.5px] leading-relaxed text-[#475569] dark:text-slate-350">{step.desc}</p>
+                <p className="text-[13.5px] leading-relaxed text-[#475569] dark:text-slate-400">{step.desc}</p>
               </div>
             </div>
           </div>
@@ -293,7 +293,7 @@ export const BenefitsGrid: React.FC<{
           : 'border-[#E2E8F0] bg-white dark:border-[#1E293B] dark:bg-[#111827]'
       }`}>
         <h4 className="text-[14px] font-black text-[#0F172A] dark:text-white mb-1.5 uppercase tracking-wider">{item.title}</h4>
-        <p className="text-[12.5px] leading-relaxed text-[#64748B] dark:text-slate-450">{item.desc}</p>
+        <p className="text-[12.5px] leading-relaxed text-[#64748B] dark:text-slate-400">{item.desc}</p>
       </div>
     ))}
   </div>

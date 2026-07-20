@@ -60,18 +60,18 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
           {/* CREATE TRACK */}
           <div className="rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#111827] overflow-hidden shadow-sm">
             <div className="flex items-center gap-2.5 bg-slate-50/50 border-b border-slate-200 px-5 py-4 dark:bg-slate-900/30 dark:border-slate-800">
-              <Edit3 className="h-4 w-4 text-slate-550" />
+              <Edit3 className="h-4 w-4 text-slate-500" />
               <p className="text-[13.5px] font-black text-slate-900 dark:text-white uppercase tracking-wider">Create a template</p>
             </div>
             <div className="p-5 space-y-4">
               {createSteps.map((step) => (
                 <div key={step.n} className="flex gap-3">
-                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-150 text-slate-700 dark:bg-slate-850 dark:text-slate-300 text-[10px] font-black mt-0.5">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 text-[10px] font-black mt-0.5">
                     {step.n}
                   </span>
                   <div>
                     <p className="text-[13.5px] font-bold text-slate-900 dark:text-white leading-tight">{step.title}</p>
-                    <p className="text-[12.5px] leading-relaxed text-slate-550 dark:text-slate-400 mt-0.5">{step.desc}</p>
+                    <p className="text-[12.5px] leading-relaxed text-slate-500 dark:text-slate-400 mt-0.5">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -81,23 +81,23 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
           {/* USE TRACK */}
           <div className="rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#111827] overflow-hidden shadow-sm">
             <div className="flex items-center gap-2.5 bg-slate-50/50 border-b border-slate-200 px-5 py-4 dark:bg-slate-900/30 dark:border-slate-800">
-              <BookOpen className="h-4 w-4 text-slate-550" />
+              <BookOpen className="h-4 w-4 text-slate-500" />
               <p className="text-[13.5px] font-black text-slate-900 dark:text-white uppercase tracking-wider">Use a template</p>
             </div>
             <div className="p-5 space-y-4">
               {useSteps.map((step) => (
                 <div key={step.n} className="flex gap-3">
-                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-150 text-slate-700 dark:bg-slate-850 dark:text-slate-300 text-[10px] font-black mt-0.5">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 text-[10px] font-black mt-0.5">
                     {step.n}
                   </span>
                   <div>
                     <p className="text-[13.5px] font-bold text-slate-900 dark:text-white leading-tight">{step.title}</p>
-                    <p className="text-[12.5px] leading-relaxed text-slate-550 dark:text-slate-400 mt-0.5">{step.desc}</p>
+                    <p className="text-[12.5px] leading-relaxed text-slate-500 dark:text-slate-400 mt-0.5">{step.desc}</p>
                   </div>
                 </div>
               ))}
 
-              <div className="flex items-start gap-3.5 rounded-xl border border-amber-250 bg-amber-50/40 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-955/10 my-1">
+              <div className="flex items-start gap-3.5 rounded-xl border border-amber-200 bg-amber-50/40 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/10 my-1">
                 <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600 dark:text-amber-400" />
                 <p className="text-[12.5px] leading-relaxed text-amber-800 dark:text-amber-300 font-semibold">
                   Avoid repetitive phrases like "test message". Carrier filters may block content that appears automated.
@@ -115,7 +115,7 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
           {bestPractices.map((item) => (
             <div key={item.title} className="premium-card flex flex-col justify-between h-full">
               <div>
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-850 text-slate-655 dark:text-slate-400">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                   {item.icon}
                 </div>
                 <h3 className="text-[14px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2">{item.title}</h3>
@@ -130,7 +130,7 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
       <section id="templates-outcome">
         <div className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/40 px-5 py-4 dark:border-emerald-800/40 dark:bg-emerald-900/10">
           <CheckCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
-          <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-450 font-medium">
+          <p className="text-[13.5px] leading-relaxed text-emerald-700 dark:text-emerald-400 font-medium">
             Saved templates are immediately available from the template selector in Compose SMS, allowing messages to be drafted more efficiently and consistently.
           </p>
         </div>

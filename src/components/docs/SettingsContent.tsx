@@ -56,7 +56,7 @@ export const SettingsContent: React.FC<Props> = ({ page }) => {
           {settingsTabs.map((tab) => (
             <div key={tab.tab} className="premium-card flex flex-col h-full">
               <div>
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-850 text-slate-600 dark:text-slate-400">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                   {tab.icon}
                 </div>
                 <h3 className="text-[13.5px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2">{tab.tab}</h3>

@@ -109,7 +109,7 @@ export const TroubleshootingContent: React.FC<Props> = ({ page }) => {
       <section id="quick-diagnostics-checklist">
         <div className="rounded-2xl border border-blue-200 dark:border-blue-900/40 border-l-4 border-l-blue-500 dark:border-l-blue-600 bg-gradient-to-br from-blue-50 to-sky-50/60 dark:from-[#060E1E] dark:to-[#0A1628] p-6 shadow-sm">
           <div className="flex items-start gap-3">
-            <HelpCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-650 dark:text-blue-400" />
+            <HelpCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-400" />
             <div>
               <p className="text-[13.5px] font-black text-blue-800 dark:text-blue-300 uppercase tracking-wide mb-3">Quick diagnostics checklist</p>
               <ul className="space-y-2 text-[13px] text-slate-700 dark:text-blue-200">

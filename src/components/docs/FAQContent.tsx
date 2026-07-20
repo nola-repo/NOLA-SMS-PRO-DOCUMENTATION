@@ -73,7 +73,7 @@ export const FAQContent: React.FC<Props> = ({ page }) => {
           {faqGroups.map((group, gIdx) => (
             <div key={gIdx} className="space-y-4">
               <div className="flex items-center gap-2.5 border-b border-slate-200 pb-3 dark:border-slate-800">
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-850 text-slate-600 dark:text-slate-400">
+                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                   {group.icon}
                 </div>
                 <h3 className="text-[16px] font-black text-slate-900 dark:text-white uppercase tracking-wider">
@@ -106,10 +106,10 @@ export const FAQContent: React.FC<Props> = ({ page }) => {
       <section id="faq-need-more-help">
         <div className="rounded-2xl border border-blue-200 dark:border-blue-900/40 border-l-4 border-l-blue-500 dark:border-l-blue-600 bg-gradient-to-br from-blue-50 to-sky-50/60 dark:from-[#060E1E] dark:to-[#0A1628] p-6 shadow-sm">
           <div className="flex items-start gap-3">
-            <HelpCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-650 dark:text-blue-400" />
+            <HelpCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-400" />
             <div>
               <p className="text-[13.5px] font-black text-blue-800 dark:text-blue-300 uppercase tracking-wide mb-1">Need more help?</p>
-              <p className="text-[13.5px] leading-relaxed text-slate-750 dark:text-blue-200">
+              <p className="text-[13.5px] leading-relaxed text-slate-700 dark:text-blue-200">
                 Still have questions? If your issue is not covered here, visit the{' '}
                 <Link to="/docs/support-help" className="font-bold underline underline-offset-2 text-blue-700 dark:text-blue-300">Support &amp; Help</Link>{' '}
                 page to submit a support ticket directly to our engineers.
