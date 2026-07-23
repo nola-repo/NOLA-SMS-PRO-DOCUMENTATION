@@ -65,8 +65,11 @@ const customPageTocItems: Record<string, { id: string; label: string }[]> = {
   ],
   'message-templates': [
     { id: 'templates-intro', label: 'Overview' },
-    { id: 'templates-tracks', label: 'Workflows' },
-    { id: 'templates-best-practices', label: 'Best Practices' },
+    { id: 'templates-screenshot', label: 'Workspace Preview' },
+    { id: 'templates-best-practices', label: 'Key Capabilities' },
+    { id: 'templates-create-workflow', label: 'Create Template' },
+    { id: 'templates-quicksend-workflow', label: 'Quick Send' },
+    { id: 'templates-warning', label: 'Validation Rules' },
     { id: 'templates-outcome', label: 'Expected Outcome' },
   ],
   'sender-ids': [
@@ -77,10 +80,12 @@ const customPageTocItems: Record<string, { id: string; label: string }[]> = {
     { id: 'sender-ids-outcome', label: 'Expected Outcome' },
   ],
   'message-history': [
+    { id: 'history-intro', label: 'Overview' },
+    { id: 'history-screenshot', label: 'Outbox & Feeds' },
+    { id: 'history-audit-tracks', label: 'How History is Logged' },
     { id: 'history-status-legend', label: 'Delivery Status' },
-    { id: 'history-prerequisite', label: 'Prerequisites' },
     { id: 'history-audit-steps', label: 'Audit Steps' },
-    { id: 'history-filter-tips', label: 'Filter Tips' },
+    { id: 'history-cache-tip', label: 'Background Refresh' },
     { id: 'history-outcome', label: 'Expected Outcome' },
   ],
   automation: [

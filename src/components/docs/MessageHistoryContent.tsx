@@ -17,6 +17,12 @@ import {
 
 import DirectBulkImg from '../../assets/Dashboard Overview/Direct & Bulk Messages.png';
 
+// ─── Asset Imports for Message History ────────────────────────────────────────
+import LocateConversationsImg from '../../assets/Message History/Locate Conversations.png';
+import OpenThreadDetailsImg from '../../assets/Message History/Open Thread Details.png';
+import CheckDeliveryReceiptsImg from '../../assets/Message History/Check Delivery Receipts.png';
+import TroubleshootFailuresImg from '../../assets/Message History/Troubleshoot Failures.png';
+
 interface Props {
   page: DocPage;
 }
@@ -109,41 +115,6 @@ const ScreenFrame: React.FC<ScreenFrameProps> = ({ src, alt, title, onOpenLightb
   );
 };
 
-/* ─── Blank Screenshot Frame for Step Steps ─────────────── */
-interface BlankScreenFrameProps {
-  title: string;
-}
-
-const BlankScreenFrame: React.FC<BlankScreenFrameProps> = ({ title }) => {
-  return (
-    <div className="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#070d18] shadow-sm w-full">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-900 px-4 py-2">
-        <div className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400" />
-          <span className="h-2 w-2 rounded-full bg-amber-400" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400" />
-          <span className="ml-2 text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
-            {title}
-          </span>
-        </div>
-        <div className="flex items-center gap-1 text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
-          <Monitor className="h-3 w-3" />
-          Step Preview
-        </div>
-      </div>
-      <div className="relative aspect-[21/9] sm:aspect-[24/9] w-full bg-gradient-to-br from-slate-50 to-slate-100 dark:from-[#0B132B] dark:to-[#070D18] flex flex-col items-center justify-center p-6 text-center">
-        <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-400 shadow-sm">
-          <Monitor className="h-5 w-5 text-slate-400 dark:text-slate-500" />
-        </div>
-        <p className="text-[13px] font-bold text-slate-700 dark:text-slate-300">{title}</p>
-        <p className="text-[11px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-0.5">
-          Step Illustration
-        </p>
-      </div>
-    </div>
-  );
-};
-
 const statusLegend = [
   {
     badge: 'Sending',
@@ -194,6 +165,8 @@ export const MessageHistoryContent: React.FC<Props> = ({ page }) => {
       title: 'Locate Conversations',
       icon: Search,
       color: 'text-blue-500',
+      img: LocateConversationsImg,
+      alt: 'Locate Conversations',
       desc: 'Use the left sidebar search or expand the Direct/Bulk Message sections to locate past messaging logs.',
       details: [
         'Search by contact name, mobile number, or campaign title.',
@@ -205,6 +178,8 @@ export const MessageHistoryContent: React.FC<Props> = ({ page }) => {
       title: 'Open Thread Details',
       icon: MessageSquare,
       color: 'text-purple-500',
+      img: OpenThreadDetailsImg,
+      alt: 'Open Thread Details',
       desc: 'Click the contact name or bulk campaign row to load logs inside the active outbox pane.',
       details: [
         'Displays full message copy, timestamp, and active status tags.',
@@ -216,6 +191,8 @@ export const MessageHistoryContent: React.FC<Props> = ({ page }) => {
       title: 'Check Delivery Receipts',
       icon: CheckCircle2,
       color: 'text-emerald-500',
+      img: CheckDeliveryReceiptsImg,
+      alt: 'Check Delivery Receipts',
       desc: 'Observe the color-coded status badges next to message logs (Sending, Sent, Delivered, or Failed).',
       details: [
         'Delivered status verifies mobile handset acceptance.',
@@ -227,6 +204,8 @@ export const MessageHistoryContent: React.FC<Props> = ({ page }) => {
       title: 'Troubleshoot Failures',
       icon: Filter,
       color: 'text-rose-500',
+      img: TroubleshootFailuresImg,
+      alt: 'Troubleshoot Failures',
       desc: 'For undelivered rows, click the message bubble to open the diagnostic window displaying error responses.',
       details: [
         'Exposes carrier error codes (e.g. invalid phone format, credit zero balance).',
@@ -310,7 +289,12 @@ export const MessageHistoryContent: React.FC<Props> = ({ page }) => {
                 className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm shadow-[#0F172A]/2 space-y-5"
               >
                 <div className="w-full">
-                  <BlankScreenFrame title={`${step.badge} — ${step.title}`} />
+                  <ScreenFrame
+                    src={step.img}
+                    alt={step.alt}
+                    title={`${step.badge} — ${step.title}`}
+                    onOpenLightbox={(src) => setLightboxSrc(src)}
+                  />
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800/50">

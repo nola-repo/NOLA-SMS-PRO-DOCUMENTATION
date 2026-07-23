@@ -16,6 +16,15 @@ import {
 
 import MessageTemplatesImg from '../../assets/Dashboard Overview/Message Templates.png';
 
+// ─── Asset Imports for Templates Workflows ────────────────────────────────────
+import OpenTemplatesPanelImg from '../../assets/Message Templates/Open Templates Panel.png';
+import ClickAddTemplateImg from '../../assets/Message Templates/Click Add Template.png';
+import SetNameCategoryImg from '../../assets/Message Templates/Set Name & Category.png';
+import InsertVariableTagsImg from '../../assets/Message Templates/Insert Variable Tags.png';
+import SaveDeployImg from '../../assets/Message Templates/Save & Deploy.png';
+import ClickQuickSendIconImg from '../../assets/Message Templates/Click Quick Send Icon.png';
+import SelectRecipientVerifyImg from '../../assets/Message Templates/Select Recipient & Verify.png';
+
 interface Props {
   page: DocPage;
 }
@@ -108,56 +117,21 @@ const ScreenFrame: React.FC<ScreenFrameProps> = ({ src, alt, title, onOpenLightb
   );
 };
 
-/* ─── Blank Screenshot Frame for Step Steps ─────────────── */
-interface BlankScreenFrameProps {
-  title: string;
-}
-
-const BlankScreenFrame: React.FC<BlankScreenFrameProps> = ({ title }) => {
-  return (
-    <div className="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#070d18] shadow-sm w-full">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-900 px-4 py-2">
-        <div className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400" />
-          <span className="h-2 w-2 rounded-full bg-amber-400" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400" />
-          <span className="ml-2 text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
-            {title}
-          </span>
-        </div>
-        <div className="flex items-center gap-1 text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
-          <Monitor className="h-3 w-3" />
-          Step Preview
-        </div>
-      </div>
-      <div className="relative aspect-[21/9] sm:aspect-[24/9] w-full bg-gradient-to-br from-slate-50 to-slate-100 dark:from-[#0B132B] dark:to-[#070D18] flex flex-col items-center justify-center p-6 text-center">
-        <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-400 shadow-sm">
-          <Monitor className="h-5 w-5 text-slate-400 dark:text-slate-500" />
-        </div>
-        <p className="text-[13px] font-bold text-slate-700 dark:text-slate-300">{title}</p>
-        <p className="text-[11px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-0.5">
-          Step Illustration
-        </p>
-      </div>
-    </div>
-  );
-};
-
 const bestPractices = [
   {
     icon: <Tag className="h-5 w-5 text-amber-500" />,
     title: 'Placeholders & Interpolation',
-    desc: 'Always use standard bracket notation (e.g. {{contact.first_name}}) so the platform can populate custom customer data dynamically.',
+    desc: 'Use standard merge tags ({{contact.name}}, {{contact.first_name}}, {{contact.email}}, {{contact.phone}}, {{company.name}}) to populate CRM customer data dynamically on dispatch.',
   },
   {
     icon: <FolderOpen className="h-5 w-5 text-blue-500" />,
-    title: 'Category Filters',
-    desc: 'Organize custom templates by context (General, Appointments, Transactional, Marketing) to help agents find the right reply layout in seconds.',
+    title: 'Category Filters & Live Preview',
+    desc: 'Sort templates by context (General, Appointments, Transactional, Marketing) and preview handset formatting in real-time via the built-in phone simulator.',
   },
   {
     icon: <BookOpen className="h-5 w-5 text-emerald-500" />,
-    title: 'Pre-built Blueprints',
-    desc: 'Leverage NOLA’s pre-built system templates for appointment confirmations, review requests, and transactional alerts to start campaigns instantly.',
+    title: '12 Pre-built Blueprints',
+    desc: 'Leverage 12 pre-loaded templates for appointment reminders, welcome messages, order confirmations, review requests, and promotional offers for instant dispatch.',
   },
 ];
 
@@ -170,6 +144,8 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
       title: 'Open Templates Panel',
       icon: FolderOpen,
       color: 'text-amber-500',
+      img: OpenTemplatesPanelImg,
+      alt: 'Open Templates Panel',
       desc: 'Select Templates from the NOLA SMS Pro navigation sidebar menu.',
       details: [
         'Access your saved custom templates and system blueprints.',
@@ -181,6 +157,8 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
       title: 'Click Add Template',
       icon: Edit3,
       color: 'text-blue-500',
+      img: ClickAddTemplateImg,
+      alt: 'Click Add Template',
       desc: 'Click the "+ Add Template" button to open the template creation designer modal.',
       details: [
         'Opens the standard layout configuration wizard.',
@@ -192,6 +170,8 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
       title: 'Set Name & Category',
       icon: Tag,
       color: 'text-purple-500',
+      img: SetNameCategoryImg,
+      alt: 'Set Name & Category',
       desc: 'Enter a descriptive template title and assign a category (General, Appointments, Transactional, or Marketing).',
       details: [
         'Categorization simplifies filtering during quick outbox compose selection.',
@@ -203,6 +183,8 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
       title: 'Insert Variable Tags',
       icon: BookOpen,
       color: 'text-teal-500',
+      img: InsertVariableTagsImg,
+      alt: 'Insert Variable Tags',
       desc: 'Use the Variables helper to insert placeholders like {{contact.first_name}} or {{company.name}} into your copy.',
       details: [
         'Placeholders dynamically resolve to contact attributes upon dispatch.',
@@ -214,6 +196,8 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
       title: 'Save & Deploy',
       icon: CheckCheck,
       color: 'text-emerald-500',
+      img: SaveDeployImg,
+      alt: 'Save & Deploy',
       desc: 'Click Save Template. The entry is stored immediately and populated across your outbox dropdowns.',
       details: [
         'Saved templates become accessible in single and bulk compose modes.',
@@ -228,6 +212,8 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
       title: 'Click Quick Send Icon',
       icon: Send,
       color: 'text-blue-600',
+      img: ClickQuickSendIconImg,
+      alt: 'Click Quick Send Icon',
       desc: 'Click the Send paper airplane icon next to any template row in your library.',
       details: [
         'Bypasses full outbox composer for fast single-contact dispatches.',
@@ -239,6 +225,8 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
       title: 'Select Recipient & Verify',
       icon: Smartphone,
       color: 'text-emerald-500',
+      img: SelectRecipientVerifyImg,
+      alt: 'Select Recipient & Verify',
       desc: 'Search for a recipient, inspect resolved variable text, and click Send to dispatch instantly.',
       details: [
         'Auto-fills contact variables before sending.',
@@ -292,91 +280,125 @@ export const MessageTemplatesContent: React.FC<Props> = ({ page }) => {
         </div>
       </section>
 
-      {/* CREATE TEMPLATE WORKFLOW */}
-      <section id="templates-create-workflow" className="space-y-5">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400">
-            <Edit3 className="h-4 w-4" />
-          </div>
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white">Create a template steps</h2>
-        </div>
-        <div className="space-y-8">
-          {createSteps.map((step, idx) => {
-            const Icon = step.icon;
-            return (
-              <div
-                key={idx}
-                className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm shadow-[#0F172A]/2 space-y-5"
-              >
-                <div className="w-full">
-                  <BlankScreenFrame title={`${step.badge} — ${step.title}`} />
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800/50">
-                    <Icon className={`h-5 w-5 ${step.color}`} />
-                  </div>
-                  <h4 className="text-[16px] font-black text-slate-900 dark:text-white leading-tight">
-                    {step.title}
-                  </h4>
-                </div>
-                <p className="text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-medium pl-1">
-                  {step.desc}
-                </p>
-                <ul className="space-y-2 pl-1 border-t border-slate-100 dark:border-slate-800/60 pt-4">
-                  {step.details.map((detail, subIdx) => (
-                    <li key={subIdx} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">
-                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-400 dark:bg-slate-600" />
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      {/* WORKFLOWS SECTION WITH CLEAR SEPARATIONS */}
+      <section id="templates-workflows" className="space-y-12">
+        <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Template workflows</h2>
 
-      {/* QUICK SEND WORKFLOW */}
-      <section id="templates-quicksend-workflow" className="space-y-5">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 text-purple-600 dark:text-purple-400">
-            <Smartphone className="h-4 w-4" />
+        {/* WORKFLOW A: CREATE A TEMPLATE */}
+        <div id="templates-create-workflow" className="space-y-6">
+          {/* Section Banner */}
+          <div className="flex items-center gap-4 rounded-2xl border border-blue-200 dark:border-blue-900/50 bg-gradient-to-r from-blue-50 to-sky-50/60 dark:from-blue-950/30 dark:to-slate-900/40 px-5 py-4">
+            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800/50">
+              <Edit3 className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+            </div>
+            <div>
+              <span className="inline-block text-[10px] font-black uppercase tracking-[0.15em] text-blue-500 dark:text-blue-400 mb-0.5">Workflow A</span>
+              <h3 className="text-[17px] font-black text-slate-900 dark:text-white leading-tight">Create a template steps</h3>
+            </div>
           </div>
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white">Quick Send steps</h2>
-        </div>
-        <div className="space-y-8">
-          {quickSendSteps.map((step, idx) => {
-            const Icon = step.icon;
-            return (
-              <div
-                key={idx}
-                className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm shadow-[#0F172A]/2 space-y-5"
-              >
-                <div className="w-full">
-                  <BlankScreenFrame title={`${step.badge} — ${step.title}`} />
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800/50">
-                    <Icon className={`h-5 w-5 ${step.color}`} />
+
+          <div className="space-y-8">
+            {createSteps.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm shadow-[#0F172A]/2 space-y-5"
+                >
+                  <div className="w-full">
+                    <ScreenFrame
+                      src={step.img}
+                      alt={step.alt}
+                      title={`${step.badge} — ${step.title}`}
+                      onOpenLightbox={(src) => setLightboxSrc(src)}
+                    />
                   </div>
-                  <h4 className="text-[16px] font-black text-slate-900 dark:text-white leading-tight">
-                    {step.title}
-                  </h4>
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800/50">
+                      <Icon className={`h-5 w-5 ${step.color}`} />
+                    </div>
+                    <h4 className="text-[16px] font-black text-slate-900 dark:text-white leading-tight">
+                      {step.badge}: {step.title}
+                    </h4>
+                  </div>
+                  <p className="text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-medium pl-1">
+                    {step.desc}
+                  </p>
+                  <ul className="space-y-2 pl-1 border-t border-slate-100 dark:border-slate-800/60 pt-4">
+                    {step.details.map((detail, subIdx) => (
+                      <li key={subIdx} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">
+                        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-400 dark:bg-slate-600" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-medium pl-1">
-                  {step.desc}
-                </p>
-                <ul className="space-y-2 pl-1 border-t border-slate-100 dark:border-slate-800/60 pt-4">
-                  {step.details.map((detail, subIdx) => (
-                    <li key={subIdx} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">
-                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-400 dark:bg-slate-600" />
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+        </div>
+
+        {/* VISUAL DIVIDER */}
+        <div className="flex items-center gap-4 py-2">
+          <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800" />
+          <span className="flex-shrink-0 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-1 text-[11px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+            or use
+          </span>
+          <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800" />
+        </div>
+
+        {/* WORKFLOW B: QUICK SEND */}
+        <div id="templates-quicksend-workflow" className="space-y-6">
+          {/* Section Banner */}
+          <div className="flex items-center gap-4 rounded-2xl border border-purple-200 dark:border-purple-900/50 bg-gradient-to-r from-purple-50 to-indigo-50/60 dark:from-purple-950/30 dark:to-slate-900/40 px-5 py-4">
+            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-900/40 border border-purple-200 dark:border-purple-800/50">
+              <Send className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+            </div>
+            <div>
+              <span className="inline-block text-[10px] font-black uppercase tracking-[0.15em] text-purple-500 dark:text-purple-400 mb-0.5">Workflow B</span>
+              <h3 className="text-[17px] font-black text-slate-900 dark:text-white leading-tight">Quick Send steps</h3>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            {quickSendSteps.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm shadow-[#0F172A]/2 space-y-5"
+                >
+                  <div className="w-full">
+                    <ScreenFrame
+                      src={step.img}
+                      alt={step.alt}
+                      title={`${step.badge} — ${step.title}`}
+                      onOpenLightbox={(src) => setLightboxSrc(src)}
+                    />
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800/50">
+                      <Icon className={`h-5 w-5 ${step.color}`} />
+                    </div>
+                    <h4 className="text-[16px] font-black text-slate-900 dark:text-white leading-tight">
+                      {step.badge}: {step.title}
+                    </h4>
+                  </div>
+                  <p className="text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-medium pl-1">
+                    {step.desc}
+                  </p>
+                  <ul className="space-y-2 pl-1 border-t border-slate-100 dark:border-slate-800/60 pt-4">
+                    {step.details.map((detail, subIdx) => (
+                      <li key={subIdx} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">
+                        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-400 dark:bg-slate-600" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
