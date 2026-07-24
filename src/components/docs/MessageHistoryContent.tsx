@@ -123,13 +123,8 @@ const statusLegend = [
   },
   {
     badge: 'Sent',
-    dot: 'bg-blue-500',
-    desc: 'Successfully accepted by telecom carrier aggregators for handset delivery.',
-  },
-  {
-    badge: 'Delivered',
     dot: 'bg-emerald-500',
-    desc: 'Handset confirmed. The SMS has reached the customer’s mobile phone.',
+    desc: 'Successfully dispatched through carrier gateways and delivered to recipient mobile handset.',
   },
   {
     badge: 'Failed',
@@ -193,9 +188,9 @@ export const MessageHistoryContent: React.FC<Props> = ({ page }) => {
       color: 'text-emerald-500',
       img: CheckDeliveryReceiptsImg,
       alt: 'Check Delivery Receipts',
-      desc: 'Observe the color-coded status badges next to message logs (Sending, Sent, Delivered, or Failed).',
+      desc: 'Observe the color-coded status badges next to message logs (Sending, Sent, or Failed).',
       details: [
-        'Delivered status verifies mobile handset acceptance.',
+        'Sent status (green badge) confirms carrier dispatch and handset delivery.',
         'Confirms credit segment charges.',
       ],
     },
@@ -262,7 +257,7 @@ export const MessageHistoryContent: React.FC<Props> = ({ page }) => {
       {/* STATUS LEGEND */}
       <section id="history-status-legend" className="space-y-4">
         <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Delivery status reference</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-3 w-full">
           {statusLegend.map((item) => (
             <div key={item.badge} className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-[#111827] shadow-sm flex items-start gap-3">
               <span className={`mt-1.5 h-2.5 w-2.5 rounded-full flex-shrink-0 ${item.dot}`} />

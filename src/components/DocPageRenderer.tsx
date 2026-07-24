@@ -19,6 +19,8 @@ import { TroubleshootingContent } from './docs/TroubleshootingContent';
 import { SupportHelpContent } from './docs/SupportHelpContent';
 import { FAQContent } from './docs/FAQContent';
 import { AutomationContent } from './docs/AutomationContent';
+import { AutomationSendSmsContent } from './docs/AutomationSendSmsContent';
+import { AutomationSendPhSmsContent } from './docs/AutomationSendPhSmsContent';
 import { GhlConversationContent } from './docs/GhlConversationContent';
 import { FeaturePageContent } from './docs/FeaturePageContent';
 import { Pagination } from './Pagination';
@@ -56,7 +58,7 @@ const pageIconMap = {
   'send-your-first-sms': Send,
   'install-nola-sms-pro': Store,
   'create-or-sign-in': UserPlus,
-  'connect-highlevel': ArrowRightLeft,
+  // 'connect-highlevel': ArrowRightLeft,
   'dashboard-overview': LayoutDashboard,
   contacts: Users,
   'compose-sms': MessageSquare,
@@ -69,6 +71,8 @@ const pageIconMap = {
   'support-help': HelpCircle,
   faq: HelpCircle,
   automation: Send,
+  'automation-send-sms': Send,
+  'automation-send-ph-sms': Send,
   'ghl-conversation': MessageSquare,
 } satisfies Record<string, React.ComponentType<{ className?: string }>>;
 
@@ -271,12 +275,14 @@ const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
       headline: 'Create Account or', headlineAccent: 'Sign In',
       subtext: 'Register a new owner admin profile or authenticate with your existing credentials to unlock billing, credit settings, and dashboard access.',
     },
+    /*
     'connect-highlevel': {
       badge1: 'Integration', badge1Icon: <ArrowRightLeft className="h-3 w-3" />,
       badge2: 'Live API Sync', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
       headline: 'Connect to', headlineAccent: 'HighLevel',
       subtext: 'Authorize your GoHighLevel sub-account through the Marketplace OAuth handshake to sync contacts, templates, and conversation logs in real-time.',
     },
+    */
     'dashboard-overview': {
       badge1: 'Control Room', badge1Icon: <LayoutDashboard className="h-3 w-3" />,
       badge2: '5 Panel Zones', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
@@ -325,8 +331,20 @@ const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
       headline: 'Workflow', headlineAccent: 'Automation',
       subtext: 'Trigger outbound SMS automatically when contacts enter a GoHighLevel workflow step — no manual typing, instant response times for every campaign event.',
     },
+    'automation-send-sms': {
+      badge1: 'Workflow', badge1Icon: <Send className="h-3 w-3" />,
+      badge2: 'GHL Actions', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Automation:', headlineAccent: 'Send SMS',
+      subtext: 'Trigger outbound SMS automatically when contacts enter a GoHighLevel workflow step.',
+    },
+    'automation-send-ph-sms': {
+      badge1: 'Workflow', badge1Icon: <Send className="h-3 w-3" />,
+      badge2: 'NOLA PH Nodes', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
+      headline: 'Automation:', headlineAccent: 'Send PH SMS',
+      subtext: 'Dispatch targeted Philippine carrier SMS using NOLA custom workflow actions with approved Sender ID brand masks.',
+    },
     'ghl-conversation': {
-      badge1: 'Workflow', badge1Icon: <MessageSquare className="h-3 w-3" />,
+      badge1: 'Messaging', badge1Icon: <MessageSquare className="h-3 w-3" />,
       badge2: 'Native Sync', badge2Icon: <CheckCircle2 className="h-3 w-3" />,
       headline: 'GHL', headlineAccent: 'Conversation',
       subtext: 'Every SMS sent through NOLA SMS Pro is pushed back to the native GoHighLevel Conversations tab so your team sees one unified client timeline.',
@@ -386,7 +404,7 @@ const StickyPageHeader: React.FC<{ page: DocPage }> = ({ page }) => {
 const contentMap: Record<string, React.FC<{ page: DocPage }>> = {
   'install-nola-sms-pro': InstallNolaSmsProContent,
   'create-or-sign-in': CreateOrSignInContent,
-  'connect-highlevel': ConnectedHighlevelContent,
+  // 'connect-highlevel': ConnectedHighlevelContent,
   'dashboard-overview': DashboardOverviewContent,
   'send-your-first-sms': SendFirstSMSContent,
   contacts: ContactsContent,
@@ -400,6 +418,8 @@ const contentMap: Record<string, React.FC<{ page: DocPage }>> = {
   'support-help': SupportHelpContent,
   faq: FAQContent,
   automation: AutomationContent,
+  'automation-send-sms': AutomationSendSmsContent,
+  'automation-send-ph-sms': AutomationSendPhSmsContent,
   'ghl-conversation': GhlConversationContent,
 };
 

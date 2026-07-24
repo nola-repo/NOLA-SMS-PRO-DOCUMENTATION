@@ -1,28 +1,83 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { DocPage } from '../../data/docsData';
 import {
   UserPlus,
   LogIn,
-  Mail,
-  Phone,
-  Lock,
   AlertTriangle,
   CheckCheck,
-  Monitor,
   ShieldCheck,
   Key,
+  Maximize2,
+  X,
 } from 'lucide-react';
+
+// Import step images from src/assets/Create or Sign In
+import FillOwnerProfileImg from '../../assets/Create or Sign In/Fill Owner Profile Details.png';
+import SubmitBindLocationImg from '../../assets/Create or Sign In/Submit & Bind Location.png';
+import NavigateToSignInImg from '../../assets/Create or Sign In/Navigate to Sign In.png';
+import AuthenticateCredentialsImg from '../../assets/Create or Sign In/Authenticate Credentials.png';
 
 interface Props {
   page: DocPage;
 }
 
-/* ─── Blank Screenshot Frame for Step Steps ─────────────── */
-interface BlankScreenFrameProps {
-  title: string;
+/* ─── Image Lightbox Modal ─────────────────────────────── */
+interface LightboxProps {
+  src: string;
+  alt: string;
+  onClose: () => void;
 }
 
-const BlankScreenFrame: React.FC<BlankScreenFrameProps> = ({ title }) => {
+const ImageLightbox: React.FC<LightboxProps> = ({ src, alt, onClose }) => {
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="relative max-w-6xl w-full max-h-[90vh] flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-10 right-0 flex items-center gap-1.5 text-white/80 hover:text-white text-[12px] font-semibold transition-colors"
+        >
+          <X className="h-4 w-4" />
+          Close
+        </button>
+        <div className="overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-auto block max-h-[85vh] object-contain object-top"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ─── Standard Screenshot Card Frame ───────────────────── */
+interface ScreenFrameProps {
+  src: string;
+  alt: string;
+  title: string;
+  onOpenLightbox: (src: string) => void;
+}
+
+const ScreenFrame: React.FC<ScreenFrameProps> = ({ src, alt, title, onOpenLightbox }) => {
   return (
     <div className="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#070d18] shadow-sm w-full">
       {/* Browser Chrome Header */}
@@ -35,27 +90,34 @@ const BlankScreenFrame: React.FC<BlankScreenFrameProps> = ({ title }) => {
             {title}
           </span>
         </div>
-        <div className="flex items-center gap-1 text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
-          <Monitor className="h-3 w-3" />
-          Step Preview
-        </div>
+        <button
+          onClick={() => onOpenLightbox(src)}
+          className="flex items-center gap-1 text-[9px] font-black uppercase tracking-[0.12em] text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+          aria-label="View full size"
+        >
+          <Maximize2 className="h-3 w-3" />
+          Full size
+        </button>
       </div>
 
-      {/* Blank Screenshot Frame Container */}
-      <div className="relative aspect-[21/9] sm:aspect-[24/9] w-full bg-gradient-to-br from-slate-50 to-slate-100 dark:from-[#0B132B] dark:to-[#070D18] flex flex-col items-center justify-center p-6 text-center">
-        <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-400 shadow-sm">
-          <Monitor className="h-5 w-5 text-slate-400 dark:text-slate-500" />
-        </div>
-        <p className="text-[13px] font-bold text-slate-700 dark:text-slate-300">{title}</p>
-        <p className="text-[11px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-0.5">
-          Step Illustration
-        </p>
-      </div>
+      {/* Screenshot — clickable */}
+      <button
+        className="block w-full cursor-zoom-in focus:outline-none"
+        onClick={() => onOpenLightbox(src)}
+        aria-label={`View ${alt} full size`}
+      >
+        <img src={src} alt={alt} className="w-full h-auto block" />
+      </button>
     </div>
   );
 };
 
 export const CreateOrSignInContent: React.FC<Props> = ({ page }) => {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
+  const openLightbox = (src: string) => setLightboxSrc(src);
+  const closeLightbox = () => setLightboxSrc(null);
+
   const createAccountSteps = [
     {
       icon: UserPlus,
@@ -67,6 +129,7 @@ export const CreateOrSignInContent: React.FC<Props> = ({ page }) => {
         'Use the official location administrator email address.',
         'Password must be at least 8 characters long.',
       ],
+      img: FillOwnerProfileImg,
     },
     {
       icon: ShieldCheck,
@@ -78,6 +141,7 @@ export const CreateOrSignInContent: React.FC<Props> = ({ page }) => {
         'Links your credentials to the GoHighLevel location ID dynamically.',
         'Initializes your wallet with 10 free trial SMS credits.',
       ],
+      img: SubmitBindLocationImg,
     },
   ];
 
@@ -92,6 +156,7 @@ export const CreateOrSignInContent: React.FC<Props> = ({ page }) => {
         'Switches the view from registration to returning owner authentication.',
         'Preserves existing location mappings and historical credit records.',
       ],
+      img: NavigateToSignInImg,
     },
     {
       icon: Key,
@@ -103,6 +168,7 @@ export const CreateOrSignInContent: React.FC<Props> = ({ page }) => {
         'Verifies location ownership token and logs into your dashboard.',
         'Loads active credit balance, Sender IDs, and contact indexes.',
       ],
+      img: AuthenticateCredentialsImg,
     },
   ];
 
@@ -176,9 +242,14 @@ export const CreateOrSignInContent: React.FC<Props> = ({ page }) => {
                 key={idx}
                 className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm shadow-[#0F172A]/2 space-y-5"
               >
-                {/* Screenshot Frame / Placeholder */}
+                {/* Screenshot Frame */}
                 <div className="w-full">
-                  <BlankScreenFrame title={`${step.badge} — ${step.title}`} />
+                  <ScreenFrame
+                    src={step.img}
+                    alt={step.title}
+                    title={`${step.badge} — ${step.title}`}
+                    onOpenLightbox={openLightbox}
+                  />
                 </div>
 
                 {/* Header: Icon + Title */}
@@ -227,9 +298,14 @@ export const CreateOrSignInContent: React.FC<Props> = ({ page }) => {
                 key={idx}
                 className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm shadow-[#0F172A]/2 space-y-5"
               >
-                {/* Screenshot Frame / Placeholder */}
+                {/* Screenshot Frame */}
                 <div className="w-full">
-                  <BlankScreenFrame title={`${step.badge} — ${step.title}`} />
+                  <ScreenFrame
+                    src={step.img}
+                    alt={step.title}
+                    title={`${step.badge} — ${step.title}`}
+                    onOpenLightbox={openLightbox}
+                  />
                 </div>
 
                 {/* Header: Icon + Title */}
@@ -275,6 +351,16 @@ export const CreateOrSignInContent: React.FC<Props> = ({ page }) => {
         </div>
       </section>
 
+      {/* Lightbox Modal */}
+      {lightboxSrc && (
+        <ImageLightbox
+          src={lightboxSrc}
+          alt="Full size screenshot"
+          onClose={closeLightbox}
+        />
+      )}
+
     </div>
   );
 };
+

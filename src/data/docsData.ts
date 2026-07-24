@@ -82,7 +82,7 @@ export const sidebarStructure = [
     items: [
       { id: 'install-nola-sms-pro', title: 'Install NOLA SMS Pro' },
       { id: 'create-or-sign-in', title: 'Create or Sign In' },
-      { id: 'connect-highlevel', title: 'Connect HighLevel' },
+      // { id: 'connect-highlevel', title: 'Connect HighLevel' },
       { id: 'sender-ids', title: 'Sender IDs' },
       { id: 'dashboard-overview', title: 'Dashboard Overview' },
       { id: 'send-your-first-sms', title: 'Send Your First SMS' }
@@ -91,6 +91,7 @@ export const sidebarStructure = [
   {
     title: 'MESSAGING',
     items: [
+      { id: 'ghl-conversation', title: 'GHL Conversation' },
       { id: 'contacts', title: 'Contacts' },
       { id: 'compose-sms', title: 'Compose SMS' },
       { id: 'message-templates', title: 'Message Templates' },
@@ -100,8 +101,8 @@ export const sidebarStructure = [
   {
     title: 'WORKFLOW',
     items: [
-      { id: 'automation', title: 'Automation' },
-      { id: 'ghl-conversation', title: 'GHL Conversation' }
+      { id: 'automation-send-sms', title: 'Send SMS' },
+      { id: 'automation-send-ph-sms', title: 'Send PH SMS' }
     ]
   },
   {
@@ -296,17 +297,18 @@ export const docsData: DocPage[] = [
       'Click Create Account to map your user account as the canonical owner of this location.',
       'Or, if NOLA SMS Pro was previously set up, navigate to the Sign In screen, enter existing owner credentials, and click Sign In.'
     ],
-    expectAfter: 'Once you complete registration or sign in, your location mapping is verified and the setup wizard proceeds to the connection confirmation step.',
+    expectAfter: 'Once you complete registration or sign in, your location mapping is verified and the setup wizard proceeds to the configuration step.',
     nextPageCTA: {
-      title: 'Connect HighLevel',
-      desc: 'Verify the active integration status between your CRM and NOLA SMS Pro.',
-      id: 'connect-highlevel'
+      title: 'Sender IDs',
+      desc: 'Request custom brand headers to replace default sending numbers.',
+      id: 'sender-ids'
     },
     relatedPages: [
       { id: 'install-nola-sms-pro', title: 'Install NOLA SMS Pro' },
-      { id: 'connect-highlevel', title: 'Connect HighLevel' }
+      { id: 'sender-ids', title: 'Sender IDs' }
     ]
   },
+  /*
   {
     id: 'connect-highlevel',
     title: 'Connect HighLevel',
@@ -338,6 +340,7 @@ export const docsData: DocPage[] = [
       { id: 'dashboard-overview', title: 'Dashboard Overview' }
     ]
   },
+  */
   {
     id: 'dashboard-overview',
     title: 'Dashboard Overview',
@@ -364,7 +367,7 @@ export const docsData: DocPage[] = [
       id: 'send-your-first-sms'
     },
     relatedPages: [
-      { id: 'connect-highlevel', title: 'Connect HighLevel' },
+      { id: 'create-or-sign-in', title: 'Create or Sign In' },
       { id: 'send-your-first-sms', title: 'Send Your First SMS' }
     ]
   },
@@ -1076,81 +1079,10 @@ export const docsData: DocPage[] = [
     ]
   },
   {
-    id: 'automation',
-    title: 'Automation',
-    description: 'Trigger outbound text messages automatically using GoHighLevel custom workflow actions.',
-    section: 'WORKFLOW',
-    readingTime: '3 min read',
-    purpose: 'Integrate NOLA SMS Pro sending capabilities into GoHighLevel workflows to trigger instant SMS confirmations, billing alerts, or marketing dispatches automatically based on CRM events.',
-    whyItMatters: 'Automating messages eliminates manual outbox typing, ensures sub-second response times to client inquiries, and handles bulk communications dynamically using lead triggers.',
-    prerequisites: [
-      'Administrator permissions in the GoHighLevel location dashboard.',
-      'Completed app installation and active API connection badge in Settings.',
-      'Positive SMS credits balance in your wallet.'
-    ],
-    steps: [
-      {
-        iconName: 'Settings',
-        title: 'Open GHL Workflows',
-        badge: 'WORKFLOW ENGINE',
-        badgeColor: 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400',
-        desc: 'Access your GoHighLevel dashboard and open the automation tab.',
-        details: [
-          'Click Workflows in the automation menu.',
-          'Create a new workflow by selecting "Start from scratch".'
-        ]
-      },
-      {
-        iconName: 'Zap',
-        title: 'Define Trigger Event',
-        badge: 'LEAD ACTION',
-        badgeColor: 'bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400',
-        desc: 'Choose the starting CRM trigger node to initiate the workflow.',
-        details: [
-          'Map actions to booking submissions, CRM stage changes, or tags.',
-          'Verify active trigger filters capture correct target contacts.'
-        ]
-      },
-      {
-        iconName: 'PlusCircle',
-        title: 'Insert NOLA Custom Action',
-        badge: 'WEBHOOK ACTION',
-        badgeColor: 'bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400',
-        desc: 'Click the "+" node in the builder and select NOLA SMS Pro.',
-        details: [
-          'Map recipient number dynamically using {{contact.phone}}.',
-          'Choose your approved custom Sender ID from the identity list.',
-          'Type your personalized message layout body.'
-        ]
-      },
-      {
-        iconName: 'Play',
-        title: 'Publish & Test',
-        badge: 'LIVE DISPATCH',
-        badgeColor: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400',
-        desc: 'Toggle workflow state to Published and run a test lead contact.',
-        details: [
-          'Confirm SMS segment costs debit successfully from wallet.',
-          'Track live receipt status codes inside NOLA Message History.'
-        ]
-      }
-    ],
-    expectAfter: 'Outbound SMS notifications will execute automatically in the background whenever contacts enter your GoHighLevel trigger node.',
-    nextPageCTA: {
-      title: 'GHL Conversation',
-      desc: 'Learn how SMS logs synchronize back into native Conversations.',
-      id: 'ghl-conversation'
-    },
-    relatedPages: [
-      { id: 'ghl-conversation', title: 'GHL Conversation' },
-      { id: 'compose-sms', title: 'Compose SMS' }
-    ]
-  },
-  {
     id: 'ghl-conversation',
     title: 'GHL Conversation',
     description: 'Sync and manage customer text logs directly inside GoHighLevel\'s native conversations tab.',
-    section: 'WORKFLOW',
+    section: 'MESSAGING',
     readingTime: '3 min read',
     purpose: 'Bridge outbound and inbound messages sent via NOLA SMS Pro into the GoHighLevel native conversations timeline for a unified client contact log.',
     whyItMatters: 'Having a single, complete timeline of all phone calls, emails, and SMS prevents team members from sending duplicate messages and ensures sales history is fully preserved inside the GHL customer profile.',
@@ -1194,13 +1126,74 @@ export const docsData: DocPage[] = [
     ],
     expectAfter: 'Outgoing and incoming carrier message statuses are dynamically synced between the NOLA SMS database and your native HighLevel conversation view.',
     nextPageCTA: {
+      title: 'Contacts',
+      desc: 'Browse, search, and manage contact records.',
+      id: 'contacts'
+    },
+    relatedPages: [
+      { id: 'contacts', title: 'Contacts' },
+      { id: 'message-history', title: 'Message History' }
+    ]
+  },
+  {
+    id: 'automation-send-sms',
+    title: 'Send SMS',
+    description: 'Trigger outbound text messages automatically using standard GoHighLevel workflow actions.',
+    section: 'WORKFLOW',
+    readingTime: '3 min read',
+    purpose: 'Integrate automated SMS capabilities into GoHighLevel workflows to trigger instant notifications based on CRM events.',
+    whyItMatters: 'Automating messages eliminates manual outbox typing and handles communications dynamically using lead triggers.',
+    prerequisites: [
+      'Administrator permissions in the GoHighLevel location dashboard.',
+      'Active SMS credits balance.'
+    ],
+    steps: [
+      'Open GHL Workflows.',
+      'Define trigger event.',
+      'Add Send SMS action node.',
+      'Map recipient & message content.',
+      'Publish and test workflow.'
+    ],
+    expectAfter: 'Outbound SMS notifications will execute automatically in the background whenever contacts enter your trigger node.',
+    nextPageCTA: {
+      title: 'Send PH SMS',
+      desc: 'Dispatch targeted Philippine carrier SMS using NOLA custom workflow nodes.',
+      id: 'automation-send-ph-sms'
+    },
+    relatedPages: [
+      { id: 'automation-send-ph-sms', title: 'Send PH SMS' },
+      { id: 'compose-sms', title: 'Compose SMS' }
+    ]
+  },
+  {
+    id: 'automation-send-ph-sms',
+    title: 'Send PH SMS',
+    description: 'Dispatch targeted Philippine carrier SMS using NOLA SMS Pro custom workflow action nodes.',
+    section: 'WORKFLOW',
+    readingTime: '3 min read',
+    purpose: 'Route text messages specifically through domestic Philippine mobile carriers (Globe, Smart, DITO) with custom Sender ID selection.',
+    whyItMatters: 'Using Send PH SMS ensures 11-digit local phone validation and custom brand mask application for domestic recipients.',
+    prerequisites: [
+      'Administrator permissions in GoHighLevel dashboard.',
+      'Approved custom Sender ID or default system mask.',
+      'Active SMS credits balance.'
+    ],
+    steps: [
+      'Open GHL Workflows.',
+      'Define trigger event.',
+      'Add Send PH SMS action node.',
+      'Select Sender ID and map local phone format.',
+      'Draft copy, publish and test.'
+    ],
+    expectAfter: 'Philippine SMS messages will dispatch automatically with your approved brand header whenever the trigger fires.',
+    nextPageCTA: {
       title: 'SMS Credits',
       desc: 'Understand how credits are deducted and how to request top-ups.',
       id: 'sms-credits'
     },
     relatedPages: [
-      { id: 'automation', title: 'Automation' },
-      { id: 'message-history', title: 'Message History' }
+      { id: 'automation-send-sms', title: 'Send SMS' },
+      { id: 'sender-ids', title: 'Sender IDs' }
     ]
   }
 ];

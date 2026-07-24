@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 
 import DirectBulkImg from '../../assets/Dashboard Overview/Direct & Bulk Messages.png';
+import GhlTimelineImg from '../../assets/GHL Conversation/GoHighLevel Conversations Timeline.png';
 
 interface Props {
   page: DocPage;
@@ -210,7 +211,7 @@ export const GhlConversationContent: React.FC<Props> = ({ page }) => {
       <section id="ghl-conversation-screenshot" className="space-y-4">
         <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-2">GHL conversation sync feed</h2>
         <ScreenFrame
-          src={DirectBulkImg}
+          src={GhlTimelineImg}
           alt="GHL Conversation Timeline Sync"
           title="GoHighLevel Conversations Timeline"
           onOpenLightbox={(src) => setLightboxSrc(src)}
